@@ -1,0 +1,117 @@
+{
+"theShade:CommonPower": {
+        "NAME": "Placeholder Power",
+        "DESCRIPTIONS": ["You applied #b", " keyword.", " keywords."]
+},
+"theShade:RarePower": {
+        "NAME": "Placeholder Power",
+        "DESCRIPTIONS": ["At the start of your turn, TOUCH #b", " enemy." , " enemies."]
+},
+"theShade:Corruption": {
+        "NAME": "Corruption",
+        "DESCRIPTIONS": ["Deal and take #b"," more #yAttack damage."," more #yAttack damage."]
+},
+"theShade:Deteriorate": {
+        "NAME": "Deteriorate",
+        "DESCRIPTIONS": ["At the end of each of its turns, the target loses HP equal to your #yCorruption."]
+},
+        "theShade:EncroachingShadows": {
+        "NAME": "Encroaching Shadows",
+        "DESCRIPTIONS": ["At the start of each turn, gain #b"," #yCorruption."]
+},
+        "theShade:Anointed": {
+        "NAME": "Anointed",
+        "DESCRIPTIONS": ["At the start of each of its turns, gains #b"," #yCorruption."]
+},
+        "theShade:Haunt": {
+        "NAME": "Haunted",
+        "DESCRIPTIONS": ["At the start of each of its turns, the target is #yShackled for #b","."]
+},
+        "theShade:SubversionPower": {
+        "NAME": "Subversion",
+        "DESCRIPTIONS": ["Converts damage into healing during the player's turn, and healing into damage during enemy turn, for #b"," turns."," turns."]
+},
+        "theShade:VesselOfSuffering": {
+                "NAME": "Vessel of Suffering",
+                "DESCRIPTIONS": ["Whenever you take unblocked damage, gain #b"," Energy."]
+        },
+        "theShade:Shatter2": {
+                "NAME": "Shatter",
+                "DESCRIPTIONS": ["The next Attack you play deals additional damage equal to twice the target's block.",
+                        "The next #b"," Attacks you play deal additional damage equal to twice the target's block."]
+        },
+        "theShade:Shatter3": {
+                "NAME": "Shatter",
+                "DESCRIPTIONS": ["The next Attack you play deals additional damage equal to three times the target's block.",
+                        "The next #b"," Attacks you play deal additional damage equal to three times the target's block."]
+        },
+        "theShade:Burn": {
+                "NAME": "Burning",
+                "DESCRIPTIONS": ["At the start of its turn, the target takes #b","At the start of your turn, take #b"," Damage and loses half its #yBurning stacks."," Damage and lose half your #yBurning stacks."]
+        },
+        "theShade:WrithingFlame": {
+                "NAME": "Writhing Flame",
+                "DESCRIPTIONS": ["Whenever you are attacked this turn, apply #b"," #yBurning to the attacker."]
+        },
+        "theShade:ShadeSpreadingCorruptionPower": {
+                "NAME": "Spreading Corruption",
+                "DESCRIPTIONS": ["At the start of each of your turns, apply #yDeteriorate to all enemies that are not Deteriorating."]
+        },
+        "theShade:ShadeProlongedSufferingPower": {
+                "NAME": "Prolonged Suffering",
+                "DESCRIPTIONS": ["Whenever you apply a debuff, apply #b"," #yWither."]
+        },
+        "theShade:ShadeOverdrive": {
+                "NAME": "Overdrive",
+                "DESCRIPTIONS": ["Whenever you gain #yCorruption, gain twice as much."]
+        },
+        "theShade:ShadeDistortionPower": {
+                "NAME": "Distortion",
+                "DESCRIPTIONS": ["Curses can be played. Whenever you play a Curse, gain 1 energy."]
+        },
+        "theShade:ShadeChaosStormPower": {
+                "NAME": "Chaos Storm",
+                "DESCRIPTIONS": ["At the end of each turn, randomly apply 5 #yCorruption, 3 #yWither, or 4 #yBurning, or deal 6 damage, to ","a random","each"," enemy."]
+        },
+        "theShade:ShadeDefenseAgainstTheDarkArtsPower": {
+                "NAME": "Defense Against The Dark Arts",
+                "DESCRIPTIONS": ["At the start of each turn, add #yPurge to your hand.","At the start of each turn, add an upgraded #yPurge to your hand.","At the start of each turn, add #b"," #yPurges to your hand."," upgraded #yPurges to your hand."]
+        },
+        "theShade:ShadeCorruptionNextTurnPower": {
+                "NAME": "Shadow Barrier",
+                "DESCRIPTIONS": ["At the start of next turn, gain #b"," #yCorruption."]
+        },
+        "theShade:MidnightHorizon": {
+                "NAME": "Midnight Horizon",
+                "DESCRIPTIONS": ["Your next attack is replayed against each enemy other than the original target."]
+        },
+        "theShade:ExecutePower": {
+                "NAME": "Execute",
+                "DESCRIPTIONS": ["Your next attack is played #b","an additional time"," additional times"," if that would kill the target."]
+        },
+        "theShade:ShadeEthericShiftPower": {
+                "NAME": "Etheric Shift",
+                "DESCRIPTIONS": ["Your cards are Ethereal, but cost #b"," less energy, until the end of the turn."]
+        },
+        "theShade:ShadeElixirOfNoctisPower": {
+                "NAME": "Elixir of Noctis",
+                "DESCRIPTIONS": ["Asleep for 1 turn. At the start of the turn, heal #b","Asleep for the next #b"," turns. At the start of each turn, heal #b"," HP."]
+        },
+        "theShade:ShadeApexCorruptionPower": {
+                "NAME": "Apex Corruption",
+                "DESCRIPTIONS": ["Gain 3 energy, and draw 3 extra cards, each turn."," You cannot gain or lose Corruption."]
+        },
+        "theShade:ShadeShadowBlend": {
+                "NAME": "Shadow Blend",
+                "DESCRIPTIONS": ["In #b"," turns, become Intangible. Any cards you play now are replayed when this wears off."]
+        },
+        "theShade:ShadeAmalgamFormPower": {
+                "NAME": "Amalgam Form",
+                "DESCRIPTIONS": ["At the end of each turn, gain block equal to your #yCorruption. You can no longer become Intangible.","At the end of each turn, gain block equal to #b"," times your Corruption. You can no longer become Intangible."]
+        },
+        "theShade:Wither": {
+        "NAME": "Wither",
+        "DESCRIPTIONS": ["Prevents debuffs from decaying over time. Decreases every turn."]
+}
+
+}

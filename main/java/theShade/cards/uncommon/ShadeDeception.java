@@ -49,7 +49,7 @@ public class ShadeDeception extends AbstractDynamicCard {
     private static final int COST = 1;
 
     private static final int BLOCK = 5;
-    private static final int UPGRADE_PLUS_BLK = 3;
+    private static final int UPGRADE_PLUS_BLK = 4;
 
     // /STAT DECLARATION/
 

@@ -61,8 +61,8 @@ public class TheDefault extends CustomPlayer {
     // =============== BASE STATS =================
 
     public static final int ENERGY_PER_TURN = 3;
-    public static final int STARTING_HP = 75;
-    public static final int MAX_HP = 75;
+    public static final int STARTING_HP = 70;
+    public static final int MAX_HP = 70;
     public static final int STARTING_GOLD = 99;
     public static final int CARD_DRAW = 5;
     public static final int ORB_SLOTS = 0;
@@ -156,16 +156,16 @@ public class TheDefault extends CustomPlayer {
 
         logger.info("Begin loading starter Deck Strings");
         // Actual starting deck vvv
-//        retVal.add(ShadeStrike.ID);
-//        retVal.add(ShadeStrike.ID);
-//        retVal.add(ShadeStrike.ID);
-//        retVal.add(ShadeStrike.ID);
-//        retVal.add(ShadeStrike.ID);
-//        retVal.add(ShadeShadows.ID);
-//        retVal.add(ShadeShadows.ID);
-//        retVal.add(ShadeShadows.ID);
-//        retVal.add(ShadeShadows.ID);
-//        retVal.add(ShadePurge.ID);
+        retVal.add(ShadeStrike.ID);
+        retVal.add(ShadeStrike.ID);
+        retVal.add(ShadeStrike.ID);
+        retVal.add(ShadeStrike.ID);
+        retVal.add(ShadeStrike.ID);
+        retVal.add(ShadeShadows.ID);
+        retVal.add(ShadeShadows.ID);
+        retVal.add(ShadeShadows.ID);
+        retVal.add(ShadeShadows.ID);
+        retVal.add(ShadePurge.ID);
         //Debug stuff vvv
 //        retVal.add(ShadeTorture.ID);
 //        retVal.add(ShadeContaminate.ID);
@@ -179,7 +179,7 @@ public class TheDefault extends CustomPlayer {
 //        retVal.add(ShadeFinalStrike.ID);
 //        retVal.add(ShadeArcaneLightning.ID);
 //        retVal.add(ShadeStrangle.ID);
-        retVal.add(ShadeArcaneFire.ID);
+//        retVal.add(ShadeArcaneFire.ID);
 //        retVal.add(ShadeMarkOfTheWitness.ID);
 //        retVal.add(ShadeDescend.ID);
 //        retVal.add(ShadeFade.ID);
@@ -191,7 +191,7 @@ public class TheDefault extends CustomPlayer {
 //        retVal.add(ShadeArcaneBarrier.ID);
 //        retVal.add(ShadeEncroachingShadows.ID);
 //        retVal.add(ShadeVesselOfSuffering.ID);
-        retVal.add(ShadeTorment.ID);
+//        retVal.add(ShadeTorment.ID);
 //        retVal.add(ShadeSchadenfreude.ID);
 //        retVal.add(ShadePossession.ID);
 //        retVal.add(ShadeDelve.ID);
@@ -208,7 +208,7 @@ public class TheDefault extends CustomPlayer {
 //        retVal.add(ShadeHaunt.ID);
 //        retVal.add(ShadeForbiddenKnowledge.ID);
 //        retVal.add(ShadeForbiddenKnowledge.ID);
-        retVal.add(ShadeRemission.ID);
+//        retVal.add(ShadeRemission.ID);
 //        retVal.add(ShadeShadeDance.ID);
 //        retVal.add(ShadeSpreadingCorruption.ID);
 //        retVal.add(ShadeProlongedSuffering.ID);
@@ -219,11 +219,11 @@ public class TheDefault extends CustomPlayer {
 //        retVal.add(ShadeDeception.ID);
 //        retVal.add(ShadeBlackHeart.ID);
 //        retVal.add(ShadeShatter.ID);
-        retVal.add(ShadeFeint.ID);
+//        retVal.add(ShadeFeint.ID);
 //        retVal.add(ShadeMidnightHorizon.ID);
 //        retVal.add(ShadeExecute.ID);
 //        retVal.add(ShadeUltimateStrike.ID);
-        retVal.add(ShadeVividNightmare.ID);
+//        retVal.add(ShadeVividNightmare.ID);
 //        retVal.add(ShadeOblivion.ID);
 //        retVal.add(ShadeMutualAnnihilation.ID);
 //        retVal.add(ShadeArcaneTempest.ID);
@@ -231,11 +231,11 @@ public class TheDefault extends CustomPlayer {
 //        retVal.add(ShadeFexnil.ID);
 //        retVal.add(ShadeArcaneInferno.ID);
 //        retVal.add(ShadeDeathSentence.ID);
-        retVal.add(ShadeSubversion.ID);
+//        retVal.add(ShadeSubversion.ID);
 //        retVal.add(ShadeEthericShift.ID);
 //        retVal.add(ShadeShadowBarrier.ID);
 //        retVal.add(ShadeImbue.ID);
-        retVal.add(ShadeElixirOfNoctis.ID);
+//        retVal.add(ShadeElixirOfNoctis.ID);
 //        retVal.add(ShadeApexCorruption.ID);
 //        retVal.add(ShadeShadowBlend.ID);
 //        retVal.add(ShadeAmalgamForm.ID);

@@ -161,7 +161,8 @@
   },
   "theShade:ShadeFeint": {
     "NAME": "Feint",
-    "DESCRIPTION": "Force an enemy that intends to attack to attack, and apply !M! Vulnerable to them. NL Draw a card."
+    "DESCRIPTION": "Force an enemy that intends to attack to attack, and apply !M! Vulnerable to them. NL Draw a card.",
+    "UPGRADE_DESCRIPTION": "That enemy does not intend to attack!"
   },
   "theShade:ShadeAnoint": {
     "NAME": "Anoint",

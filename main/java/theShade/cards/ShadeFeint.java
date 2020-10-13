@@ -40,7 +40,7 @@ public class ShadeFeint extends AbstractDynamicCard {
     public static final String IMG = makeCardPath("ShadeFeint.png");
     // This does mean that you will need to have an image with the same NAME as the card in your image folder for it to run correctly.
     private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
-    public static final String UPGRADE_DESCRIPTION = cardStrings.UPGRADE_DESCRIPTION;
+    public static final String BUBBLE_DESCRIPTION = cardStrings.UPGRADE_DESCRIPTION;
 
     // /TEXT DECLARATION/
 
@@ -79,7 +79,7 @@ public class ShadeFeint extends AbstractDynamicCard {
             m.takeTurn(); // Force an attacking monster to perform their attack
             this.addToBot(new ApplyPowerAction(m, p, new VulnerablePower(m, magicNumber, false), magicNumber));
         } else {
-            AbstractDungeon.effectList.add(new ThoughtBubble(AbstractDungeon.player.dialogX, AbstractDungeon.player.dialogY, 3.0F, TEXT[0], true));
+            AbstractDungeon.effectList.add(new ThoughtBubble(AbstractDungeon.player.dialogX, AbstractDungeon.player.dialogY, 3.0F, BUBBLE_DESCRIPTION, true));
         }
 
         this.addToBot(new DrawCardAction(p, 1));

@@ -170,7 +170,7 @@ public class ShadeElixirOfNoctisPower extends AbstractPower {
 
                 case "Looter":
                 case "Mugger":
-                    this.monster.setMove((byte) 3, AbstractMonster.Intent.ESCAPE);
+                    this.monster.setMove((byte) 2, AbstractMonster.Intent.DEFEND);
                     break;
 
                 case "BanditChild":
@@ -194,7 +194,7 @@ public class ShadeElixirOfNoctisPower extends AbstractPower {
 
     public void updateDescription() {
         if (this.amount == 1) {
-            this.description = DESCRIPTIONS[0] + this.amount + DESCRIPTIONS[3];
+            this.description = DESCRIPTIONS[0] + this.healing + DESCRIPTIONS[3];
         } else {
             this.description = DESCRIPTIONS[1] + this.amount + DESCRIPTIONS[2] + this.healing + DESCRIPTIONS[3];
         }

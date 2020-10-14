@@ -88,8 +88,8 @@
   },
   "theShade:ShadeDusk": {
     "NAME": "Dusk",
-    "DESCRIPTION": "Shuffle 3 Shadows into your draw pile. NL Exhaust.",
-    "UPGRADE_DESCRIPTION": "Shuffle 3 upgraded Shadows into your draw pile. NL Exhaust."
+    "DESCRIPTION": "Shuffle 3 theshade:Shadows into your draw pile. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "Shuffle 3 upgraded theshade:Shadows into your draw pile. NL Exhaust."
   },
   "theShade:ShadeArcaneBarrier": {
     "NAME": "Arcane Barrier",

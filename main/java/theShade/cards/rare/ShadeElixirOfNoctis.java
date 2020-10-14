@@ -72,6 +72,7 @@ public class ShadeElixirOfNoctis extends AbstractDynamicCard {
         baseMagicNumber = magicNumber = DURATION;
         defaultBaseSecondMagicNumber = defaultSecondMagicNumber = HEALING;
         this.exhaust = true;
+        this.tags.add(CardTags.HEALING);
     }
 
 

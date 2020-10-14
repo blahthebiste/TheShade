@@ -66,6 +66,7 @@ public class ShadeRemission extends AbstractDynamicCard {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
         baseMagicNumber = magicNumber = REGEN;
         this.exhaust = true;
+        this.tags.add(CardTags.HEALING);
     }
 
 

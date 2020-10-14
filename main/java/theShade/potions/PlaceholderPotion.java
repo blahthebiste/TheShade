@@ -1,15 +1,20 @@
 package theShade.potions;
 
+import basemod.BaseMod;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
+import com.megacrit.cardcrawl.helpers.GameDictionary;
 import com.megacrit.cardcrawl.helpers.PowerTip;
+import com.megacrit.cardcrawl.helpers.TipHelper;
 import com.megacrit.cardcrawl.localization.PotionStrings;
 import com.megacrit.cardcrawl.potions.AbstractPotion;
 import com.megacrit.cardcrawl.powers.LoseStrengthPower;
 import com.megacrit.cardcrawl.powers.StrengthPower;
 import com.megacrit.cardcrawl.rooms.AbstractRoom;
+import theShade.DefaultMod;
+import theShade.powers.ShadeCorruptionPower;
 
 public class PlaceholderPotion extends AbstractPotion {
 
@@ -28,13 +33,18 @@ public class PlaceholderPotion extends AbstractPotion {
         potency = getPotency();
         
         // Initialize the Description
-        description = DESCRIPTIONS[0] + potency + DESCRIPTIONS[2] + DESCRIPTIONS[1] + potency + DESCRIPTIONS[2];
+        description = DESCRIPTIONS[0] + potency + DESCRIPTIONS[1];
         
        // Do you throw this potion at an enemy or do you just consume it.
         isThrown = false;
         
         // Initialize the on-hover name + description
         tips.add(new PowerTip(name, description));
+        // Initialize the keyword for corruption
+        tips.add(new PowerTip(
+            BaseMod.getKeywordTitle(DefaultMod.getModID().toLowerCase() + ":corruption"),
+            BaseMod.getKeywordDescription(DefaultMod.getModID().toLowerCase() + ":corruption")
+        ));
         
     }
     // See that description? It has DESCRIPTIONS[1] instead of just hard-coding the "text " + potency + " more text" inside.
@@ -56,8 +66,8 @@ public class PlaceholderPotion extends AbstractPotion {
         target = AbstractDungeon.player;
         // If you are in combat, gain strength and the "lose strength at the end of your turn" power, equal to the potency of this potion.
         if (AbstractDungeon.getCurrRoom().phase == AbstractRoom.RoomPhase.COMBAT) {
-            AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(target, AbstractDungeon.player, new StrengthPower(target, potency), potency));
-            AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(target, AbstractDungeon.player, new LoseStrengthPower(target, potency), potency));
+            AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(target, AbstractDungeon.player, new ShadeCorruptionPower(target, potency), potency));
+//            AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(target, AbstractDungeon.player, new LoseStrengthPower(target, potency), potency));
         }
     }
     
@@ -69,12 +79,12 @@ public class PlaceholderPotion extends AbstractPotion {
     // This is your potency.
     @Override
     public int getPotency(final int potency) {
-        return 2;
+        return 5;
     }
 
     public void upgradePotion()
     {
-      potency += 1;
+      potency += 5;
       tips.clear();
       tips.add(new PowerTip(name, description));
     }

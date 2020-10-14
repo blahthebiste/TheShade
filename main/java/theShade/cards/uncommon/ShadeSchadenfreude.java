@@ -66,6 +66,7 @@ public class ShadeSchadenfreude extends AbstractDynamicCard {
         baseDamage = DAMAGE;
         baseMagicNumber = magicNumber = REGEN;
         this.exhaust = true;
+        this.tags.add(CardTags.HEALING);
     }
 
 

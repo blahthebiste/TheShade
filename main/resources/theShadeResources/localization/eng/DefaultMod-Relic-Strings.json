@@ -8,7 +8,7 @@
   },
   "theShade:PlaceholderRelic2": {
     "NAME": "Twisted Sorcery",
-    "FLAVOR": "The influence of the Dark Ones can be an addicting source of power for some.",
+    "FLAVOR": "The influence of the Dark Ones can be an addicting source of power.",
     "DESCRIPTIONS": [
       "At the start of each turn, gain #b1 #ytheshade:Corruption."
     ]

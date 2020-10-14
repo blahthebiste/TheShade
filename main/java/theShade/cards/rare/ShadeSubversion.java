@@ -70,6 +70,7 @@ public class ShadeSubversion extends AbstractDynamicCard {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
         this.exhaust = true;
         baseMagicNumber = magicNumber = DURATION;
+        this.tags.add(CardTags.HEALING);
     }
 
 

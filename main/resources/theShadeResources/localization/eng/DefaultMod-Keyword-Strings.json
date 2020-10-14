@@ -24,6 +24,13 @@
     "DESCRIPTION": "A 2 cost skill that removes Corruption."
   },
   {
+    "PROPER_NAME": "Shadows",
+    "NAMES": [
+      "shadows"
+    ],
+    "DESCRIPTION": "A 1 cost skill that makes you Intangible, but shuffles a curse into your draw pile."
+  },
+  {
     "PROPER_NAME": "Fatigue",
     "NAMES": [
       "fatigue",

@@ -73,7 +73,7 @@ public class ShadeVesselOfSufferingPower extends AbstractPower {
             }
             else { // Otherwise, give energy at the start of the player's next turn
                 System.out.println("DEBUGFORELI: took damage with vessel of suffering, outside player turn!");
-                AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(owner, owner, new EnergizedPower(owner, 1)));
+                AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(owner, owner, new EnergizedPower(owner, this.amount)));
             }
         }
 

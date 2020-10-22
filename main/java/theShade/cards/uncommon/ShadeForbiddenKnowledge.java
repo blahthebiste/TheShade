@@ -13,10 +13,12 @@ import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import theShade.DefaultMod;
 import theShade.cards.AbstractDynamicCard;
+import theShade.cards.ShadeSpite;
 import theShade.characters.TheDefault;
 
 import java.util.Iterator;
 
+import static com.megacrit.cardcrawl.rooms.AbstractRoom.RoomPhase.COMBAT;
 import static theShade.DefaultMod.makeCardPath;
 
 public class ShadeForbiddenKnowledge extends AbstractDynamicCard {
@@ -46,6 +48,7 @@ public class ShadeForbiddenKnowledge extends AbstractDynamicCard {
     // This does mean that you will need to have an image with the same NAME as the card in your image folder for it to run correctly.
     private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
     public static final String UPGRADE_DESCRIPTION = cardStrings.UPGRADE_DESCRIPTION;
+    public static final String DESCRIPTION = cardStrings.DESCRIPTION;
 
     // /TEXT DECLARATION/
 
@@ -58,6 +61,7 @@ public class ShadeForbiddenKnowledge extends AbstractDynamicCard {
     public static final CardColor COLOR = TheDefault.Enums.COLOR_GRAY;
 
     private static final int COST = 0;
+    private boolean descriptionUpdated = false;
 
     // /STAT DECLARATION/
 
@@ -67,6 +71,32 @@ public class ShadeForbiddenKnowledge extends AbstractDynamicCard {
         this.exhaust = true;
     }
 
+    @Override
+    public void update() {
+        if (CardCrawlGame.isInARun() && AbstractDungeon.getCurrRoom().phase == COMBAT && !AbstractDungeon.actionManager.turnHasEnded) {
+            int num_curses = 0;
+            Iterator var3 = AbstractDungeon.player.drawPile.group.iterator();
+
+            while(var3.hasNext()) {
+                AbstractCard c = (AbstractCard) var3.next();
+                if (c.cardID == ShadeSpite.ID) {
+                    c.update();
+                }
+                if (c.type == CardType.CURSE || c.color == CardColor.CURSE) {
+                    ++num_curses;
+                }
+            }
+            baseMagicNumber = magicNumber = num_curses;
+            rawDescription = DESCRIPTION + UPGRADE_DESCRIPTION;
+            descriptionUpdated = true;
+            initializeDescription();
+        } else if (descriptionUpdated && CardCrawlGame.isInARun() && AbstractDungeon.getCurrRoom().phase != COMBAT) {
+            rawDescription = DESCRIPTION;
+            descriptionUpdated = false;
+            initializeDescription();
+        }
+        super.update();
+    }
 
     // Actions the card should do.
     @Override
@@ -76,7 +106,9 @@ public class ShadeForbiddenKnowledge extends AbstractDynamicCard {
 
         while(var3.hasNext()) {
             AbstractCard c = (AbstractCard) var3.next();
-            c.update();
+            if (c.cardID == ShadeSpite.ID) {
+                c.update();
+            }
             if (c.type == CardType.CURSE || c.color == CardColor.CURSE) {
                 ++num_curses;
             }

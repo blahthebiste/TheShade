@@ -9,7 +9,7 @@
   },
   "theShade:ShadePurge": {
     "NAME": "Purge",
-    "DESCRIPTION": "Set your  theshade:Corruption to 0. NL Heal !M! HP."
+    "DESCRIPTION": "Set your  theshade:Corruption to 0. NL Heal !M! HP. NL Exhaust."
   },
   "theShade:ShadeShadows": {
     "NAME": "Shadows",
@@ -18,7 +18,7 @@
   },
   "theShade:ShadeFatigue": {
     "NAME": "Fatigue",
-    "DESCRIPTION": "Retain. At the start of your turn, if you have any theshade:Fatigues in hand, lose 1 [E] (Doesn't stack)."
+    "DESCRIPTION": "Retain. At the start of your turn, if you have any theshade:Fatigues in hand, lose 1 energy (Doesn't stack)."
   },
   "theShade:ShadeSpite": {
     "NAME": "Spite",
@@ -131,7 +131,8 @@
   },
   "theShade:ShadeBlackLightning": {
     "NAME": "Black Lightning",
-    "DESCRIPTION": "Deal !D! Damage to a random enemy for each Curse in your draw pile."
+    "DESCRIPTION": "Deal !D! Damage to a random enemy for each Curse in your draw pile.",
+    "UPGRADE_DESCRIPTION": " NL (You have !M! Curses in your draw pile.)"
   },
   "theShade:ShadeScourge": {
     "NAME": "Scourge",
@@ -166,7 +167,7 @@
   },
   "theShade:ShadeAnoint": {
     "NAME": "Anoint",
-    "DESCRIPTION": "Choose an enemy. At the start of each turn, it gains 1 theshade:Corruption."
+    "DESCRIPTION": "Choose an enemy. Give it a copy of your theshade:Corruption. NL Exhaust."
   },
   "theShade:ShadeHaunt": {
     "NAME": "Haunt",
@@ -174,7 +175,7 @@
   },
   "theShade:ShadeDeception": {
     "NAME": "Deception",
-    "DESCRIPTION": "Gain block equal to your theshade:Corruption, plus !B!. NL Exhaust."
+    "DESCRIPTION": "Gain block equal to your theshade:Corruption, plus !B!."
   },
   "theShade:ShadeBlackHeart": {
     "NAME": "Black Heart",
@@ -188,7 +189,8 @@
   "theShade:ShadeForbiddenKnowledge": {
     "NAME": "Forbidden Knowledge",
     "DESCRIPTION": "Draw a card for each Curse in your draw pile. NL Exhaust.",
-    "UPGRADE_DESCRIPTION": "Draw a card for each Curse in your draw pile."
+    "UPGRADE_DESCRIPTION": "Draw a card for each Curse in your draw pile.",
+    "UPGRADE_DESCRIPTION": " NL (You have !M! Curses in your draw pile.)"
   },
   "theShade:ShadeRemission": {
     "NAME": "Remission",
@@ -199,8 +201,8 @@
     "DESCRIPTION": "Apply 1 Intangible to everyone. NL Exhaust."
   },
   "theShade:ShadeSpreadingCorruption": {
-    "NAME": "Spreading theshade:Corruption",
-    "DESCRIPTION": "At the start of each of your turns, apply theShade:Deteriorate to all enemies that are not Deteriorating."
+    "NAME": "Spreading Corruption",
+    "DESCRIPTION": "At the start of each of your turns, apply theshade:Deteriorate to all enemies that are not Deteriorating."
   },
   "theShade:ShadeProlongedSuffering": {
     "NAME": "Prolonged Suffering",
@@ -220,7 +222,7 @@
     "UPGRADE_DESCRIPTION": "At the end of each turn, randomly apply 5 theshade:Corruption, 3 theshade:Wither, or 4 theshade:Burning, or deal 6 damage, to each enemy."
   },
   "theShade:ShadeDefenseAgainstTheDarkArts": {
-    "NAME": "Defense Against Dark Arts",
+    "NAME": "Defense vs. Dark Arts",
     "DESCRIPTION": "At the start of each turn, add theshade:Purge to your hand.",
     "UPGRADE_DESCRIPTION": "At the start of each turn, add an upgraded theshade:Purge to your hand."
   },
@@ -230,7 +232,8 @@
   },
   "theShade:ShadeExecute": {
     "NAME": "Execute",
-    "DESCRIPTION": "Your next attack is played !M! additional times if that would kill the target."
+    "DESCRIPTION": "Your next attack is played !M! additional time if that would kill the target.",
+    "UPGRADE_DESCRIPTION": "Your next attack is played !M! additional times if that would kill the target."
   },
   "theShade:ShadeUltimateStrike": {
     "NAME": "Ultimate Strike",
@@ -300,11 +303,25 @@
   },
   "theShade:ShadeShadowBlend": {
     "NAME": "Shadow Blend",
-    "DESCRIPTION": "At the start of your turn 3 turns from now, become Intangible and replay all cards you played between now and then with the same targets."
+    "DESCRIPTION": "At the start of your turn 3 turns from now, replay all cards you played between now and then with the same targets."
   },
   "theShade:ShadeAmalgamForm": {
     "NAME": "Amalgam Form",
     "DESCRIPTION": "At the end of each turn, gain block equal to your theshade:Corruption. You can no longer become Intangible."
+  },
+  "theShade:ShadeBlightBolt": {
+    "NAME": "Blight Bolt",
+    "DESCRIPTION": "Deal !D! damage to a debuffed enemy. Reduce their debuffs by 1.",
+    "UPGRADE_DESCRIPTION": "That enemy has no debuffs!"
+  },
+  "theShade:ShadeUnveil": {
+    "NAME": "Unveil",
+    "DESCRIPTION": "Transform a card in your hand into a random Curse. NL Gain !B! block."
+  },
+  "theShade:ShadeConflagration": {
+    "NAME": "Conflagration",
+    "DESCRIPTION": "Whenever you play an attack, if you have 0 Corruption, apply 5 Burning to all enemies.",
+    "UPGRADE_DESCRIPTION": "Whenever you play an attack, if you have 0 Corruption, apply 8 Burning to all enemies."
   },
   "theShade:DefaultCommonSkill": {
     "NAME": "Defend",

@@ -30,6 +30,7 @@ public class TransformIntoCurseAction extends AbstractGameAction {
         this.amount = amount;
         this.duration = this.startDuration = Settings.ACTION_DUR_FAST;
         this.actionType = ActionType.CARD_MANIPULATION;
+        System.out.println("Transforming " + this.amount + " cards into Curses.");
     }
 
     public TransformIntoCurseAction(AbstractCreature target, AbstractCreature source, int amount, boolean isRandom, boolean anyNumber) {
@@ -67,6 +68,33 @@ public class TransformIntoCurseAction extends AbstractGameAction {
         this.duration = this.startDuration = duration;
     }
 
+    private void transformEntireHand() {
+        int s = this.p.hand.size();
+        for(int i = 0; i < s; ++i) {
+            AbstractCard c = this.p.hand.getTopCard();
+            AbstractCard curseCard = AbstractDungeon.returnRandomCurse();
+            curseCard.current_x = curseCard.target_x = c.current_x;
+            curseCard.current_y = curseCard.target_y = c.current_y;
+            this.p.hand.removeCard(c);
+            curseCard.superFlash(CardHelper.getColor(124.0f, 0.0f, 60.0f));
+            this.p.hand.addToBottom(curseCard);
+            this.p.hand.refreshHandLayout();
+            this.p.hand.update();
+        }
+    }
+
+    private void transformSpecificCard(AbstractCard c) {
+        AbstractCard curseCard = AbstractDungeon.returnRandomCurse();
+        curseCard.current_x = curseCard.target_x = c.current_x;
+        curseCard.current_y = curseCard.target_y = c.current_y;
+        this.p.hand.removeCard(c);
+        curseCard.superFlash();
+        System.out.println("Adding curse to hand");
+        this.p.hand.addToBottom(curseCard);
+        this.p.hand.refreshHandLayout();
+        this.p.hand.update();
+    }
+
     public void update() {
         if (this.duration == this.startDuration) {
             if (this.p.hand.size() == 0) {
@@ -74,23 +102,10 @@ public class TransformIntoCurseAction extends AbstractGameAction {
                 return;
             }
 
-            int s;
             if (!this.anyNumber && this.p.hand.size() <= this.amount) {
                 this.amount = this.p.hand.size();
                 numTransformed = this.amount;
-                s = this.p.hand.size();
-
-                for(int i = 0; i < s; ++i) {
-                    AbstractCard c = this.p.hand.getTopCard();
-                    AbstractCard curseCard = AbstractDungeon.returnRandomCurse();
-                    curseCard.current_x = curseCard.target_x = c.current_x;
-                    curseCard.current_y = curseCard.target_y = c.current_y;
-                    this.p.hand.removeCard(c);
-                    curseCard.superFlash(CardHelper.getColor(124.0f, 0.0f, 60.0f));
-                    this.p.hand.addToBottom(curseCard);
-                    this.p.hand.refreshHandLayout();
-                    this.p.hand.update();
-                }
+                transformEntireHand();
                 this.isDone = true;
                 return;
             }
@@ -98,38 +113,25 @@ public class TransformIntoCurseAction extends AbstractGameAction {
             if (!this.isRandom) {
                 if (this.canChoose) {
                     numTransformed = this.amount;
-                    AbstractDungeon.handCardSelectScreen.open("Transform cards into Curses.", this.amount, this.anyNumber, this.canPickZero);
+                    AbstractDungeon.handCardSelectScreen.open("transform into Curses.", this.amount, this.anyNumber, this.canPickZero);
                     this.tickDuration();
                 }
                 else {
                     for(int i = 0; i < this.amount; ++i) {
                         AbstractCard c = this.p.hand.getTopCard();
-                        AbstractCard curseCard = AbstractDungeon.returnRandomCurse();
-                        curseCard.current_x = curseCard.target_x = c.current_x;
-                        curseCard.current_y = curseCard.target_y = c.current_y;
-                        this.p.hand.removeCard(c);
-                        curseCard.superFlash();
-                        this.p.hand.addToBottom(curseCard);
-                        this.p.hand.refreshHandLayout();
-                        this.p.hand.update();
+                        transformSpecificCard(c);
+                        this.isDone = true;
                     }
                 }
-                this.isDone = true;
                 return;
             }
-
-            for(int i = 0; i < this.amount; ++i) {
-                AbstractCard c = this.p.hand.getRandomCard(AbstractDungeon.cardRandomRng);
-                AbstractCard curseCard = AbstractDungeon.returnRandomCurse();
-                curseCard.current_x = curseCard.target_x = c.current_x;
-                curseCard.current_y = curseCard.target_y = c.current_y;
-                this.p.hand.removeCard(c);
-                curseCard.superFlash();
-                this.p.hand.addToBottom(curseCard);
-                this.p.hand.refreshHandLayout();
-                this.p.hand.update();
+            else {
+                for (int i = 0; i < this.amount; ++i) {
+                    AbstractCard c = this.p.hand.getRandomCard(AbstractDungeon.cardRandomRng);
+                    transformSpecificCard(c);
+                    this.isDone = true;
+                }
             }
-
         }
 
         if (!AbstractDungeon.handCardSelectScreen.wereCardsRetrieved) {
@@ -137,14 +139,7 @@ public class TransformIntoCurseAction extends AbstractGameAction {
 
             while(var4.hasNext()) {
                 AbstractCard c = (AbstractCard)var4.next();
-                AbstractCard curseCard = AbstractDungeon.returnRandomCurse();
-                curseCard.current_x = curseCard.target_x = c.current_x;
-                curseCard.current_y = curseCard.target_y = c.current_y;
-                this.p.hand.removeCard(c);
-                curseCard.superFlash();
-                this.p.hand.addToBottom(curseCard);
-                this.p.hand.refreshHandLayout();
-                this.p.hand.update();
+                transformSpecificCard(c);
             }
 
             AbstractDungeon.handCardSelectScreen.wereCardsRetrieved = true;

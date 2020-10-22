@@ -5,7 +5,9 @@ import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
+import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
+import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.IntangiblePlayerPower;
 import theShade.DefaultMod;
@@ -40,7 +42,8 @@ public class ShadeExecute extends AbstractDynamicCard {
     public static final String ID = DefaultMod.makeID(ShadeExecute.class.getSimpleName()); // USE THIS ONE FOR THE TEMPLATE;
     public static final String IMG = makeCardPath("ShadeExecute.png");
     // This does mean that you will need to have an image with the same NAME as the card in your image folder for it to run correctly.
-
+    private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
+    public static final String UPGRADE_DESCRIPTION = cardStrings.UPGRADE_DESCRIPTION;
 
     // /TEXT DECLARATION/
 
@@ -54,7 +57,7 @@ public class ShadeExecute extends AbstractDynamicCard {
 
     private static final int COST = 2;
 
-    private static final int STACKS = 2;
+    private static final int STACKS = 1;
     private static final int UPGRADE_STACKS = 1;
 
     // /STAT DECLARATION/
@@ -79,6 +82,7 @@ public class ShadeExecute extends AbstractDynamicCard {
         if (!upgraded) {
             upgradeName();
             upgradeMagicNumber(UPGRADE_STACKS);
+            rawDescription = UPGRADE_DESCRIPTION;
             initializeDescription();
         }
     }

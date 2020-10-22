@@ -113,7 +113,7 @@ public class ShadeWitherPower extends AbstractPower {
                 while (var2.hasNext()) {
                     effect = (AbstractPower) var2.next();
                     // TODO: rework this so it doesn't trigger Sadistic Nature or Snecko Skull
-                    if (effect.ID == "Poison" || effect.ID == "Vulnerable"|| effect.ID == "Weakened"|| effect.ID == "Frail"|| effect.ID == "Lockon") {
+                    if (effect.type == PowerType.DEBUFF && effect.ID == "Poison" || effect.ID == "Vulnerable"|| effect.ID == "Weakened"|| effect.ID == "Frail"|| effect.ID == "Lockon") {
 //                        this.addToTop(new ApplyPowerAction(this.owner, this.owner, new PoisonPower(this.owner, this.owner, 1), 1, true));
                         effect.amount++;
                     }

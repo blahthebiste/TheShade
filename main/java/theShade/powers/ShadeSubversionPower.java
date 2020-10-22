@@ -34,25 +34,11 @@ public class ShadeSubversionPower extends AbstractPower {
     private static final Texture tex84 = TextureLoader.getTexture(makePowerPath("ShadeSubversionPower84.png"));
     private static final Texture tex32 = TextureLoader.getTexture(makePowerPath("ShadeSubversionPower32.png"));
 
-    private AbstractCreature SubversionCreature;
-    private boolean swapInProgress;
-
     public ShadeSubversionPower(AbstractCreature owner, int amount) {
         this.name = NAME;
         this.ID = POWER_ID;
         this.owner = owner;
-        this.swapInProgress = false;
-//        SubversionCreature = new AbstractMonster() {
-//            @Override
-//            public void takeTurn() {
-//
-//            }
-//
-//            @Override
-//            protected void getMove(int i) {
-//
-//            }
-//        }
+
         this.amount = amount;
 
         // We load those txtures here.

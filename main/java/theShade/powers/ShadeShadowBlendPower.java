@@ -118,7 +118,7 @@ public class ShadeShadowBlendPower extends AbstractPower {
 
     @Override
     public void onRemove() {
-        this.addToBot(new ApplyPowerAction(this.owner, this.owner, new IntangiblePlayerPower(this.owner, 1), 1));
+//        this.addToBot(new ApplyPowerAction(this.owner, this.owner, new IntangiblePlayerPower(this.owner, 1), 1));
         AbstractDungeon.actionManager.addToBottom(new ShadeShadowBlendReplayCardsAction(dupedCards));
         super.onRemove();
     }

@@ -48,8 +48,8 @@ public class ShadeDeception extends AbstractDynamicCard {
 
     private static final int COST = 1;
 
-    private static final int BLOCK = 5;
-    private static final int UPGRADE_PLUS_BLK = 4;
+    private static final int BLOCK = 6;
+    private static final int UPGRADE_PLUS_BLK = 3;
 
     // /STAT DECLARATION/
 
@@ -57,7 +57,6 @@ public class ShadeDeception extends AbstractDynamicCard {
     public ShadeDeception() { // - This one and the one right under the imports are the most important ones, don't forget them
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
         baseBlock = BLOCK;
-        this.exhaust = true;
     }
 
 

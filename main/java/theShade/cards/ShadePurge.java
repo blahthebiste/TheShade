@@ -50,7 +50,7 @@ public class ShadePurge extends AbstractDynamicCard {
     private static final CardType TYPE = CardType.SKILL;       //
     public static final CardColor COLOR = TheDefault.Enums.COLOR_GRAY;
 
-    private static final int COST = 2;
+    private static final int COST = 1;
     private static final int HEALING = 4;
     private static final int UPGRADED_HEALING = 2;
 
@@ -61,6 +61,7 @@ public class ShadePurge extends AbstractDynamicCard {
         super(ID,IMG,COST,TYPE,COLOR,RARITY,TARGET);
         baseMagicNumber = magicNumber = HEALING;
         this.tags.add(CardTags.HEALING);
+        this.exhaust = true;
     }
 
 

@@ -3,16 +3,20 @@ package theShade.cards.uncommon;
 import com.megacrit.cardcrawl.actions.defect.NewThunderStrikeAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
+import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
+import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.orbs.AbstractOrb;
 import com.megacrit.cardcrawl.orbs.Lightning;
 import theShade.DefaultMod;
 import theShade.cards.AbstractDynamicCard;
+import theShade.cards.ShadeSpite;
 import theShade.characters.TheDefault;
 
 import java.util.Iterator;
 
+import static com.megacrit.cardcrawl.rooms.AbstractRoom.RoomPhase.COMBAT;
 import static theShade.DefaultMod.makeCardPath;
 
 public class ShadeBlackLightning extends AbstractDynamicCard {
@@ -40,7 +44,9 @@ public class ShadeBlackLightning extends AbstractDynamicCard {
     public static final String ID = DefaultMod.makeID(ShadeBlackLightning.class.getSimpleName()); // USE THIS ONE FOR THE TEMPLATE;
     public static final String IMG = makeCardPath("ShadeBlackLightning.png");
     // This does mean that you will need to have an image with the same NAME as the card in your image folder for it to run correctly.
-
+    private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
+    public static final String UPGRADE_DESCRIPTION = cardStrings.UPGRADE_DESCRIPTION;
+    public static final String DESCRIPTION = cardStrings.DESCRIPTION;
 
     // /TEXT DECLARATION/
 
@@ -56,7 +62,7 @@ public class ShadeBlackLightning extends AbstractDynamicCard {
     private static final int UPGRADE_COST = 1;
 
     private static final int DAMAGE = 8;
-
+    private boolean descriptionUpdated = false;
 
     // /STAT DECLARATION/
 
@@ -64,8 +70,36 @@ public class ShadeBlackLightning extends AbstractDynamicCard {
     public ShadeBlackLightning() { // - This one and the one right under the imports are the most important ones, don't forget them
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
         baseDamage = DAMAGE;
+        baseMagicNumber = magicNumber = 0;
     }
 
+
+    @Override
+    public void update() {
+        if (CardCrawlGame.isInARun() && AbstractDungeon.getCurrRoom().phase == COMBAT && !AbstractDungeon.actionManager.turnHasEnded) {
+            int num_curses = 0;
+            Iterator var3 = AbstractDungeon.player.drawPile.group.iterator();
+
+            while(var3.hasNext()) {
+                AbstractCard c = (AbstractCard) var3.next();
+                if (c.cardID == ShadeSpite.ID) {
+                    c.update();
+                }
+                if (c.type == CardType.CURSE || c.color == CardColor.CURSE) {
+                    ++num_curses;
+                }
+            }
+            baseMagicNumber = magicNumber = num_curses;
+            rawDescription = DESCRIPTION + UPGRADE_DESCRIPTION;
+            descriptionUpdated = true;
+            initializeDescription();
+        } else if (descriptionUpdated && CardCrawlGame.isInARun() && AbstractDungeon.getCurrRoom().phase != COMBAT) {
+            rawDescription = DESCRIPTION;
+            descriptionUpdated = false;
+            initializeDescription();
+        }
+        super.update();
+    }
 
     // Actions the card should do.
     @Override
@@ -75,7 +109,9 @@ public class ShadeBlackLightning extends AbstractDynamicCard {
 
         while(var3.hasNext()) {
             AbstractCard c = (AbstractCard) var3.next();
-            c.update();
+            if (c.cardID == ShadeSpite.ID) {
+                c.update();
+            }
             if (c.type == CardType.CURSE || c.color == CardColor.CURSE) {
                 ++num_curses;
             }

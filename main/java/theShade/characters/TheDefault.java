@@ -156,24 +156,24 @@ public class TheDefault extends CustomPlayer {
 
         logger.info("Begin loading starter Deck Strings");
         // Actual starting deck vvv
+//        retVal.add(ShadeStrike.ID);
+//        retVal.add(ShadeStrike.ID);
         retVal.add(ShadeStrike.ID);
         retVal.add(ShadeStrike.ID);
-        retVal.add(ShadeStrike.ID);
-        retVal.add(ShadeStrike.ID);
-        retVal.add(ShadeStrike.ID);
+//        retVal.add(ShadeStrike.ID);
+//        retVal.add(ShadeShadows.ID);
         retVal.add(ShadeShadows.ID);
         retVal.add(ShadeShadows.ID);
         retVal.add(ShadeShadows.ID);
-        retVal.add(ShadeShadows.ID);
-        retVal.add(ShadePurge.ID);
+//        retVal.add(ShadePurge.ID);
         //Debug stuff vvv
 //        retVal.add(ShadeTorture.ID);
 //        retVal.add(ShadeContaminate.ID);
 //        retVal.add(ShadeShadowStrike.ID);
-//        retVal.add(ShadeFatigue.ID);
-//        retVal.add(ShadeSpite.ID);
-//        retVal.add(ShadeSpite.ID);
-//        retVal.add(ShadeSpite.ID);
+        retVal.add(ShadeFatigue.ID);
+        retVal.add(ShadeSpite.ID);
+        retVal.add(ShadeSpite.ID);
+        retVal.add(ShadeSpite.ID);
 //        retVal.add(ShadePursuit.ID);
 //        retVal.add(ShadeCorruptBlade.ID);
 //        retVal.add(ShadeFinalStrike.ID);
@@ -197,7 +197,7 @@ public class TheDefault extends CustomPlayer {
 //        retVal.add(ShadeDelve.ID);
 //        retVal.add(ShadeDarkTendrils.ID);
 //        retVal.add(ShadeDefile.ID);
-//        retVal.add(ShadeBlackLightning.ID);
+        retVal.add(ShadeBlackLightning.ID);
 //        retVal.add(ShadeScourge.ID);
 //        retVal.add(ShadeFalteringBlade.ID);
 //        retVal.add(ShadeRebuff.ID);
@@ -206,8 +206,8 @@ public class TheDefault extends CustomPlayer {
 //        retVal.add(ShadeTarnish.ID);
 //        retVal.add(ShadeAnoint.ID);
 //        retVal.add(ShadeHaunt.ID);
-//        retVal.add(ShadeForbiddenKnowledge.ID);
-//        retVal.add(ShadeForbiddenKnowledge.ID);
+        retVal.add(ShadeForbiddenKnowledge.ID);
+        retVal.add(ShadeForbiddenKnowledge.ID);
 //        retVal.add(ShadeRemission.ID);
 //        retVal.add(ShadeShadeDance.ID);
 //        retVal.add(ShadeSpreadingCorruption.ID);
@@ -239,6 +239,9 @@ public class TheDefault extends CustomPlayer {
 //        retVal.add(ShadeApexCorruption.ID);
 //        retVal.add(ShadeShadowBlend.ID);
 //        retVal.add(ShadeAmalgamForm.ID);
+//        retVal.add(ShadeBlightBolt.ID);
+//        retVal.add(ShadeUnveil.ID);
+//        retVal.add(ShadeConflagration.ID);
         return retVal;
     }
 

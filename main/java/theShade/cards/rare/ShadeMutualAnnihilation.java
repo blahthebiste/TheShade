@@ -51,10 +51,10 @@ public class ShadeMutualAnnihilation extends AbstractDynamicCard {
     private static final CardType TYPE = CardType.ATTACK;       //
     public static final CardColor COLOR = TheDefault.Enums.COLOR_GRAY;
 
-    private static final int COST = 8;
+    private static final int COST = 14;
 
-    private static final int DAMAGE = 85;
-    private static final int UPGRADE_PLUS_DMG = 15;
+    private static final int DAMAGE = 80;
+    private static final int UPGRADE_PLUS_DMG = 20;
 
     // /STAT DECLARATION/
 

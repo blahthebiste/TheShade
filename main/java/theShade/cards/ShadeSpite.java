@@ -66,19 +66,13 @@ public class ShadeSpite extends AbstractDynamicCard {
     public ShadeSpite() { // - This one and the one right under the imports are the most important ones, don't forget them
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
         baseDamage = DAMAGE;
-//        if (AbstractDungeon.getCurrRoom().phase == COMBAT) {
-//            changeColorAndTypeToCurse();
-//        }
-//        else {
-//            resetColorAndType();
-//        }
     }
 
     @Override
     public void update() {
         if ( CardCrawlGame.isInARun() && AbstractDungeon.getCurrRoom().phase == COMBAT && this.color != CardColor.CURSE) {
             changeColorAndTypeToCurse();
-        } else if (this.color == CardColor.CURSE) {
+        } else if (CardCrawlGame.isInARun() && AbstractDungeon.getCurrRoom().phase != COMBAT  && this.color == CardColor.CURSE) {
             resetColorAndType();
         }
         super.update();
@@ -89,49 +83,27 @@ public class ShadeSpite extends AbstractDynamicCard {
     public void use(AbstractPlayer p, AbstractMonster m) {
         AbstractDungeon.actionManager.addToBottom(
                 new DamageAction(m, new DamageInfo(p, damage, damageTypeForTurn), AbstractGameAction.AttackEffect.SLASH_HORIZONTAL));
-//        resetColorAndType();
     }
 
     private void changeColorAndTypeToCurse() {
         this.color = CardColor.CURSE;
         this.type = CardType.CURSE;
-//        this.update();
     }
     private void resetColorAndType() {
         this.color = COLOR; // defaultGray
         this.type = TYPE; // Attack
-//        this.update();
     }
-
-//    @Override
-//    public void atTurnStartPreDraw() {
-//        super.atTurnStartPreDraw();
-//        if (AbstractDungeon.getCurrRoom().phase == COMBAT) {
-//            changeColorAndTypeToCurse();
-//        }
-//        else {
-//            resetColorAndType();
-//        }
-//    }
-
-//    @Override
-//    public void triggerWhenDrawn() {
-//        if (this.color != CardColor.CURSE && AbstractDungeon.getCurrRoom().phase == AbstractRoom.RoomPhase.COMBAT) {
-//            changeColorAndTypeToCurse();
-//        }
-//    }
-//
-//    @Override
-//    public void triggerWhenCopied() {
-//        if (this.color != CardColor.CURSE && AbstractDungeon.getCurrRoom().phase == AbstractRoom.RoomPhase.COMBAT) {
-//            changeColorAndTypeToCurse();
-//        }
-//    }
 
     @Override
     public boolean canUpgrade() {
-        return !this.upgraded; // This is a curse, but also an attack that can be upgraded.
+        if (this.color == CardColor.CURSE || this.type == CardType.CURSE){
+            return !this.upgraded; // This is a curse, but also an attack that can be upgraded.
+        }
+        else {
+            return super.canUpgrade();
+        }
     }
+
 
     // Upgraded stats.
     @Override

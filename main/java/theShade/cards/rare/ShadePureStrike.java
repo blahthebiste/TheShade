@@ -57,8 +57,8 @@ public class ShadePureStrike extends AbstractDynamicCard {
 
     private static final int COST = 0;
 
-    private static final int DAMAGE = 19;
-    private static final int UPGRADE_PLUS_DMG = 3;
+    private static final int DAMAGE = 44;
+    private static final int UPGRADE_PLUS_DMG = 11;
 
     // /STAT DECLARATION/
 

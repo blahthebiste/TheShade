@@ -4,6 +4,7 @@ import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.megacrit.cardcrawl.actions.common.MakeTempCardInHandAction;
 import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
+import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.cards.tempCards.Smite;
 import com.megacrit.cardcrawl.core.AbstractCreature;
@@ -12,6 +13,7 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import theShade.cards.ShadePurge;
+import theShade.cards.uncommon.ShadeRebuff;
 import theShade.util.TextureLoader;
 
 import static theShade.DefaultMod.makePowerPath;
@@ -87,7 +89,12 @@ public class ShadeDefenseAgainstTheDarkArtsPower extends AbstractPower {
     public void atStartOfTurn() {
         if (!AbstractDungeon.getMonsters().areMonstersBasicallyDead()) {
             this.flash();
-            this.addToBot(new MakeTempCardInHandAction(new ShadePurge(), this.amount, false));
+            AbstractCard tmpRebuff = new ShadeRebuff();
+            tmpRebuff.upgrade();
+            tmpRebuff.isEthereal = true;
+            for (int i = 0; i < this.amount; i++) {
+                this.addToBot(new MakeTempCardInHandAction(tmpRebuff));
+            }
         }
     }
 

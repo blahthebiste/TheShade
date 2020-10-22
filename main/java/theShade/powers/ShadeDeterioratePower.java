@@ -93,6 +93,11 @@ public class ShadeDeterioratePower extends AbstractPower implements HealthBarRen
 //    }
 
     @Override
+    public void reducePower(int reduceAmount) { // Deteriorate cannot be removed so easily
+        return;
+    }
+
+    @Override
     public int getHealthBarAmount() {
         int playerCorruption = 0;
         if (AbstractDungeon.player.hasPower("theShade:Corruption")) {

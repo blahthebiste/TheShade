@@ -471,7 +471,8 @@ public class DefaultMod implements
         BaseMod.addCard(new ShadeDefenseAgainstTheDarkArts());
         BaseMod.addCard(new ShadeMidnightHorizon());
         BaseMod.addCard(new ShadeExecute());
-        BaseMod.addCard(new ShadeFeint()); //DEPRECATED
+        BaseMod.addCard(new ShadeFeint());
+        BaseMod.addCard(new ShadeBlightBolt());
         // Rare
         BaseMod.addCard(new ShadeUltimateStrike());
         BaseMod.addCard(new ShadeVividNightmare());
@@ -490,6 +491,8 @@ public class DefaultMod implements
         BaseMod.addCard(new ShadeApexCorruption());
         BaseMod.addCard(new ShadeShadowBlend());
         BaseMod.addCard(new ShadeAmalgamForm());
+        BaseMod.addCard(new ShadeUnveil());
+        BaseMod.addCard(new ShadeConflagration());
 
 
         logger.info("Making sure the cards are unlocked.");
@@ -563,7 +566,8 @@ public class DefaultMod implements
         UnlockTracker.unlockCard(ShadeDefenseAgainstTheDarkArts.ID);
         UnlockTracker.unlockCard(ShadeMidnightHorizon.ID);
         UnlockTracker.unlockCard(ShadeExecute.ID);
-        UnlockTracker.unlockCard(ShadeFeint.ID); //DEPRECATED
+        UnlockTracker.unlockCard(ShadeFeint.ID);
+        UnlockTracker.unlockCard(ShadeBlightBolt.ID);
         // Rare
         UnlockTracker.unlockCard(ShadeUltimateStrike.ID);
         UnlockTracker.unlockCard(ShadeVividNightmare.ID);
@@ -582,6 +586,8 @@ public class DefaultMod implements
         UnlockTracker.unlockCard(ShadeApexCorruption.ID);
         UnlockTracker.unlockCard(ShadeShadowBlend.ID);
         UnlockTracker.unlockCard(ShadeAmalgamForm.ID);
+        UnlockTracker.unlockCard(ShadeUnveil.ID);
+        UnlockTracker.unlockCard(ShadeConflagration.ID);
 
         logger.info("Done adding cards!");
     }

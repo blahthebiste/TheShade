@@ -103,15 +103,19 @@
         },
         "theShade:ShadeShadowBlend": {
                 "NAME": "Shadow Blend",
-                "DESCRIPTIONS": ["In #b"," turns, become Intangible. Any cards you play now are replayed when this wears off."]
+                "DESCRIPTIONS": ["Wears off in #b"," turns. Any cards you play now are replayed when this wears off."]
         },
         "theShade:ShadeAmalgamFormPower": {
                 "NAME": "Amalgam Form",
                 "DESCRIPTIONS": ["At the end of each turn, gain block equal to your #yCorruption. You can no longer become Intangible.","At the end of each turn, gain block equal to #b"," times your Corruption. You can no longer become Intangible."]
         },
+        "theShade:ShadeConflagrationPower": {
+                "NAME": "Conflagration",
+                "DESCRIPTIONS": ["Whenever you play an attack, if you have no #yCorruption, apply "," #yBurning to all enemies."]
+        },
         "theShade:Wither": {
         "NAME": "Wither",
-        "DESCRIPTIONS": ["Prevents debuffs from decaying over time. Decreases every turn."]
+        "DESCRIPTIONS": ["Prevents other debuffs from decaying over time. Decreases every turn."]
 }
 
 }

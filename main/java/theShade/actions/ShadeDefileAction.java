@@ -50,11 +50,9 @@ public class ShadeDefileAction extends AbstractGameAction {
         int i;
         for(i = 0; i < count; ++i) {
             this.addToTop(new DamageAllEnemiesAction(this.p, this.dmgInfo.base, this.damageType, AttackEffect.FIRE));
-        }
-
-        for(i = 0; i < count; ++i) {
             if (Settings.FAST_MODE) {
                 this.addToTop(new TransformIntoCurseAction(1, false, true, false, false, Settings.ACTION_DUR_XFAST));
+
             } else {
                 this.addToTop(new TransformIntoCurseAction(1, false, true, false));
             }

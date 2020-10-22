@@ -56,7 +56,7 @@ public class ShadeElixirOfNoctis extends AbstractDynamicCard {
     private static final CardType TYPE = CardType.SKILL;       //
     public static final CardColor COLOR = TheDefault.Enums.COLOR_GRAY;
 
-    private static final int COST = 3;
+    private static final int COST = 4;
 
     private static final int DURATION = 2;
     private static final int UPGRADE_DURATION = 1;

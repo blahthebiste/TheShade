@@ -1,11 +1,13 @@
 package theShade.cards;
 
+import com.badlogic.gdx.graphics.Color;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.actions.defect.NewThunderStrikeAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
+import com.megacrit.cardcrawl.helpers.CardHelper;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import theShade.DefaultMod;
 import theShade.characters.TheDefault;
@@ -51,10 +53,11 @@ public class ShadeArcaneLightning extends AbstractDynamicCard {
 
     private static final int COST = 2;
 
-    private static final int DAMAGE = 8;
+    private static final int DAMAGE = 7;
+    private static final int UPGRADE_DAMAGE = 2;
 
     private static final int NUM_LIGHTNING = 2;
-    private static final int UPGRADE_NUM_LIGHTNING = 1;
+//    private static final int UPGRADE_NUM_LIGHTNING = 1;
 
     // /STAT DECLARATION/
 
@@ -80,7 +83,8 @@ public class ShadeArcaneLightning extends AbstractDynamicCard {
     public void upgrade() {
         if (!upgraded) {
             upgradeName();
-            upgradeMagicNumber(UPGRADE_NUM_LIGHTNING);
+//            upgradeMagicNumber(UPGRADE_NUM_LIGHTNING);
+            upgradeDamage(UPGRADE_DAMAGE);
             initializeDescription();
         }
     }

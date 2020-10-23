@@ -158,10 +158,10 @@ public class TheDefault extends CustomPlayer {
         // Actual starting deck vvv
 //        retVal.add(ShadeStrike.ID);
 //        retVal.add(ShadeStrike.ID);
-        retVal.add(ShadeStrike.ID);
-        retVal.add(ShadeStrike.ID);
 //        retVal.add(ShadeStrike.ID);
-//        retVal.add(ShadeShadows.ID);
+//        retVal.add(ShadeStrike.ID);
+//        retVal.add(ShadeStrike.ID);
+        retVal.add(ShadeShadows.ID);
         retVal.add(ShadeShadows.ID);
         retVal.add(ShadeShadows.ID);
         retVal.add(ShadeShadows.ID);
@@ -171,6 +171,8 @@ public class TheDefault extends CustomPlayer {
 //        retVal.add(ShadeContaminate.ID);
 //        retVal.add(ShadeShadowStrike.ID);
         retVal.add(ShadeFatigue.ID);
+        retVal.add(ShadeSpite.ID);
+        retVal.add(ShadeSpite.ID);
         retVal.add(ShadeSpite.ID);
         retVal.add(ShadeSpite.ID);
         retVal.add(ShadeSpite.ID);
@@ -198,6 +200,7 @@ public class TheDefault extends CustomPlayer {
 //        retVal.add(ShadeDarkTendrils.ID);
 //        retVal.add(ShadeDefile.ID);
         retVal.add(ShadeBlackLightning.ID);
+        retVal.add(ShadeBlackLightning.ID);
 //        retVal.add(ShadeScourge.ID);
 //        retVal.add(ShadeFalteringBlade.ID);
 //        retVal.add(ShadeRebuff.ID);
@@ -206,14 +209,16 @@ public class TheDefault extends CustomPlayer {
 //        retVal.add(ShadeTarnish.ID);
 //        retVal.add(ShadeAnoint.ID);
 //        retVal.add(ShadeHaunt.ID);
-        retVal.add(ShadeForbiddenKnowledge.ID);
-        retVal.add(ShadeForbiddenKnowledge.ID);
+//        retVal.add(ShadeForbiddenKnowledge.ID);
+//        retVal.add(ShadeForbiddenKnowledge.ID);
 //        retVal.add(ShadeRemission.ID);
 //        retVal.add(ShadeShadeDance.ID);
 //        retVal.add(ShadeSpreadingCorruption.ID);
 //        retVal.add(ShadeProlongedSuffering.ID);
 //        retVal.add(ShadeOverdrive.ID);
 //        retVal.add(ShadeDistortion.ID);
+//        retVal.add(ShadeChaosStorm.ID);
+//        retVal.add(ShadeChaosStorm.ID);
 //        retVal.add(ShadeChaosStorm.ID);
 //        retVal.add(ShadeDefenseAgainstTheDarkArts.ID);
 //        retVal.add(ShadeDeception.ID);

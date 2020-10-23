@@ -14,6 +14,7 @@ import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.powers.AbstractPower;
+import theShade.actions.LightningAction;
 import theShade.cards.ShadeChaosStormTmpLightningCard;
 import theShade.util.TextureLoader;
 
@@ -30,8 +31,8 @@ public class ShadeChaosStormPower extends AbstractPower {
     private static final Texture tex84 = TextureLoader.getTexture(makePowerPath("ShadeChaosStorm84.png"));
     private static final Texture tex32 = TextureLoader.getTexture(makePowerPath("ShadeChaosStorm32.png"));
 
-    private static int CORRUPTION_AMOUNT = 5;
-    private static int WITHER_AMOUNT = 3;
+    private static int CORRUPTION_AMOUNT = 3;
+    private static int WITHER_AMOUNT = 2;
     private static int BURN_AMOUNT = 4;
     private static int DAMAGE_AMOUNT = 6;
 
@@ -92,8 +93,7 @@ public class ShadeChaosStormPower extends AbstractPower {
             int selection = MathUtils.random(3);
 
             if (selection == 0) {
-                AbstractCard tmpLightningCard = new ShadeChaosStormTmpLightningCard(DAMAGE_AMOUNT);
-                this.addToBot(new NewThunderStrikeAction(tmpLightningCard));
+                this.addToBot(new LightningAction(DAMAGE_AMOUNT, DamageInfo.DamageType.THORNS, this.owner, null, true, false));
             }
             if (selection == 1) {
                 AbstractDungeon.actionManager.addToBottom(new ApplyPowerToRandomEnemyAction(this.owner, new ShadeCorruptionPower(null, CORRUPTION_AMOUNT), CORRUPTION_AMOUNT));

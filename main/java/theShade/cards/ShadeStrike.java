@@ -1,5 +1,7 @@
 package theShade.cards;
 
+import ShadeCardModifiers.ShadeShatterModifier;
+import basemod.helpers.CardModifierManager;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;

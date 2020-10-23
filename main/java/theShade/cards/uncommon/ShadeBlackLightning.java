@@ -1,15 +1,19 @@
 package theShade.cards.uncommon;
 
+import com.badlogic.gdx.graphics.Color;
 import com.megacrit.cardcrawl.actions.defect.NewThunderStrikeAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
+import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
+import com.megacrit.cardcrawl.helpers.CardHelper;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.orbs.AbstractOrb;
 import com.megacrit.cardcrawl.orbs.Lightning;
 import theShade.DefaultMod;
+import theShade.actions.LightningAction;
 import theShade.cards.AbstractDynamicCard;
 import theShade.cards.ShadeSpite;
 import theShade.characters.TheDefault;
@@ -65,6 +69,7 @@ public class ShadeBlackLightning extends AbstractDynamicCard {
     private boolean descriptionUpdated = false;
 
     // /STAT DECLARATION/
+    public static final Color BLACK_LIGHTNING_COLOR = CardHelper.getColor(0.0f, 0.0f, 0.0f); // Black
 
 
     public ShadeBlackLightning() { // - This one and the one right under the imports are the most important ones, don't forget them
@@ -118,7 +123,7 @@ public class ShadeBlackLightning extends AbstractDynamicCard {
         }
 
         for(int i = 0; i < num_curses; ++i) {
-            this.addToBot(new NewThunderStrikeAction(this));
+            this.addToBot(new LightningAction(this.damage, DamageInfo.DamageType.NORMAL, p, null, true, false, BLACK_LIGHTNING_COLOR));
         }
     }
 

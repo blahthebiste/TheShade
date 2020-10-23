@@ -60,7 +60,7 @@ public class ShadeBlightBolt extends AbstractDynamicCard {
     private static final int COST = 2;
 
     private static final int DAMAGE = 29;
-    private static final int UPGRADE_PLUS_DMG = 34;
+    private static final int UPGRADE_PLUS_DMG = 4;
 
     // /STAT DECLARATION/
 

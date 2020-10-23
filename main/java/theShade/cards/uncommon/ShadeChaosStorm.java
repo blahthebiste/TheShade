@@ -51,10 +51,10 @@ public class ShadeChaosStorm extends AbstractDynamicCard {
     @Override
     public void use(final AbstractPlayer p, final AbstractMonster m) {
         if (upgraded) {
-            AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new ShadeChaosStormPower(p, 1)));
+            AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new ShadeChaosStormUpgradedPower(p, 1)));
         }
         else {
-            AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new ShadeChaosStormUpgradedPower(p, 1)));
+            AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new ShadeChaosStormPower(p, 1)));
         }
     }
 

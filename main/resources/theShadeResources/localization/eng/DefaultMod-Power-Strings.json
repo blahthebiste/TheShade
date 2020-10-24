@@ -113,6 +113,10 @@
                 "NAME": "Conflagration",
                 "DESCRIPTIONS": ["Whenever you play an attack, if you have no #yCorruption, apply "," #yBurning to all enemies."]
         },
+        "theShade:ShadeHpTetherPower": {
+                "NAME": "Soul Tether",
+                "DESCRIPTIONS": ["Whenever this entity receives damage or healing, so does the tethered ","."]
+        },
         "theShade:Wither": {
         "NAME": "Wither",
         "DESCRIPTIONS": ["Prevents other debuffs from decaying over time. Decreases every turn."]

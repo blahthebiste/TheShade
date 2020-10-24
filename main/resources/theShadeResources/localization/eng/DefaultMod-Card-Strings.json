@@ -323,6 +323,11 @@
     "DESCRIPTION": "Whenever you play an attack, if you have 0 Corruption, apply 5 Burning to all enemies.",
     "UPGRADE_DESCRIPTION": "Whenever you play an attack, if you have 0 Corruption, apply 8 Burning to all enemies."
   },
+  "theShade:ShadeVoodooDoll": {
+    "NAME": "Soul Bind",
+    "DESCRIPTION": "Choose an enemy. NL Summon a doll with HP equal to half of theirs. NL Any damage or healing done to the doll also affects the enemy.",
+    "UPGRADE_DESCRIPTION": "Choose an enemy. NL Summon a doll with HP equal to 75% of theirs. NL Any damage or healing done to the doll also affects the enemy."
+  },
   "theShade:DefaultCommonSkill": {
     "NAME": "Defend",
     "DESCRIPTION": "Gain !B! Block. NL theShade:Multiword_Keyword."

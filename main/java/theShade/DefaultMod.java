@@ -17,6 +17,8 @@ import com.megacrit.cardcrawl.dungeons.TheCity;
 import com.megacrit.cardcrawl.helpers.CardHelper;
 import com.megacrit.cardcrawl.helpers.FontHelper;
 import com.megacrit.cardcrawl.localization.*;
+import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import com.megacrit.cardcrawl.monsters.MonsterGroup;
 import com.megacrit.cardcrawl.unlock.UnlockTracker;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -473,6 +475,7 @@ public class DefaultMod implements
         BaseMod.addCard(new ShadeExecute());
         BaseMod.addCard(new ShadeFeint());
         BaseMod.addCard(new ShadeBlightBolt());
+        BaseMod.addCard(new ShadeVoodooDoll());
         // Rare
         BaseMod.addCard(new ShadeUltimateStrike());
         BaseMod.addCard(new ShadeVividNightmare());
@@ -568,6 +571,7 @@ public class DefaultMod implements
         UnlockTracker.unlockCard(ShadeExecute.ID);
         UnlockTracker.unlockCard(ShadeFeint.ID);
         UnlockTracker.unlockCard(ShadeBlightBolt.ID);
+        UnlockTracker.unlockCard(ShadeVoodooDoll.ID);
         // Rare
         UnlockTracker.unlockCard(ShadeUltimateStrike.ID);
         UnlockTracker.unlockCard(ShadeVividNightmare.ID);
@@ -633,6 +637,10 @@ public class DefaultMod implements
         // OrbStrings
         BaseMod.loadCustomStringsFile(OrbStrings.class,
                 getModID() + "Resources/localization/eng/DefaultMod-Orb-Strings.json");
+
+        // MonsterStrings
+        BaseMod.loadCustomStringsFile(MonsterStrings.class,
+                getModID() + "Resources/localization/eng/DefaultMod-Monster-Strings.json");
         
         logger.info("Done edittting strings");
     }
@@ -664,7 +672,12 @@ public class DefaultMod implements
     }
     
     // ================ /LOAD THE KEYWORDS/ ===================    
-    
+
+    // Load monsters?
+//    private void InitializeMonsters() {
+//        BaseMod.addMonster("Pondfish", () -> new MonsterGroup(new AbstractMonster[]{new CaptainAbe(170.0f, -80.0f), new PondfishBoss(0.0f, -650.0f)}));
+//    }
+
     // this adds "ModName:" before the ID of any card/relic/power etc.
     // in order to avoid conflicts if any other mod uses the same ID.
     public static String makeID(String idText) {

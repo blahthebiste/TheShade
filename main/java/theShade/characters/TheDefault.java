@@ -25,7 +25,7 @@ import theShade.DefaultMod;
 import theShade.cards.*;
 import theShade.cards.uncommon.*;
 import theShade.cards.rare.*;
-import theShade.relics.TwistedSorcery;
+import theShade.relics.*;
 
 import java.util.ArrayList;
 
@@ -175,7 +175,7 @@ public class TheDefault extends CustomPlayer {
 //        retVal.add(ShadeSpite.ID);
 //        retVal.add(ShadeSpite.ID);
 //        retVal.add(ShadeSpite.ID);
-        retVal.add(ShadeSpite.ID);
+//        retVal.add(ShadeSpite.ID);
 //        retVal.add(ShadePursuit.ID);
 //        retVal.add(ShadeCorruptBlade.ID);
 //        retVal.add(ShadeFinalStrike.ID);
@@ -192,7 +192,7 @@ public class TheDefault extends CustomPlayer {
 //        retVal.add(ShadeDusk.ID);
 //        retVal.add(ShadeArcaneBarrier.ID);
 //        retVal.add(ShadeEncroachingShadows.ID);
-//        retVal.add(ShadeVesselOfSuffering.ID);
+        retVal.add(ShadeVesselOfSuffering.ID);
 //        retVal.add(ShadeTorment.ID);
 //        retVal.add(ShadeSchadenfreude.ID);
 //        retVal.add(ShadePossession.ID);
@@ -204,9 +204,9 @@ public class TheDefault extends CustomPlayer {
 //        retVal.add(ShadeScourge.ID);
 //        retVal.add(ShadeFalteringBlade.ID);
 //        retVal.add(ShadeRebuff.ID);
-//        retVal.add(ShadeWitchFire.ID);
+        retVal.add(ShadeWitchFire.ID);
 //        retVal.add(ShadeWrithingFlame.ID);
-//        retVal.add(ShadeTarnish.ID);
+        retVal.add(ShadeTarnish.ID);
 //        retVal.add(ShadeAnoint.ID);
 //        retVal.add(ShadeHaunt.ID);
 //        retVal.add(ShadeForbiddenKnowledge.ID);
@@ -228,19 +228,19 @@ public class TheDefault extends CustomPlayer {
 //        retVal.add(ShadeMidnightHorizon.ID);
 //        retVal.add(ShadeExecute.ID);
 //        retVal.add(ShadeUltimateStrike.ID);
-        retVal.add(ShadeVividNightmare.ID);
+//        retVal.add(ShadeVividNightmare.ID);
 //        retVal.add(ShadeOblivion.ID);
 //        retVal.add(ShadeMutualAnnihilation.ID);
 //        retVal.add(ShadeArcaneTempest.ID);
 //        retVal.add(ShadePureStrike.ID);
-        retVal.add(ShadeFexnil.ID);
+//        retVal.add(ShadeFexnil.ID);
 //        retVal.add(ShadeArcaneInferno.ID);
 //        retVal.add(ShadeDeathSentence.ID);
 //        retVal.add(ShadeSubversion.ID);
 //        retVal.add(ShadeEthericShift.ID);
 //        retVal.add(ShadeShadowBarrier.ID);
 //        retVal.add(ShadeImbue.ID);
-        retVal.add(ShadeElixirOfNoctis.ID);
+//        retVal.add(ShadeElixirOfNoctis.ID);
 //        retVal.add(ShadeApexCorruption.ID);
 //        retVal.add(ShadeShadowBlend.ID);
 //        retVal.add(ShadeAmalgamForm.ID);

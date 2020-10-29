@@ -13,11 +13,6 @@ import static theShade.DefaultMod.makeRelicOutlinePath;
 import static theShade.DefaultMod.makeRelicPath;
 
 public class TwistedSorcery extends CustomRelic {
-    /*
-     * https://github.com/daviscook477/BaseMod/wiki/Custom-Relics
-     *
-     * At the start of each combat, gain 1 Strength (i.e. Vajra)
-     */
 
     // ID, images, text.
     public static final String ID = DefaultMod.makeID("PlaceholderRelic2");
@@ -26,7 +21,7 @@ public class TwistedSorcery extends CustomRelic {
     private static final Texture OUTLINE = TextureLoader.getTexture(makeRelicOutlinePath("sorcery.png"));
 
     public TwistedSorcery() {
-        super(ID, IMG, OUTLINE, RelicTier.COMMON, LandingSound.FLAT);
+        super(ID, IMG, OUTLINE, RelicTier.STARTER, LandingSound.FLAT);
     }
 
 

@@ -13,6 +13,48 @@
       "At the start of each turn, gain #b1 #ytheshade:Corruption."
     ]
   },
+  "theShade:FifthShadow": {
+    "NAME": "Fifth Shadow",
+    "FLAVOR": "Better sew it to your shoes this time.",
+    "DESCRIPTIONS": [
+      "At the start of turn 5, gain #yIntangible."
+    ]
+  },
+  "theShade:WiltingRose": {
+    "NAME": "Wilting Rose",
+    "FLAVOR": "Typical Rose, always meddling with eldritch horrors.",
+    "DESCRIPTIONS": [
+      "Applying #ytheshade:Wither to enemies also makes them #yWeak."
+    ]
+  },
+  "theShade:HellfireTalisman": {
+    "NAME": "Hellfire Talisman",
+    "FLAVOR": "Say what you want about demons, but they sure know how to burn things.",
+    "DESCRIPTIONS": [
+      "Applying #ytheshade:Burning to enemies also makes them #yVulnerable."
+    ]
+  },
+  "theShade:BurningTome": {
+    "NAME": "Burning Tome",
+    "FLAVOR": "Burns your hand when held. This tome actually has little to say about fire magic.",
+    "DESCRIPTIONS": [
+      "Draw 1 additional card each turn. At the start of combat, gain 3 #ytheshade:Burning."
+    ]
+  },
+  "theShade:CursedTome": {
+    "NAME": "Cursed Tome",
+    "FLAVOR": "The fatigue is just from carrying around such a heavy tome.",
+    "DESCRIPTIONS": [
+      "Draw 1 additional card each turn. At the start of combat, add a #ytheshade:Fatigue to your hand."
+    ]
+  },
+  "theShade:TitanTome": {
+    "NAME": "Titan Tome",
+    "FLAVOR": "Stone Calendar's worst enemy.",
+    "DESCRIPTIONS": [
+      "Draw 1 additional card each turn. At the start of each of their turns after turn 7, all enemies heal for 50 HP."
+    ]
+  },
   "theShade:DefaultClickableRelic": {
     "NAME": "Right-Clicky Relic",
     "FLAVOR": "The more you right-click it, the more orbs you've evoked in your lifetime.",

@@ -15,8 +15,8 @@ import theShade.util.TextureLoader;
 
 import static theShade.DefaultMod.makePowerPath;
 
-public class ShadeVesselOfSufferingPower extends AbstractPower {
-    public static final String POWER_ID = "theShade:VesselOfSuffering";
+public class ShadeVesselOfSufferingUpgradedPower extends AbstractPower {
+    public static final String POWER_ID = "theShade:VesselOfSufferingUpgraded";
     private static final PowerStrings powerStrings = CardCrawlGame.languagePack.getPowerStrings(POWER_ID);
     public static final String NAME = powerStrings.NAME;
     public static final String[] DESCRIPTIONS = powerStrings.DESCRIPTIONS;
@@ -28,7 +28,7 @@ public class ShadeVesselOfSufferingPower extends AbstractPower {
 
     private boolean isPlayerTurn;
 
-    public ShadeVesselOfSufferingPower(AbstractCreature owner, int amount) {
+    public ShadeVesselOfSufferingUpgradedPower(AbstractCreature owner, int amount) {
         this.name = NAME;
         this.ID = POWER_ID;
         this.owner = owner;
@@ -66,10 +66,14 @@ public class ShadeVesselOfSufferingPower extends AbstractPower {
 
     public void wasHPLost(DamageInfo info, int damageAmount) {
         if (info.owner != null && info.type != DamageInfo.DamageType.HP_LOSS && damageAmount > 0) {
+            this.flash();
             if (isPlayerTurn) { // Give raw energy during the players turn
-                this.flash();
 //                System.out.println("DEBUGFORELI: took damage with vessel of suffering, during player turn!");
                 this.addToBot(new GainEnergyAction(this.amount));
+            }
+            else { // Otherwise, give energy at the start of the player's next turn
+//                System.out.println("DEBUGFORELI: took damage with vessel of suffering, outside player turn!");
+                AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(owner, owner, new EnergizedPower(owner, this.amount)));
             }
         }
 

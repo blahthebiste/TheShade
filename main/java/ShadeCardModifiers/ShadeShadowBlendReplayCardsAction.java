@@ -32,7 +32,7 @@ public class ShadeShadowBlendReplayCardsAction extends AbstractGameAction {
                     tmp.calculateCardDamage(targetMonster);
                 }
                 AbstractDungeon.actionManager.addCardQueueItem(new CardQueueItem(tmp, targetMonster, tmp.energyOnUse, true, true));
-                System.out.println("Played " + tmp.cardID);
+//                System.out.println("Played " + tmp.cardID);
             }
         }
         tickDuration();

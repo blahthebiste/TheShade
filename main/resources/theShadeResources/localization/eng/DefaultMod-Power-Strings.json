@@ -33,6 +33,10 @@
 },
         "theShade:VesselOfSuffering": {
                 "NAME": "Vessel of Suffering",
+                "DESCRIPTIONS": ["Whenever you take unblocked damage during your turn, gain #b"," Energy."]
+        },
+        "theShade:VesselOfSufferingUpgraded": {
+                "NAME": "Vessel of Suffering II",
                 "DESCRIPTIONS": ["Whenever you take unblocked damage, gain #b"," Energy."]
         },
         "theShade:Shatter2": {

@@ -9,6 +9,7 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import theShade.DefaultMod;
 import theShade.characters.TheDefault;
 import theShade.powers.ShadeVesselOfSufferingPower;
+import theShade.powers.ShadeVesselOfSufferingUpgradedPower;
 
 import static theShade.DefaultMod.makeCardPath;
 
@@ -38,7 +39,6 @@ public class ShadeVesselOfSuffering extends AbstractDynamicCard {
     public static final CardColor COLOR = TheDefault.Enums.COLOR_GRAY;
 
     private static final int COST = 1;
-    private static final int UPGRADED_COST = 0;
     // /STAT DECLARATION/
 
     public ShadeVesselOfSuffering() {
@@ -49,7 +49,12 @@ public class ShadeVesselOfSuffering extends AbstractDynamicCard {
     // Actions the card should do.
     @Override
     public void use(final AbstractPlayer p, final AbstractMonster m) {
-        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new ShadeVesselOfSufferingPower(p, 1)));
+        if (upgraded) {
+            AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new ShadeVesselOfSufferingUpgradedPower(p, 1)));
+        }
+        else {
+            AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new ShadeVesselOfSufferingPower(p, 1)));
+        }
     }
 
     //Upgraded stats.
@@ -57,7 +62,7 @@ public class ShadeVesselOfSuffering extends AbstractDynamicCard {
     public void upgrade() {
         if (!upgraded) {
             upgradeName();
-            upgradeBaseCost(UPGRADED_COST);
+            rawDescription = UPGRADE_DESCRIPTION;
             initializeDescription();
         }
     }

@@ -3,6 +3,7 @@ package theShade;
 import basemod.BaseMod;
 import basemod.ModLabeledToggleButton;
 import basemod.ModPanel;
+import basemod.helpers.RelicType;
 import basemod.interfaces.*;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.files.FileHandle;
@@ -28,7 +29,7 @@ import theShade.cards.rare.*;
 import theShade.characters.TheDefault;
 import theShade.events.IdentityCrisisEvent;
 import theShade.potions.PlaceholderPotion;
-import theShade.relics.TwistedSorcery;
+import theShade.relics.*;
 import theShade.util.IDCheckDontTouchPls;
 import theShade.util.TextureLoader;
 import theShade.variables.DefaultCustomVariable;
@@ -377,12 +378,24 @@ public class DefaultMod implements
 //        BaseMod.addRelicToCustomPool(new BottledPlaceholderRelic(), TheDefault.Enums.COLOR_GRAY);
 //        BaseMod.addRelicToCustomPool(new DefaultClickableRelic(), TheDefault.Enums.COLOR_GRAY);
         BaseMod.addRelicToCustomPool(new TwistedSorcery(), TheDefault.Enums.COLOR_GRAY);
+        BaseMod.addRelicToCustomPool(new FifthShadow(), TheDefault.Enums.COLOR_GRAY);
+        BaseMod.addRelicToCustomPool(new WiltingRose(), TheDefault.Enums.COLOR_GRAY);
+        BaseMod.addRelicToCustomPool(new HellfireTalisman(), TheDefault.Enums.COLOR_GRAY);
+        BaseMod.addRelicToCustomPool(new BurningTome(), TheDefault.Enums.COLOR_GRAY);
+        BaseMod.addRelicToCustomPool(new CursedTome(), TheDefault.Enums.COLOR_GRAY);
+        BaseMod.addRelicToCustomPool(new TitanTome(), TheDefault.Enums.COLOR_GRAY);
 
         // This adds a relic to the Shared pool. Every character can find this relic.
-//        BaseMod.addRelic(new TwistedSorcery(), RelicType.SHARED);
+//        BaseMod.addRelic(new FifthShadow(), RelicType.SHARED);
         
         // Mark relics as seen (the others are all starters so they're marked as seen in the character file
         UnlockTracker.markRelicAsSeen(TwistedSorcery.ID);
+        UnlockTracker.markRelicAsSeen(FifthShadow.ID);
+        UnlockTracker.markRelicAsSeen(WiltingRose.ID);
+        UnlockTracker.markRelicAsSeen(HellfireTalisman.ID);
+        UnlockTracker.markRelicAsSeen(BurningTome.ID);
+        UnlockTracker.markRelicAsSeen(CursedTome.ID);
+        UnlockTracker.markRelicAsSeen(TitanTome.ID);
         logger.info("Done adding relics!");
     }
     

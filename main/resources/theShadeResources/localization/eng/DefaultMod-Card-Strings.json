@@ -102,7 +102,8 @@
   },
   "theShade:ShadeVesselOfSuffering": {
     "NAME": "Vessel of Suffering",
-    "DESCRIPTION": "Whenever you take unblocked damage, gain 1 [E]."
+    "DESCRIPTION": "Whenever you take unblocked damage during your turn, gain 1 [E].",
+    "UPGRADE_DESCRIPTION": "Whenever you take unblocked damage, gain 1 [E]."
   },
 
   "theShade:ShadeTorment": {

@@ -156,16 +156,16 @@ public class TheDefault extends CustomPlayer {
 
         logger.info("Begin loading starter Deck Strings");
         // Actual starting deck vvv
-//        retVal.add(ShadeStrike.ID);
-//        retVal.add(ShadeStrike.ID);
-//        retVal.add(ShadeStrike.ID);
-//        retVal.add(ShadeStrike.ID);
-//        retVal.add(ShadeStrike.ID);
-//        retVal.add(ShadeShadows.ID);
-//        retVal.add(ShadeShadows.ID);
-//        retVal.add(ShadeShadows.ID);
-//        retVal.add(ShadeShadows.ID);
-//        retVal.add(ShadePurge.ID);
+        retVal.add(ShadeStrike.ID);
+        retVal.add(ShadeStrike.ID);
+        retVal.add(ShadeStrike.ID);
+        retVal.add(ShadeStrike.ID);
+        retVal.add(ShadeStrike.ID);
+        retVal.add(ShadeShadows.ID);
+        retVal.add(ShadeShadows.ID);
+        retVal.add(ShadeShadows.ID);
+        retVal.add(ShadeShadows.ID);
+        retVal.add(ShadePurge.ID);
         //Debug stuff vvv
 //        retVal.add(ShadeTorture.ID);
 //        retVal.add(ShadeContaminate.ID);
@@ -192,7 +192,7 @@ public class TheDefault extends CustomPlayer {
 //        retVal.add(ShadeDusk.ID);
 //        retVal.add(ShadeArcaneBarrier.ID);
 //        retVal.add(ShadeEncroachingShadows.ID);
-        retVal.add(ShadeVesselOfSuffering.ID);
+//        retVal.add(ShadeVesselOfSuffering.ID);
 //        retVal.add(ShadeTorment.ID);
 //        retVal.add(ShadeSchadenfreude.ID);
 //        retVal.add(ShadePossession.ID);
@@ -204,9 +204,9 @@ public class TheDefault extends CustomPlayer {
 //        retVal.add(ShadeScourge.ID);
 //        retVal.add(ShadeFalteringBlade.ID);
 //        retVal.add(ShadeRebuff.ID);
-        retVal.add(ShadeWitchFire.ID);
+//        retVal.add(ShadeWitchFire.ID);
 //        retVal.add(ShadeWrithingFlame.ID);
-        retVal.add(ShadeTarnish.ID);
+//        retVal.add(ShadeTarnish.ID);
 //        retVal.add(ShadeAnoint.ID);
 //        retVal.add(ShadeHaunt.ID);
 //        retVal.add(ShadeForbiddenKnowledge.ID);
@@ -247,7 +247,7 @@ public class TheDefault extends CustomPlayer {
 //        retVal.add(ShadeBlightBolt.ID);
 //        retVal.add(ShadeUnveil.ID);
 //        retVal.add(ShadeConflagration.ID);
-        retVal.add(ShadeVoodooDoll.ID);
+//        retVal.add(ShadeVoodooDoll.ID);
         return retVal;
     }
 

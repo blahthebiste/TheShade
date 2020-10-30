@@ -87,11 +87,21 @@ public class ShadeForbiddenKnowledge extends AbstractDynamicCard {
                 }
             }
             baseMagicNumber = magicNumber = num_curses;
-            rawDescription = DESCRIPTION + UPGRADE_DESCRIPTION;
+            if (this.upgraded) {
+                rawDescription = DESCRIPTION + UPGRADE_DESCRIPTION;
+            }
+            else {
+                rawDescription = DESCRIPTION + " NL Exhaust." + UPGRADE_DESCRIPTION;
+            }
             descriptionUpdated = true;
             initializeDescription();
         } else if (descriptionUpdated && CardCrawlGame.isInARun() && AbstractDungeon.getCurrRoom().phase != COMBAT) {
-            rawDescription = DESCRIPTION;
+            if (this.upgraded) {
+                rawDescription = DESCRIPTION;
+            }
+            else {
+                rawDescription = DESCRIPTION + " NL Exhaust.";
+            }
             descriptionUpdated = false;
             initializeDescription();
         }
@@ -123,7 +133,7 @@ public class ShadeForbiddenKnowledge extends AbstractDynamicCard {
         if (!upgraded) {
             upgradeName();
             this.exhaust = false;
-            rawDescription = UPGRADE_DESCRIPTION;
+            rawDescription = DESCRIPTION;
             initializeDescription();
         }
     }

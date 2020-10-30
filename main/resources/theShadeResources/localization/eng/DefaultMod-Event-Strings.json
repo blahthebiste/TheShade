@@ -17,5 +17,18 @@
       "[Leave]",
       "Select card to remove."
     ]
+  },
+  "theShade:RenounceDarkness": {
+    "NAME": "Renounce Darkness",
+    "DESCRIPTIONS": [
+      "An old woman in a tattered cloak is sitting beside a rundown fountain. As you pass by, she stirs, and calls out to you: “I know your kind… I know the path upon which you tread. It’s not too late to turn back from the influence of the Dark Ones. If you let me, I can show you how to be rid of those spirits, and take back your life as your own.” As you turn to listen, she outstretches a small, withered hand toward you.",
+      "The old woman pulls you toward the fountain, and plunges you into the meager pool of water. You hear her mutter some words, and something above your head illuminates the water softly for a moment. When you emerge, you feel cleansed.",
+      "As you turn to leave, the old woman calls out to you, “Please, listen to me! I’ve seen this before! You will lose yourself to the Dark Ones!” Little does she know, you already have."
+    ],
+    "OPTIONS": [
+      "[Renounce Darkness] Replace all Shadows with Purges.",
+      "[Ignore her]",
+      "[Leave]"
+    ]
   }
 }

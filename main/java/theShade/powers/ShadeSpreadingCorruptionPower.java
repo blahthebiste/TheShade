@@ -21,7 +21,7 @@ import java.util.Iterator;
 import static theShade.DefaultMod.makePowerPath;
 
 public class ShadeSpreadingCorruptionPower extends AbstractPower {
-    public static final String POWER_ID = "theShade:SpreadingCorruption";
+    public static final String POWER_ID = "theShade:SpreadingCorruptionPower";
     private static final PowerStrings powerStrings = CardCrawlGame.languagePack.getPowerStrings(POWER_ID);
     public static final String NAME = powerStrings.NAME;
     public static final String[] DESCRIPTIONS = powerStrings.DESCRIPTIONS;

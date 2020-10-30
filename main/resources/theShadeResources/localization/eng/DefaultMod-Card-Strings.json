@@ -189,8 +189,7 @@
   },
   "theShade:ShadeForbiddenKnowledge": {
     "NAME": "Forbidden Knowledge",
-    "DESCRIPTION": "Draw a card for each Curse in your draw pile. NL Exhaust.",
-    "UPGRADE_DESCRIPTION": "Draw a card for each Curse in your draw pile.",
+    "DESCRIPTION": "Draw a card for each Curse in your draw pile.",
     "UPGRADE_DESCRIPTION": " NL (You have !M! Curses in your draw pile.)"
   },
   "theShade:ShadeRemission": {
@@ -219,8 +218,8 @@
   },
   "theShade:ShadeChaosStorm": {
     "NAME": "Chaos Storm",
-    "DESCRIPTION": "At the end of each turn, randomly apply 5 theshade:Corruption, 3 theshade:Wither, or 4 theshade:Burning, or deal 6 damage, to a random enemy.",
-    "UPGRADE_DESCRIPTION": "At the end of each turn, randomly apply 5 theshade:Corruption, 3 theshade:Wither, or 4 theshade:Burning, or deal 6 damage, to each enemy."
+    "DESCRIPTION": "At the end of each turn, randomly apply 3 theshade:Corruption, 2 theshade:Wither, or 4 theshade:Burning, or deal 6 damage, to a random enemy.",
+    "UPGRADE_DESCRIPTION": "At the end of each turn, randomly apply 3 theshade:Corruption, 2 theshade:Wither, or 4 theshade:Burning, or deal 6 damage, to each enemy."
   },
   "theShade:ShadeDefenseAgainstTheDarkArts": {
     "NAME": "Defense vs. Dark Arts",

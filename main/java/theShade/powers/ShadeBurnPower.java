@@ -74,7 +74,7 @@ public class ShadeBurnPower extends AbstractPower implements HealthBarRenderPowe
             this.amount = 0;
         }
         if (this.amount == 0) {
-            this.addToTop(new RemoveSpecificPowerAction(this.owner, this.owner, ID));
+            this.addToTop(new RemoveSpecificPowerAction(this.owner, this.owner, this.ID));
         }
     }
 
@@ -89,7 +89,7 @@ public class ShadeBurnPower extends AbstractPower implements HealthBarRenderPowe
             this.amount = 0;
         }
         if (this.amount == 0) {
-            this.addToTop(new RemoveSpecificPowerAction(this.owner, this.owner, NAME));
+            this.addToTop(new RemoveSpecificPowerAction(this.owner, this.owner, this.ID));
         }
 
     }

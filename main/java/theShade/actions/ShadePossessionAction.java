@@ -6,6 +6,7 @@ import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
+import com.megacrit.cardcrawl.powers.IntangiblePlayerPower;
 import com.megacrit.cardcrawl.powers.IntangiblePower;
 import com.megacrit.cardcrawl.vfx.combat.FlashAtkImgEffect;
 
@@ -25,7 +26,7 @@ public class ShadePossessionAction extends AbstractGameAction {
             AbstractDungeon.effectList.add(new FlashAtkImgEffect(this.target.hb.cX, this.target.hb.cY, AttackEffect.BLUNT_HEAVY));
             this.target.damage(this.info);
             if (this.target.isDying || this.target.currentHealth <= 0) {
-                this.addToBot(new ApplyPowerAction(this.source, this.source, new IntangiblePower(this.source, 1)));
+                this.addToBot(new ApplyPowerAction(this.source, this.source, new IntangiblePlayerPower(this.source, 1)));
             }
 
             if (AbstractDungeon.getCurrRoom().monsters.areMonstersBasicallyDead()) {

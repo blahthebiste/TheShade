@@ -3,7 +3,8 @@ package theShade;
 import basemod.BaseMod;
 import basemod.ModLabeledToggleButton;
 import basemod.ModPanel;
-import basemod.helpers.RelicType;
+import basemod.eventUtil.AddEventParams;
+import basemod.eventUtil.EventUtils;
 import basemod.interfaces.*;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.files.FileHandle;
@@ -14,19 +15,17 @@ import com.evacipated.cardcrawl.modthespire.lib.SpireConfig;
 import com.evacipated.cardcrawl.modthespire.lib.SpireInitializer;
 import com.google.gson.Gson;
 import com.megacrit.cardcrawl.core.Settings;
-import com.megacrit.cardcrawl.dungeons.TheCity;
+import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.CardHelper;
 import com.megacrit.cardcrawl.helpers.FontHelper;
 import com.megacrit.cardcrawl.localization.*;
-import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import com.megacrit.cardcrawl.monsters.MonsterGroup;
 import com.megacrit.cardcrawl.unlock.UnlockTracker;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import theShade.cards.*;
 import theShade.cards.uncommon.*;
 import theShade.cards.rare.*;
-import theShade.characters.TheDefault;
+import theShade.characters.TheShade;
 import theShade.events.*;
 import theShade.potions.PlaceholderPotion;
 import theShade.relics.*;
@@ -203,9 +202,9 @@ public class DefaultMod implements
         
         logger.info("Done subscribing");
         
-        logger.info("Creating the color " + TheDefault.Enums.COLOR_GRAY.toString());
+        logger.info("Creating the color " + TheShade.Enums.COLOR_GRAY.toString());
         
-        BaseMod.addColor(TheDefault.Enums.COLOR_GRAY, DEFAULT_GRAY, DEFAULT_GRAY, DEFAULT_GRAY,
+        BaseMod.addColor(TheShade.Enums.COLOR_GRAY, DEFAULT_GRAY, DEFAULT_GRAY, DEFAULT_GRAY,
                 DEFAULT_GRAY, DEFAULT_GRAY, DEFAULT_GRAY, DEFAULT_GRAY,
                 ATTACK_DEFAULT_GRAY, SKILL_DEFAULT_GRAY, POWER_DEFAULT_GRAY, ENERGY_ORB_DEFAULT_GRAY,
                 ATTACK_DEFAULT_GRAY_PORTRAIT, SKILL_DEFAULT_GRAY_PORTRAIT, POWER_DEFAULT_GRAY_PORTRAIT,
@@ -288,13 +287,13 @@ public class DefaultMod implements
     
     @Override
     public void receiveEditCharacters() {
-        logger.info("Beginning to edit characters. " + "Add " + TheDefault.Enums.THE_DEFAULT.toString());
+        logger.info("Beginning to edit characters. " + "Add " + TheShade.Enums.THE_DEFAULT.toString());
         
-        BaseMod.addCharacter(new TheDefault("the Default", TheDefault.Enums.THE_DEFAULT),
-                THE_DEFAULT_BUTTON, THE_DEFAULT_PORTRAIT, TheDefault.Enums.THE_DEFAULT);
+        BaseMod.addCharacter(new TheShade("the Default", TheShade.Enums.THE_DEFAULT),
+                THE_DEFAULT_BUTTON, THE_DEFAULT_PORTRAIT, TheShade.Enums.THE_DEFAULT);
         
         receiveEditPotions();
-        logger.info("Added " + TheDefault.Enums.THE_DEFAULT.toString());
+        logger.info("Added " + TheShade.Enums.THE_DEFAULT.toString());
     }
     
     // =============== /LOAD THE CHARACTER/ =================
@@ -343,7 +342,8 @@ public class DefaultMod implements
         // If you want to have a character-specific event, look at slimebound (CityRemoveEventPatch).
         // Essentially, you need to patch the game and say "if a player is not playing my character class, remove the event from the pool"
 //        BaseMod.addEvent(IdentityCrisisEvent.ID, IdentityCrisisEvent.class, TheCity.ID);
-        BaseMod.addEvent(RenounceDarkness.ID, RenounceDarkness.class);
+//        BaseMod.addEvent(RenounceDarkness.ID, RenounceDarkness.class);
+        BaseMod.addEvent(new AddEventParams.Builder(RenounceDarkness.ID, RenounceDarkness.class).spawnCondition(() -> (AbstractDungeon.player instanceof TheShade)).eventType(EventUtils.EventType.NORMAL).create());
 
         // =============== /EVENTS/ =================
         logger.info("Done loading badge Image and mod options");
@@ -360,7 +360,7 @@ public class DefaultMod implements
         // Class Specific Potion. If you want your potion to not be class-specific,
         // just remove the player class at the end (in this case the "TheDefaultEnum.THE_DEFAULT".
         // Remember, you can press ctrl+P inside parentheses like addPotions)
-        BaseMod.addPotion(PlaceholderPotion.class, PLACEHOLDER_POTION_LIQUID, PLACEHOLDER_POTION_HYBRID, PLACEHOLDER_POTION_SPOTS, PlaceholderPotion.POTION_ID, TheDefault.Enums.THE_DEFAULT);
+        BaseMod.addPotion(PlaceholderPotion.class, PLACEHOLDER_POTION_LIQUID, PLACEHOLDER_POTION_HYBRID, PLACEHOLDER_POTION_SPOTS, PlaceholderPotion.POTION_ID, TheShade.Enums.THE_DEFAULT);
         
         logger.info("Done editing potions");
     }
@@ -375,16 +375,17 @@ public class DefaultMod implements
         logger.info("Adding relics");
         
         // This adds a character specific relic. Only when you play with the mentioned color, will you get this relic.
-//        BaseMod.addRelicToCustomPool(new PlaceholderRelic(), TheDefault.Enums.COLOR_GRAY);
-//        BaseMod.addRelicToCustomPool(new BottledPlaceholderRelic(), TheDefault.Enums.COLOR_GRAY);
-//        BaseMod.addRelicToCustomPool(new DefaultClickableRelic(), TheDefault.Enums.COLOR_GRAY);
-        BaseMod.addRelicToCustomPool(new TwistedSorcery(), TheDefault.Enums.COLOR_GRAY);
-        BaseMod.addRelicToCustomPool(new FifthShadow(), TheDefault.Enums.COLOR_GRAY);
-        BaseMod.addRelicToCustomPool(new WiltingRose(), TheDefault.Enums.COLOR_GRAY);
-        BaseMod.addRelicToCustomPool(new HellfireTalisman(), TheDefault.Enums.COLOR_GRAY);
-        BaseMod.addRelicToCustomPool(new BurningTome(), TheDefault.Enums.COLOR_GRAY);
-        BaseMod.addRelicToCustomPool(new CursedTome(), TheDefault.Enums.COLOR_GRAY);
-        BaseMod.addRelicToCustomPool(new TitanTome(), TheDefault.Enums.COLOR_GRAY);
+//        BaseMod.addRelicToCustomPool(new PlaceholderRelic(), TheShade.Enums.COLOR_GRAY);
+//        BaseMod.addRelicToCustomPool(new BottledPlaceholderRelic(), TheShade.Enums.COLOR_GRAY);
+//        BaseMod.addRelicToCustomPool(new DefaultClickableRelic(), TheShade.Enums.COLOR_GRAY);
+        BaseMod.addRelicToCustomPool(new TwistedSorcery(), TheShade.Enums.COLOR_GRAY);
+        BaseMod.addRelicToCustomPool(new FifthShadow(), TheShade.Enums.COLOR_GRAY);
+        BaseMod.addRelicToCustomPool(new WiltingRose(), TheShade.Enums.COLOR_GRAY);
+        BaseMod.addRelicToCustomPool(new HellfireTalisman(), TheShade.Enums.COLOR_GRAY);
+        BaseMod.addRelicToCustomPool(new BurningTome(), TheShade.Enums.COLOR_GRAY);
+        BaseMod.addRelicToCustomPool(new CursedTome(), TheShade.Enums.COLOR_GRAY);
+        BaseMod.addRelicToCustomPool(new TitanTome(), TheShade.Enums.COLOR_GRAY);
+        BaseMod.addRelicToCustomPool(new DiabolicalSorcery(), TheShade.Enums.COLOR_GRAY);
 
         // This adds a relic to the Shared pool. Every character can find this relic.
 //        BaseMod.addRelic(new FifthShadow(), RelicType.SHARED);
@@ -397,6 +398,7 @@ public class DefaultMod implements
         UnlockTracker.markRelicAsSeen(BurningTome.ID);
         UnlockTracker.markRelicAsSeen(CursedTome.ID);
         UnlockTracker.markRelicAsSeen(TitanTome.ID);
+        UnlockTracker.markRelicAsSeen(DiabolicalSorcery.ID);
         logger.info("Done adding relics!");
     }
     
@@ -490,6 +492,7 @@ public class DefaultMod implements
         BaseMod.addCard(new ShadeFeint());
         BaseMod.addCard(new ShadeBlightBolt());
         BaseMod.addCard(new ShadeVoodooDoll());
+        BaseMod.addCard(new ShadeEnkindle());
         // Rare
         BaseMod.addCard(new ShadeUltimateStrike());
         BaseMod.addCard(new ShadeVividNightmare());
@@ -505,11 +508,13 @@ public class DefaultMod implements
         BaseMod.addCard(new ShadeShadowBarrier());
         BaseMod.addCard(new ShadeImbue());
         BaseMod.addCard(new ShadeElixirOfNoctis());
-        BaseMod.addCard(new ShadeApexCorruption());
+//        BaseMod.addCard(new ShadeApexCorruption()); //DEPRECATED
         BaseMod.addCard(new ShadeShadowBlend());
         BaseMod.addCard(new ShadeAmalgamForm());
         BaseMod.addCard(new ShadeUnveil());
         BaseMod.addCard(new ShadeConflagration());
+//        BaseMod.addCard(new ShadeInfusion()); //DEPRECATED
+        BaseMod.addCard(new ShadeGrudge());
 
 
         logger.info("Making sure the cards are unlocked.");
@@ -586,6 +591,7 @@ public class DefaultMod implements
         UnlockTracker.unlockCard(ShadeFeint.ID);
         UnlockTracker.unlockCard(ShadeBlightBolt.ID);
         UnlockTracker.unlockCard(ShadeVoodooDoll.ID);
+        UnlockTracker.unlockCard(ShadeEnkindle.ID);
         // Rare
         UnlockTracker.unlockCard(ShadeUltimateStrike.ID);
         UnlockTracker.unlockCard(ShadeVividNightmare.ID);
@@ -601,11 +607,13 @@ public class DefaultMod implements
         UnlockTracker.unlockCard(ShadeShadowBarrier.ID);
         UnlockTracker.unlockCard(ShadeImbue.ID);
         UnlockTracker.unlockCard(ShadeElixirOfNoctis.ID);
-        UnlockTracker.unlockCard(ShadeApexCorruption.ID);
+//        UnlockTracker.unlockCard(ShadeApexCorruption.ID); //DEPRECATED
         UnlockTracker.unlockCard(ShadeShadowBlend.ID);
         UnlockTracker.unlockCard(ShadeAmalgamForm.ID);
         UnlockTracker.unlockCard(ShadeUnveil.ID);
         UnlockTracker.unlockCard(ShadeConflagration.ID);
+//        UnlockTracker.unlockCard(ShadeInfusion.ID); //DEPRECATED
+        UnlockTracker.unlockCard(ShadeGrudge.ID);
 
         logger.info("Done adding cards!");
     }

@@ -7,7 +7,7 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import theShade.DefaultMod;
 import theShade.actions.ShadeDefileAction;
 import theShade.cards.AbstractDynamicCard;
-import theShade.characters.TheDefault;
+import theShade.characters.TheShade;
 
 import static theShade.DefaultMod.makeCardPath;
 
@@ -46,7 +46,7 @@ public class ShadeDefile extends AbstractDynamicCard {
     private static final CardRarity RARITY = CardRarity.UNCOMMON; //  Up to you, I like auto-complete on these
     private static final CardTarget TARGET = CardTarget.ALL_ENEMY;  //   since they don't change much.
     private static final CardType TYPE = CardType.ATTACK;       //
-    public static final CardColor COLOR = TheDefault.Enums.COLOR_GRAY;
+    public static final CardColor COLOR = TheShade.Enums.COLOR_GRAY;
 
     private static final int COST = 2;
 

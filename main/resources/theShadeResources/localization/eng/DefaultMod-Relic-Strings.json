@@ -13,6 +13,13 @@
       "At the start of each turn, gain #b1 #ytheshade:Corruption."
     ]
   },
+  "theShade:DiabolicalSorcery": {
+    "NAME": "Diabolical Sorcery",
+    "FLAVOR": "No one is safe from the influence of the Dark Ones.",
+    "DESCRIPTIONS": [
+      "Replaces #yPlaceholderRelic2. At the start of each turn, everyone gains #b1 #ytheshade:Corruption."
+    ]
+  },
   "theShade:FifthShadow": {
     "NAME": "Fifth Shadow",
     "FLAVOR": "Better sew it to your shoes this time.",
@@ -29,21 +36,21 @@
   },
   "theShade:HellfireTalisman": {
     "NAME": "Hellfire Talisman",
-    "FLAVOR": "Say what you want about demons, but they sure know how to burn things.",
+    "FLAVOR": "Say what you want about demons, but they sure know their arson.",
     "DESCRIPTIONS": [
       "Applying #ytheshade:Burning to enemies also makes them #yVulnerable."
     ]
   },
   "theShade:BurningTome": {
     "NAME": "Burning Tome",
-    "FLAVOR": "Burns your hand when held. This tome actually has little to say about fire magic.",
+    "FLAVOR": "Burns your hand when held. This tome ironically doesn't contain much info about fire magic.",
     "DESCRIPTIONS": [
       "Draw 1 additional card each turn. At the start of combat, gain 3 #ytheshade:Burning."
     ]
   },
   "theShade:CursedTome": {
-    "NAME": "Cursed Tome",
-    "FLAVOR": "The fatigue is just from carrying around such a heavy tome.",
+    "NAME": "Abyssal Tome",
+    "FLAVOR": "The fatigue is from carrying around such a heavy tome.",
     "DESCRIPTIONS": [
       "Draw 1 additional card each turn. At the start of combat, add a #ytheshade:Fatigue to your hand."
     ]

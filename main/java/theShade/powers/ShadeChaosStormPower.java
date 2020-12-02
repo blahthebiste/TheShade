@@ -9,11 +9,13 @@ import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
 import com.megacrit.cardcrawl.actions.defect.NewThunderStrikeAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
+import com.megacrit.cardcrawl.cards.blue.Electrodynamics;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.powers.AbstractPower;
+import com.megacrit.cardcrawl.powers.ElectroPower;
 import theShade.actions.LightningAction;
 import theShade.cards.ShadeChaosStormTmpLightningCard;
 import theShade.util.TextureLoader;
@@ -36,6 +38,8 @@ public class ShadeChaosStormPower extends AbstractPower {
     private static int BURN_AMOUNT = 4;
     private static int DAMAGE_AMOUNT = 6;
 
+    private boolean target_all;
+
     public ShadeChaosStormPower(AbstractCreature owner, int amount) {
         this.name = NAME;
         this.ID = POWER_ID;
@@ -55,6 +59,7 @@ public class ShadeChaosStormPower extends AbstractPower {
 
         this.updateDescription();
         this.canGoNegative = false;
+        target_all = false;
     }
 
     public void playApplyPowerSfx() {
@@ -93,7 +98,13 @@ public class ShadeChaosStormPower extends AbstractPower {
             int selection = MathUtils.random(3);
 
             if (selection == 0) {
-                this.addToBot(new LightningAction(DAMAGE_AMOUNT, DamageInfo.DamageType.THORNS, this.owner, null, true, false));
+                if(AbstractDungeon.player.hasPower(ElectroPower.POWER_ID)) {
+                    target_all = true;
+                }
+                else {
+                    target_all = false;
+                }
+                this.addToBot(new LightningAction(DAMAGE_AMOUNT, DamageInfo.DamageType.THORNS, this.owner, null, !target_all, target_all));
             }
             if (selection == 1) {
                 AbstractDungeon.actionManager.addToBottom(new ApplyPowerToRandomEnemyAction(this.owner, new ShadeCorruptionPower(null, CORRUPTION_AMOUNT), CORRUPTION_AMOUNT));

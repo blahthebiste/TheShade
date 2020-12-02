@@ -10,7 +10,7 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.VulnerablePower;
 import com.megacrit.cardcrawl.vfx.ThoughtBubble;
 import theShade.DefaultMod;
-import theShade.characters.TheDefault;
+import theShade.characters.TheShade;
 
 import static theShade.DefaultMod.makeCardPath;
 
@@ -50,7 +50,7 @@ public class ShadeFeint extends AbstractDynamicCard {
     private static final CardRarity RARITY = CardRarity.COMMON; //  Up to you, I like auto-complete on these
     private static final CardTarget TARGET = CardTarget.ENEMY;  //   since they don't change much.
     private static final CardType TYPE = CardType.SKILL;       //
-    public static final CardColor COLOR = TheDefault.Enums.COLOR_GRAY;
+    public static final CardColor COLOR = TheShade.Enums.COLOR_GRAY;
 
     private static final int COST = 0;
     private static final int VULNERABLE_AMOUNT = 1;

@@ -8,9 +8,8 @@ import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import theShade.DefaultMod;
 import theShade.cards.AbstractDynamicCard;
-import theShade.characters.TheDefault;
+import theShade.characters.TheShade;
 import theShade.powers.ShadeConflagrationPower;
-import theShade.powers.ShadeVesselOfSufferingPower;
 
 import static theShade.DefaultMod.makeCardPath;
 
@@ -37,12 +36,12 @@ public class ShadeConflagration extends AbstractDynamicCard {
     private static final CardRarity RARITY = CardRarity.RARE;
     private static final CardTarget TARGET = CardTarget.SELF;
     private static final CardType TYPE = CardType.POWER;
-    public static final CardColor COLOR = TheDefault.Enums.COLOR_GRAY;
+    public static final CardColor COLOR = TheShade.Enums.COLOR_GRAY;
 
     private static final int COST = 1;
 
-    private static final int BURN_AMOUNT = 5;
-    private static final int UPGRADED_BURN_AMOUNT = 3;
+    private static final int BURN_AMOUNT = 4;
+    private static final int UPGRADED_BURN_AMOUNT = 2;
     // /STAT DECLARATION/
 
     public ShadeConflagration() {

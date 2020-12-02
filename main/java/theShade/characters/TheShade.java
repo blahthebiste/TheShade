@@ -30,13 +30,13 @@ import theShade.relics.*;
 import java.util.ArrayList;
 
 import static theShade.DefaultMod.*;
-import static theShade.characters.TheDefault.Enums.COLOR_GRAY;
+import static theShade.characters.TheShade.Enums.COLOR_GRAY;
 
 //Wiki-page https://github.com/daviscook477/BaseMod/wiki/Custom-Characters
 //and https://github.com/daviscook477/BaseMod/wiki/Migrating-to-5.0
 //All text (starting description and loadout, anything labeled TEXT[]) can be found in DefaultMod-character-Strings.json in the resources
 
-public class TheDefault extends CustomPlayer {
+public class TheShade extends CustomPlayer {
     public static final Logger logger = LogManager.getLogger(DefaultMod.class.getName());
 
     // =============== CHARACTER ENUMERATORS =================
@@ -99,7 +99,7 @@ public class TheDefault extends CustomPlayer {
 
     // =============== CHARACTER CLASS START =================
 
-    public TheDefault(String name, PlayerClass setClass) {
+    public TheShade(String name, PlayerClass setClass) {
         super(name, setClass, orbTextures,
                 "theShadeResources/images/char/defaultCharacter/orb/vfx.png", null,
                 new SpriterAnimation(
@@ -239,6 +239,9 @@ public class TheDefault extends CustomPlayer {
 //        retVal.add(ShadeSubversion.ID);
 //        retVal.add(ShadeEthericShift.ID);
 //        retVal.add(ShadeShadowBarrier.ID);
+//        retVal.add(ShadeShadowBarrier.ID);
+//        retVal.add(ShadeShadowBarrier.ID);
+//        retVal.add(ShadeShadowBarrier.ID);
 //        retVal.add(ShadeImbue.ID);
 //        retVal.add(ShadeElixirOfNoctis.ID);
 //        retVal.add(ShadeApexCorruption.ID);
@@ -248,6 +251,9 @@ public class TheDefault extends CustomPlayer {
 //        retVal.add(ShadeUnveil.ID);
 //        retVal.add(ShadeConflagration.ID);
 //        retVal.add(ShadeVoodooDoll.ID);
+//        retVal.add(ShadeInfusion.ID);
+//        retVal.add(ShadeGrudge.ID);
+//        retVal.add(ShadeEnkindle.ID);
         return retVal;
     }
 
@@ -327,7 +333,7 @@ public class TheDefault extends CustomPlayer {
     // Should return a new instance of your character, sending name as its name parameter.
     @Override
     public AbstractPlayer newInstance() {
-        return new TheDefault(name, chosenClass);
+        return new TheShade(name, chosenClass);
     }
 
     // Should return a Color object to be used to color the miniature card images in run history.

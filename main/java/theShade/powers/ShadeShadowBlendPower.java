@@ -1,8 +1,12 @@
 package theShade.powers;
 
 import ShadeCardModifiers.ShadeShadowBlendReplayCardsAction;
+import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
+import com.badlogic.gdx.math.MathUtils;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.ReducePowerAction;
 import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
@@ -17,6 +21,8 @@ import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.powers.IntangiblePlayerPower;
+import com.megacrit.cardcrawl.vfx.stance.StanceAuraEffect;
+import com.megacrit.cardcrawl.vfx.stance.WrathParticleEffect;
 import theShade.util.TextureLoader;
 
 import java.util.*;
@@ -63,6 +69,25 @@ public class ShadeShadowBlendPower extends AbstractPower {
 
     public void playApplyPowerSfx() {
         CardCrawlGame.sound.play("POWER_STRENGTH", 0.05F);
+    }
+
+    @Override
+    public void renderIcons(SpriteBatch sb, float x, float y, Color c) {
+        super.renderIcons(sb, x, y, c);
+        // Put fancy particle effects here someday
+//        if (!Settings.DISABLE_EFFECTS) {
+//            AbstractDungeon.player.particleTimer -= Gdx.graphics.getDeltaTime();
+//            if (this.particleTimer < 0.0F) {
+//                this.particleTimer = 0.05F;
+//                AbstractDungeon.effectsQueue.add(new WrathParticleEffect());
+//            }
+//        }
+//
+//        this.particleTimer2 -= Gdx.graphics.getDeltaTime();
+//        if (this.particleTimer2 < 0.0F) {
+//            this.particleTimer2 = MathUtils.random(0.3F, 0.4F);
+//            AbstractDungeon.effectsQueue.add(new StanceAuraEffect("Wrath"));
+//        }
     }
 
     public void stackPower(int stackAmount) {

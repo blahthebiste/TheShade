@@ -12,6 +12,8 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.AbstractPower;
+import com.megacrit.cardcrawl.powers.IntangiblePlayerPower;
+import com.megacrit.cardcrawl.powers.IntangiblePower;
 import theShade.util.TextureLoader;
 
 import java.util.Iterator;
@@ -81,8 +83,8 @@ public class ShadeConflagrationPower extends AbstractPower {
 
     @Override
     public void onUseCard(AbstractCard card, UseCardAction action) {
-        boolean playerHasCorruption = AbstractDungeon.player.hasPower(ShadeCorruptionPower.POWER_ID);
-        if (card.type == AbstractCard.CardType.ATTACK && !playerHasCorruption) {
+        boolean playerHasIntangible = AbstractDungeon.player.hasPower(IntangiblePlayerPower.POWER_ID) || AbstractDungeon.player.hasPower(IntangiblePower.POWER_ID);
+        if (card.type == AbstractCard.CardType.ATTACK && !playerHasIntangible) {
             Iterator var1 = AbstractDungeon.getMonsters().monsters.iterator();
 
             while(var1.hasNext()) {

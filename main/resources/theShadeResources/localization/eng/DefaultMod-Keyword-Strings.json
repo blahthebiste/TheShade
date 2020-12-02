@@ -24,6 +24,14 @@
     "DESCRIPTION": "A 2 cost skill that removes Corruption."
   },
   {
+    "PROPER_NAME": "Rebuff",
+    "NAMES": [
+      "rebuff",
+      "rebuffs"
+    ],
+    "DESCRIPTION": "A 1 cost skill that reduces Corruption and gives Block."
+  },
+  {
     "PROPER_NAME": "Shadows",
     "NAMES": [
       "shadows"

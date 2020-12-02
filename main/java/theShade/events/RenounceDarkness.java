@@ -33,7 +33,7 @@ public class RenounceDarkness extends AbstractImageEvent {
     private static final String NAME = eventStrings.NAME;
     private static final String[] DESCRIPTIONS = eventStrings.DESCRIPTIONS;
     private static final String[] OPTIONS = eventStrings.OPTIONS;
-    public static final String IMG = makeEventPath("IdentityCrisisEvent.png");
+    public static final String IMG = makeEventPath("RenounceDarkness.png");
 
     private int screenNum = 0; // The initial screen we will see when encountering the event - screen 0;
 
@@ -50,6 +50,7 @@ public class RenounceDarkness extends AbstractImageEvent {
             case 0: // While you are on screen number 0 (The starting screen)
                 switch (i) {
                     case 0: // If you press button the first button (Button at index 0): Renounce Darkness
+                        imageEventText.loadImage("theShadeResources/images/events/RenounceDarkness2.png"); // Change the shown image
                         this.imageEventText.updateBodyText(DESCRIPTIONS[1]); // Update the text of the event
                         this.imageEventText.updateDialogOption(0, OPTIONS[2]); // 1. Change the first button to the [Leave] button
                         this.imageEventText.clearRemainingOptions(); // 2. and remove all others

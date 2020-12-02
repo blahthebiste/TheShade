@@ -10,10 +10,13 @@ import com.megacrit.cardcrawl.actions.AbstractGameAction.ActionType;
 import com.megacrit.cardcrawl.actions.defect.ChannelAction;
 import com.megacrit.cardcrawl.actions.defect.NewThunderStrikeAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
+import com.megacrit.cardcrawl.cards.DamageInfo;
+import com.megacrit.cardcrawl.cards.blue.Electrodynamics;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.orbs.AbstractOrb;
 import com.megacrit.cardcrawl.orbs.Lightning;
+import com.megacrit.cardcrawl.powers.ElectroPower;
 import com.megacrit.cardcrawl.ui.panels.EnergyPanel;
 import theShade.cards.ShadeChaosStormTmpLightningCard;
 
@@ -23,6 +26,7 @@ public class ShadeTempestAction extends AbstractGameAction {
     private int energyOnUse = -1;
     private boolean upgraded;
     private int damage;
+    private boolean target_all;
 
     public ShadeTempestAction(AbstractPlayer p, int damageAmount, int energyOnUse, boolean upgraded, boolean freeToPlayOnce) {
         this.p = p;
@@ -32,6 +36,7 @@ public class ShadeTempestAction extends AbstractGameAction {
         this.energyOnUse = energyOnUse;
         this.upgraded = upgraded;
         this.freeToPlayOnce = freeToPlayOnce;
+        this.target_all = false;
     }
 
     public void update() {
@@ -50,9 +55,15 @@ public class ShadeTempestAction extends AbstractGameAction {
         }
 
         if (effect > 0) {
-            AbstractCard tmpLightningCard = new ShadeChaosStormTmpLightningCard(this.damage);
+//            AbstractCard tmpLightningCard = new ShadeChaosStormTmpLightningCard(this.damage);
+            if(p.hasPower(ElectroPower.POWER_ID)) {
+                target_all = true;
+            }
+            else {
+                target_all = false;
+            }
             for(int i = 0; i < effect; ++i) {
-                this.addToBot(new NewThunderStrikeAction(tmpLightningCard));
+                this.addToBot(new LightningAction(this.damage, DamageInfo.DamageType.NORMAL, p, null, !target_all, target_all));
             }
 
             if (!this.freeToPlayOnce) {

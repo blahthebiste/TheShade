@@ -115,7 +115,7 @@ public class LightningAction extends AbstractGameAction {
             }
         }
         else {
-            System.out.println("target: " + target + "  isRandom: " + isRandom);
+//            System.out.println("target: " + target + "  isRandom: " + isRandom);
             // Need to figure out who to hit if the target is null
             if (target == null && isRandom) {
                 AbstractCreature m = AbstractDungeon.getRandomMonster();
@@ -125,7 +125,7 @@ public class LightningAction extends AbstractGameAction {
                 // Weird case where targetsAll was false, isRandom is false, and target is null. Not a valid case.
                 throw new NullPointerException("No valid target given! Use random target or all targets, or give valid target!");
             }
-            System.out.println("Striking target");
+//            System.out.println("Striking target");
             StrikeLightning(target);
         }
         this.isDone = true;

@@ -1,5 +1,7 @@
 package theShade.powers;
 
+import ShadeCardModifiers.ShadeEthericMod;
+import basemod.helpers.CardModifierManager;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.megacrit.cardcrawl.actions.common.MakeTempCardInHandAction;
@@ -89,10 +91,8 @@ public class ShadeDefenseAgainstTheDarkArtsUpgradedPower extends AbstractPower {
             this.flash();
             AbstractCard tmpRebuff = new ShadeRebuff();
             tmpRebuff.upgrade();
-            tmpRebuff.isEthereal = true;
-            for (int i = 0; i < this.amount; i++) {
-                this.addToBot(new MakeTempCardInHandAction(tmpRebuff));
-            }
+            CardModifierManager.addModifier(tmpRebuff, new ShadeEthericMod());
+            this.addToBot(new MakeTempCardInHandAction(tmpRebuff, this.amount));
         }
     }
 

@@ -59,12 +59,12 @@
   },
   "theShade:ShadeMarkOfTheWitness": {
     "NAME": "Mark of the Witness",
-    "DESCRIPTION": "Apply theshade:Deteriorate. Exhaust."
+    "DESCRIPTION": "Apply theshade:Deteriorate to an enemy. Exhaust."
   },
   "theShade:ShadeArcaneFire": {
     "NAME": "Arcane Fire",
-    "DESCRIPTION": "Apply !M! theshade:Burning.",
-    "UPGRADE_DESCRIPTION": "Apply !M! theshade:Burning. NL Draw a card."
+    "DESCRIPTION": "Apply !M! theshade:Burning to ANY target.",
+    "UPGRADE_DESCRIPTION": "Apply !M! theshade:Burning to ANY target. NL Draw a card."
   },
   "theShade:ShadeDescend": {
     "NAME": "Descend",
@@ -76,7 +76,7 @@
   },
   "theShade:ShadeShroud": {
     "NAME": "Shroud",
-    "DESCRIPTION": "Gain !B! Block. NL Apply !M! theshade:Wither."
+    "DESCRIPTION": "Gain !B! Block. NL Apply !M! theshade:Wither to ANY target."
   },
   "theShade:ShadeExert": {
     "NAME": "Exert",
@@ -150,7 +150,7 @@
   },
   "theShade:ShadeWitchFire": {
     "NAME": "Witch Fire",
-    "DESCRIPTION": "Apply 3 theshade:Burning and 2 theshade:Wither.",
+    "DESCRIPTION": "Apply 3 theshade:Burning and 2 theshade:Wither to ANY target.",
     "UPGRADE_DESCRIPTION": "Apply 3 theshade:Burning and 2 theshade:Wither to all enemies."
   },
   "theShade:ShadeWrithingFlame": {
@@ -212,9 +212,9 @@
     "NAME": "Overdrive",
     "DESCRIPTION": "Whenever you gain theshade:Corruption, gain twice as much."
   },
-  "theShade:ShadeDistortion": {
-    "NAME": "Distortion",
-    "DESCRIPTION": "Curses can be played. Whenever you play a Curse, gain 1 energy."
+  "theShade:ShadeEnkindle": {
+    "NAME": "Enkindle",
+    "DESCRIPTION": "Gain 3 Strength and 3 theshade:Burning."
   },
   "theShade:ShadeChaosStorm": {
     "NAME": "Chaos Storm",
@@ -223,8 +223,8 @@
   },
   "theShade:ShadeDefenseAgainstTheDarkArts": {
     "NAME": "Defense vs. Dark Arts",
-    "DESCRIPTION": "At the start of each turn, add theshade:Purge to your hand.",
-    "UPGRADE_DESCRIPTION": "At the start of each turn, add an upgraded theshade:Purge to your hand."
+    "DESCRIPTION": "At the start of each turn, add an Ethereal theshade:Rebuff to your hand.",
+    "UPGRADE_DESCRIPTION": "At the start of each turn, add an upgraded Ethereal theshade:Rebuff to your hand."
   },
   "theShade:ShadeMidnightHorizon": {
     "NAME": "Midnight Horizon",
@@ -263,7 +263,7 @@
   },
   "theShade:ShadeFexnil": {
     "NAME": "Fexnil",
-    "DESCRIPTION": "Deal !D! damage to the leftmost enemy, then play this again on the next enemy with doubled damage."
+    "DESCRIPTION": "Deal !D! damage to the leftmost enemy, then do it again to each consecutive enemy with doubled damage."
   },
   "theShade:ShadeArcaneInferno": {
     "NAME": "Arcane Inferno",
@@ -271,12 +271,12 @@
   },
   "theShade:ShadeDeathSentence": {
     "NAME": "Death Sentence",
-    "DESCRIPTION": "Apply theshade:Deteriorate and 99 theshade:Wither. NL Exhaust."
+    "DESCRIPTION": "Apply theshade:Deteriorate and 99 theshade:Wither to ANY target. NL Exhaust."
   },
   "theShade:ShadeSubversion": {
     "NAME": "Subversion",
-    "DESCRIPTION": "Choose a target. During your turn, all damage they take is converted into healing. During enemy turn, all healing they receive is converted into damage. Lasts for 1 round. NL Exhaust.",
-    "UPGRADE_DESCRIPTION": "Choose a target. During your turn, all damage they take is converted into healing. During enemy turn, all healing they receive is converted into damage. Lasts for 2 rounds. NL Exhaust."
+    "DESCRIPTION": "Choose ANY target. During your turn, all damage they take is converted into healing. During enemy turn, all healing they receive is converted into damage. Lasts for 1 round. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "Choose ANY target. During your turn, all damage they take is converted into healing. During enemy turn, all healing they receive is converted into damage. Lasts for 2 rounds. NL Exhaust."
   },
   "theShade:ShadeEthericShift": {
     "NAME": "Etheric Shift",
@@ -292,13 +292,13 @@
   },
   "theShade:ShadeElixirOfNoctis": {
     "NAME": "Elixir of Noctis",
-    "DESCRIPTION": "Choose a target. Put them to sleep for !M! turns. At the start of each turn they are asleep, they recover 30 HP. NL Exhaust.",
-    "UPGRADE_DESCRIPTION":"Choose a target. Put them to sleep for !M! turns. At the start of each turn they are asleep, they recover 50 HP. NL Exhaust."
+    "DESCRIPTION": "Choose ANY target. Put them to sleep for !M! turns. At the start of each turn they are asleep, they recover 30 HP. NL Exhaust.",
+    "UPGRADE_DESCRIPTION":"Choose ANY target. Put them to sleep for !M! turns. At the start of each turn they are asleep, they recover 50 HP. NL Exhaust."
   },
   "theShade:ShadeApexCorruption": {
     "NAME": "Apex Corruption",
     "DESCRIPTION": "Costs 1 less for each stack of theshade:Corruption you have. NL Gain 3 energy, and draw 3 extra cards, each turn. NL You can no longer gain or lose theshade:Corruption. NL Exhaust.",
-    "UPGRADE_DESCRIPTION":"Costs 1 less for each stack of theshade:Corruption you have. NL Transform all your cards into Black Cards. NL You can no longer gain or lose theshade:Corruption. NL Exhaust.",
+    "UPGRADE_DESCRIPTION":"[#7c0060]~@THIS@~[] [#7c0060]~@VESSEL@~[] [#7c0060]~@IS@~[] [#7c0060]~@MINE@~[] [#7c0060]~@NOW@~[].",
     "MOD_DESCRIPTION":"Costs 1 less for each stack of theshade:Corruption you have. NL Transform all your cards into upgraded Black Cards. NL You can no longer gain or lose theshade:Corruption. NL Exhaust."
   },
   "theShade:ShadeShadowBlend": {
@@ -320,13 +320,23 @@
   },
   "theShade:ShadeConflagration": {
     "NAME": "Conflagration",
-    "DESCRIPTION": "Whenever you play an attack, if you have 0 Corruption, apply 5 Burning to all enemies.",
-    "UPGRADE_DESCRIPTION": "Whenever you play an attack, if you have 0 Corruption, apply 8 Burning to all enemies."
+    "DESCRIPTION": "Whenever you play an attack, if you are not Intangible, apply !M! Burning to all enemies.",
+    "UPGRADE_DESCRIPTION": "Whenever you play an attack, if you are not Intangible, apply !M! Burning to all enemies."
   },
   "theShade:ShadeVoodooDoll": {
     "NAME": "Soul Bind",
     "DESCRIPTION": "Choose an enemy. NL Summon a doll with HP equal to half of theirs. NL Any damage or healing done to the doll also affects the enemy.",
     "UPGRADE_DESCRIPTION": "Choose an enemy. NL Summon a doll with HP equal to 75% of theirs. NL Any damage or healing done to the doll also affects the enemy."
+  },
+  "theShade:ShadeInfusion": {
+    "NAME": "Infusion",
+    "DESCRIPTION": "Choose ANY target. During the next enemy turn, they receive double damage and healing from all sources.",
+    "UPGRADE_DESCRIPTION": "Choose ANY target. During the next enemy turn, they receive triple damage and healing from all sources."
+  },
+  "theShade:ShadeGrudge": {
+    "NAME": "Grudge",
+    "DESCRIPTION": "Shuffle a copy of your draw pile into your discard pile.",
+    "UPGRADE_DESCRIPTION": "Duplicate your draw pile."
   },
   "theShade:DefaultCommonSkill": {
     "NAME": "Defend",

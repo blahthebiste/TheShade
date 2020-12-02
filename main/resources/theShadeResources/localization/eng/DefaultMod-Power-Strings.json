@@ -79,7 +79,7 @@
         },
         "theShade:ShadeDefenseAgainstTheDarkArtsPower": {
                 "NAME": "Defense Against The Dark Arts",
-                "DESCRIPTIONS": ["At the start of each turn, add #yPurge to your hand.","At the start of each turn, add an upgraded #yPurge to your hand.","At the start of each turn, add #b"," #yPurges to your hand."," upgraded #yPurges to your hand."]
+                "DESCRIPTIONS": ["At the start of each turn, add an Ethereal #yRebuff to your hand.","At the start of each turn, add an upgraded Ethereal #yRebuff to your hand.","At the start of each turn, add #b"," #yPurges to your hand."," upgraded #yPurges to your hand."]
         },
         "theShade:ShadeCorruptionNextTurnPower": {
                 "NAME": "Shadow Barrier",
@@ -115,11 +115,19 @@
         },
         "theShade:ShadeConflagrationPower": {
                 "NAME": "Conflagration",
-                "DESCRIPTIONS": ["Whenever you play an attack, if you have no #yCorruption, apply "," #yBurning to all enemies."]
+                "DESCRIPTIONS": ["Whenever you play an attack, if you are not Intangible, apply "," #yBurning to all enemies."]
         },
         "theShade:ShadeHpTetherPower": {
                 "NAME": "Soul Tether",
                 "DESCRIPTIONS": ["Whenever this entity receives damage or healing, so does the tethered ","."]
+        },
+        "theShade:ShadeInfusionPower": {
+                "NAME": "Infusion",
+                "DESCRIPTIONS": ["This entity receives double damage and healing outside of the player's turn."]
+        },
+        "theShade:ShadeInfusionUpgradedPower": {
+                "NAME": "Strong Infusion",
+                "DESCRIPTIONS": ["This entity receives triple damage and healing outside of the player's turn."]
         },
         "theShade:Wither": {
         "NAME": "Wither",

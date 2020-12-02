@@ -1,16 +1,12 @@
 package theShade.cards;
 
-import com.badlogic.gdx.graphics.Color;
-import com.megacrit.cardcrawl.actions.AbstractGameAction;
-import com.megacrit.cardcrawl.actions.common.DamageAction;
-import com.megacrit.cardcrawl.actions.defect.NewThunderStrikeAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
-import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
-import com.megacrit.cardcrawl.helpers.CardHelper;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import com.megacrit.cardcrawl.powers.ElectroPower;
 import theShade.DefaultMod;
-import theShade.characters.TheDefault;
+import theShade.actions.LightningAction;
+import theShade.characters.TheShade;
 
 import static theShade.DefaultMod.makeCardPath;
 
@@ -49,31 +45,38 @@ public class ShadeArcaneLightning extends AbstractDynamicCard {
     private static final CardRarity RARITY = CardRarity.COMMON; //  Up to you, I like auto-complete on these
     private static final CardTarget TARGET = CardTarget.ALL_ENEMY;  //   since they don't change much.
     private static final CardType TYPE = CardType.ATTACK;       //
-    public static final CardColor COLOR = TheDefault.Enums.COLOR_GRAY;
+    public static final CardColor COLOR = TheShade.Enums.COLOR_GRAY;
 
     private static final int COST = 2;
 
-    private static final int DAMAGE = 7;
+    private static final int DAMAGE = 8;
     private static final int UPGRADE_DAMAGE = 2;
 
     private static final int NUM_LIGHTNING = 2;
 //    private static final int UPGRADE_NUM_LIGHTNING = 1;
 
     // /STAT DECLARATION/
-
+    private boolean target_all;
 
     public ShadeArcaneLightning() { // - This one and the one right under the imports are the most important ones, don't forget them
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
         baseDamage = DAMAGE;
         baseMagicNumber = magicNumber = NUM_LIGHTNING;
+        target_all = false;
     }
 
 
     // Actions the card should do.
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
+        if(p.hasPower(ElectroPower.POWER_ID)) {
+            target_all = true;
+        }
+        else {
+            target_all = false;
+        }
         for(int i = 0; i < magicNumber; ++i) {
-            this.addToBot(new NewThunderStrikeAction(this));
+            this.addToBot(new LightningAction(this.damage, DamageInfo.DamageType.NORMAL, p, null, !target_all, target_all));
         }
     }
 

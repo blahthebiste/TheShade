@@ -1,7 +1,6 @@
 package theShade.cards.uncommon;
 
 import com.badlogic.gdx.graphics.Color;
-import com.megacrit.cardcrawl.actions.defect.NewThunderStrikeAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
@@ -10,13 +9,12 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.CardHelper;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import com.megacrit.cardcrawl.orbs.AbstractOrb;
-import com.megacrit.cardcrawl.orbs.Lightning;
+import com.megacrit.cardcrawl.powers.ElectroPower;
 import theShade.DefaultMod;
 import theShade.actions.LightningAction;
 import theShade.cards.AbstractDynamicCard;
 import theShade.cards.ShadeSpite;
-import theShade.characters.TheDefault;
+import theShade.characters.TheShade;
 
 import java.util.Iterator;
 
@@ -60,7 +58,7 @@ public class ShadeBlackLightning extends AbstractDynamicCard {
     private static final CardRarity RARITY = CardRarity.UNCOMMON; //  Up to you, I like auto-complete on these
     private static final CardTarget TARGET = CardTarget.ALL_ENEMY;  //   since they don't change much.
     private static final CardType TYPE = CardType.ATTACK;       //
-    public static final CardColor COLOR = TheDefault.Enums.COLOR_GRAY;
+    public static final CardColor COLOR = TheShade.Enums.COLOR_GRAY;
 
     private static final int COST = 2;
     private static final int UPGRADE_COST = 1;
@@ -70,12 +68,13 @@ public class ShadeBlackLightning extends AbstractDynamicCard {
 
     // /STAT DECLARATION/
     public static final Color BLACK_LIGHTNING_COLOR = CardHelper.getColor(0.0f, 0.0f, 0.0f); // Black
-
+    private boolean target_all;
 
     public ShadeBlackLightning() { // - This one and the one right under the imports are the most important ones, don't forget them
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
         baseDamage = DAMAGE;
         baseMagicNumber = magicNumber = 0;
+        target_all = false;
     }
 
 
@@ -122,8 +121,14 @@ public class ShadeBlackLightning extends AbstractDynamicCard {
             }
         }
 
+        if(p.hasPower(ElectroPower.POWER_ID)) {
+            target_all = true;
+        }
+        else {
+            target_all = false;
+        }
         for(int i = 0; i < num_curses; ++i) {
-            this.addToBot(new LightningAction(this.damage, DamageInfo.DamageType.NORMAL, p, null, true, false, BLACK_LIGHTNING_COLOR));
+            this.addToBot(new LightningAction(this.damage, DamageInfo.DamageType.NORMAL, p, null, !target_all, target_all, BLACK_LIGHTNING_COLOR));
         }
     }
 

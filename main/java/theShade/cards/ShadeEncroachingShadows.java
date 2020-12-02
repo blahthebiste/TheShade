@@ -6,10 +6,8 @@ import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import com.megacrit.cardcrawl.ui.panels.EnergyPanel;
 import theShade.DefaultMod;
-import theShade.actions.UncommonPowerAction;
-import theShade.characters.TheDefault;
+import theShade.characters.TheShade;
 import theShade.powers.ShadeEncroachingShadowsPower;
 
 import static theShade.DefaultMod.makeCardPath;
@@ -37,7 +35,7 @@ public class ShadeEncroachingShadows  extends AbstractDynamicCard {
     private static final CardRarity RARITY = CardRarity.COMMON;
     private static final CardTarget TARGET = CardTarget.SELF;
     private static final CardType TYPE = CardType.POWER;
-    public static final CardColor COLOR = TheDefault.Enums.COLOR_GRAY;
+    public static final CardColor COLOR = TheShade.Enums.COLOR_GRAY;
 
     private static final int COST = 1;
 

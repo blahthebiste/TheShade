@@ -7,9 +7,13 @@ import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
+import com.megacrit.cardcrawl.localization.CardStrings;
+import com.megacrit.cardcrawl.localization.EventStrings;
 import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.unlock.UnlockTracker;
+import com.megacrit.cardcrawl.vfx.ThoughtBubble;
+import theShade.cards.deprecated.ShadeApexCorruption;
 import theShade.util.TextureLoader;
 
 import static theShade.DefaultMod.makePowerPath;
@@ -24,6 +28,9 @@ public class ShadeCorruptionPower extends AbstractPower {
     // There's a fallback "missing texture" image, so the game shouldn't crash if you accidentally put a non-existent file.
     private static final Texture tex84 = TextureLoader.getTexture(makePowerPath("ShadeCorruption84.png"));
     private static final Texture tex32 = TextureLoader.getTexture(makePowerPath("ShadeCorruption32.png"));
+
+    private static final EventStrings eventStrings = CardCrawlGame.languagePack.getEventString("theShade:ShadeApexCorruption");
+    public static final String BUBBLE_DESCRIPTION = eventStrings.DESCRIPTIONS[0];
 
     public ShadeCorruptionPower(AbstractCreature owner, int amount) {
         this.name = NAME;
@@ -54,9 +61,14 @@ public class ShadeCorruptionPower extends AbstractPower {
     public void stackPower(int stackAmount) {
         this.fontScale = 8.0F;
         if (!this.owner.hasPower(ShadeApexCorruptionPower.POWER_ID)) {
+            int preamount = this.amount;
             this.amount += stackAmount;
             if (this.owner.hasPower(ShadeOverdrivePower.POWER_ID)) {
                 this.amount += stackAmount; // Double the corruption if the player has Overdrive.
+            }
+            if (this.amount >= 999 && preamount < 999) { // When overcoming 999, enter Apex Corruption
+                // BROKEN, WIP
+                //                AbstractDungeon.effectList.add(new ThoughtBubble(AbstractDungeon.player.dialogX, AbstractDungeon.player.dialogY, 3.0F, BUBBLE_DESCRIPTION, true));
             }
             if (this.amount >= 9999) {
                 this.amount = 9999;

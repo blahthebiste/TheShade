@@ -65,6 +65,8 @@ public class ShadeForbiddenKnowledge extends AbstractDynamicCard {
     public ShadeForbiddenKnowledge() { // - This one and the one right under the imports are the most important ones, don't forget them
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
         this.exhaust = true;
+        rawDescription = DESCRIPTION + " NL Exhaust.";
+        this.initializeDescription();
     }
 
     @Override

@@ -2,6 +2,7 @@ package theShade.powers;
 
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
+import com.badlogic.gdx.math.MathUtils;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.actions.common.HealAction;
@@ -12,12 +13,15 @@ import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
+import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.powers.MinionPower;
+import com.megacrit.cardcrawl.vfx.combat.HemokinesisParticle;
 import theShade.util.TextureLoader;
+import theShade.vfx.ShadeTetherParticle;
 
 import static com.megacrit.cardcrawl.cards.DamageInfo.DamageType.THORNS;
 import static theShade.DefaultMod.makePowerPath;
@@ -55,10 +59,10 @@ public class ShadeHpTetherPower extends AbstractPower {
     }
 
     @Override
-    public int onAttacked(DamageInfo info, int damageAmount) { // Copy the damage to the victim
+    public int onAttacked(DamageInfo info, int damageAmount) { // Copy the damage to the victim as HP loss
         if (damageAmount > 0) {
             this.flash();
-            this.addToTop(new DamageAction(this.victim, info));
+            this.addToTop(new DamageAction(this.victim, new DamageInfo(this.victim, damageAmount, DamageInfo.DamageType.HP_LOSS)));
         }
         return damageAmount;
     }
@@ -72,6 +76,18 @@ public class ShadeHpTetherPower extends AbstractPower {
         return healAmount;
     }
 
+    @Override
+    public void updateParticles() {
+        if(this.owner.hb.hovered) {
+            float startX = this.owner.hb.cX + MathUtils.random(16.0F, -16.0F) * Settings.scale;
+            float startY = this.owner.hb.cY + MathUtils.random(16.0F, -16.0F) * Settings.scale;
+            float endX = this.victim.hb.cX;
+            float endY = this.victim.hb.cY - (this.victim.hb.height)/2;
+
+            AbstractDungeon.effectsQueue.add(new ShadeTetherParticle(startX, startY, endX, endY, false));
+//            AbstractDungeon.effectsQueue.add(new ShadeTetherParticle(endX, endY, startX, startY, false));
+        }
+    }
 //    @Override
 //    public void onVictory() {
 //        this.owner = null;

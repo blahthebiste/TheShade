@@ -130,6 +130,7 @@ public class ShadeElixirOfNoctisPower extends AbstractPower {
         if (!isPlayer) {
             this.applySleep();
         }
+        this.addToBot(new HealAction(this.owner, this.owner, this.healing));
 
         if (!AbstractDungeon.getMonsters().areMonstersBasicallyDead())
         {

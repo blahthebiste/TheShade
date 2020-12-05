@@ -198,11 +198,16 @@
   },
   "theShade:ShadeShadeDance": {
     "NAME": "Shade-dance",
-    "DESCRIPTION": "Apply 1 Intangible to everyone. NL Exhaust."
+    "DESCRIPTION": "Apply 1 Intangible to EVERYONE. NL Exhaust."
   },
   "theShade:ShadeSpreadingCorruption": {
     "NAME": "Spreading Corruption",
     "DESCRIPTION": "At the start of each of your turns, apply theshade:Deteriorate to all enemies that are not Deteriorating."
+  },
+  "theShade:ShadeDistortion": {
+    "NAME": "Distortion",
+    "DESCRIPTION": "Curses are playable. Whenever you play a Curse, gain 1 energy.",
+    "UPGRADE_DESCRIPTION": "Whenever you draw a Curse, transform it into a random Black Card."
   },
   "theShade:ShadeProlongedSuffering": {
     "NAME": "Prolonged Suffering",
@@ -228,7 +233,7 @@
   },
   "theShade:ShadeMidnightHorizon": {
     "NAME": "Midnight Horizon",
-    "DESCRIPTION": "Your next attack is replayed against each enemy."
+    "DESCRIPTION": "Your next attack is replayed against each other enemy."
   },
   "theShade:ShadeExecute": {
     "NAME": "Execute",
@@ -249,7 +254,7 @@
   },
   "theShade:ShadeMutualAnnihilation": {
     "NAME": "Mutual Annihilation",
-    "DESCRIPTION": "Deal !D! damage. NL Retain. NL Whenever you take unblocked damage, reduce the cost of this by 1 this combat."
+    "DESCRIPTION": "Deal !D! damage to all enemies. NL Retain. NL Whenever you take unblocked damage, reduce the cost of this by 1 this combat."
   },
   "theShade:ShadeArcaneTempest": {
     "NAME": "Arcane Tempest",
@@ -267,7 +272,7 @@
   },
   "theShade:ShadeArcaneInferno": {
     "NAME": "Arcane Inferno",
-    "DESCRIPTION": "Apply 5 theshade:Burning to everyone, !M! times. NL Exhaust."
+    "DESCRIPTION": "Apply 5 theshade:Burning to EVERYONE, !M! times. NL Exhaust."
   },
   "theShade:ShadeDeathSentence": {
     "NAME": "Death Sentence",
@@ -292,8 +297,8 @@
   },
   "theShade:ShadeElixirOfNoctis": {
     "NAME": "Elixir of Noctis",
-    "DESCRIPTION": "Choose ANY target. Put them to sleep for !M! turns. At the start of each turn they are asleep, they recover 30 HP. NL Exhaust.",
-    "UPGRADE_DESCRIPTION":"Choose ANY target. Put them to sleep for !M! turns. At the start of each turn they are asleep, they recover 50 HP. NL Exhaust."
+    "DESCRIPTION": "Choose ANY target. Put them to sleep for !M! turns. At the end of each turn they are asleep, they recover 30 HP. NL Exhaust.",
+    "UPGRADE_DESCRIPTION":"Choose ANY target. Put them to sleep for !M! turns. At the end of each turn they are asleep, they recover 50 HP. NL Exhaust."
   },
   "theShade:ShadeApexCorruption": {
     "NAME": "Apex Corruption",

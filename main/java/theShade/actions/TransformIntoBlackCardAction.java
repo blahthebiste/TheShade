@@ -5,15 +5,13 @@ import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.AbstractCreature;
-import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
-import com.megacrit.cardcrawl.helpers.CardHelper;
-import com.megacrit.cardcrawl.localization.UIStrings;
-
+//import infinitespire.InfiniteSpire;
+import infinitespire.helpers.CardHelper;
 import java.util.Iterator;
 
-public class TransformIntoCurseAction extends AbstractGameAction {
+public class TransformIntoBlackCardAction extends AbstractGameAction {
     private AbstractPlayer p;
     private boolean isRandom;
     private boolean anyNumber;
@@ -21,7 +19,7 @@ public class TransformIntoCurseAction extends AbstractGameAction {
     private boolean canChoose;
     public static int numTransformed;
 
-    public TransformIntoCurseAction(int amount, boolean isRandom, boolean anyNumber, boolean canPickZero, boolean canChoose) {
+    public TransformIntoBlackCardAction(int amount, boolean isRandom, boolean anyNumber, boolean canPickZero, boolean canChoose) {
         this.anyNumber = anyNumber;
         this.p = AbstractDungeon.player;
         this.canPickZero = canPickZero;
@@ -30,67 +28,60 @@ public class TransformIntoCurseAction extends AbstractGameAction {
         this.amount = amount;
         this.duration = this.startDuration = Settings.ACTION_DUR_FAST;
         this.actionType = ActionType.CARD_MANIPULATION;
-        System.out.println("Transforming " + this.amount + " cards into Curses.");
+        System.out.println("Transforming " + this.amount + " cards into Black cards.");
     }
 
-    public TransformIntoCurseAction(AbstractCreature target, AbstractCreature source, int amount, boolean isRandom, boolean anyNumber) {
+    public TransformIntoBlackCardAction(AbstractCreature target, AbstractCreature source, int amount, boolean isRandom, boolean anyNumber) {
         this(amount, isRandom, anyNumber);
         this.target = target;
         this.source = source;
     }
 
-    public TransformIntoCurseAction(AbstractCreature target, AbstractCreature source, int amount, boolean isRandom) {
+    public TransformIntoBlackCardAction(AbstractCreature target, AbstractCreature source, int amount, boolean isRandom) {
         this(amount, isRandom, false, false);
         this.target = target;
         this.source = source;
     }
 
-    public TransformIntoCurseAction(AbstractCreature target, AbstractCreature source, int amount, boolean isRandom, boolean anyNumber, boolean canPickZero) {
+    public TransformIntoBlackCardAction(AbstractCreature target, AbstractCreature source, int amount, boolean isRandom, boolean anyNumber, boolean canPickZero) {
         this(amount, isRandom, anyNumber, canPickZero);
         this.target = target;
         this.source = source;
     }
 
-    public TransformIntoCurseAction(boolean isRandom, boolean anyNumber, boolean canPickZero, boolean canChoose) {
+    public TransformIntoBlackCardAction(boolean isRandom, boolean anyNumber, boolean canPickZero, boolean canChoose) {
         this(99, isRandom, anyNumber, canPickZero, canChoose);
     }
 
-    public TransformIntoCurseAction(int amount, boolean canPickZero, boolean canChoose) {
+    public TransformIntoBlackCardAction(int amount, boolean canPickZero, boolean canChoose) {
         this(amount, false, false, canPickZero, canChoose);
     }
 
-    public TransformIntoCurseAction(int amount, boolean isRandom, boolean anyNumber, boolean canChoose) {
+    public TransformIntoBlackCardAction(int amount, boolean isRandom, boolean anyNumber, boolean canChoose) {
         this(amount, isRandom, anyNumber, false, canChoose);
     }
 
-    public TransformIntoCurseAction(int amount, boolean isRandom, boolean anyNumber, boolean canPickZero, boolean canChoose, float duration) {
+    public TransformIntoBlackCardAction(int amount, boolean isRandom, boolean anyNumber, boolean canPickZero, boolean canChoose, float duration) {
         this(amount, isRandom, anyNumber, canPickZero, canChoose);
         this.duration = this.startDuration = duration;
     }
+
 
     private void transformEntireHand() {
         int s = this.p.hand.size();
         for(int i = 0; i < s; ++i) {
             AbstractCard c = this.p.hand.getTopCard();
-            AbstractCard curseCard = AbstractDungeon.returnRandomCurse();
-            curseCard.current_x = curseCard.target_x = c.current_x;
-            curseCard.current_y = curseCard.target_y = c.current_y;
-            this.p.hand.removeCard(c);
-            curseCard.superFlash(CardHelper.getColor(124.0f, 0.0f, 60.0f));
-            this.p.hand.addToBottom(curseCard);
-            this.p.hand.refreshHandLayout();
-            this.p.hand.update();
+            transformSpecificCard(c);
         }
     }
 
     private void transformSpecificCard(AbstractCard c) {
-        AbstractCard curseCard = AbstractDungeon.returnRandomCurse();
-        curseCard.current_x = curseCard.target_x = c.current_x;
-        curseCard.current_y = curseCard.target_y = c.current_y;
+        AbstractCard blackCard = CardHelper.getRandomBlackCard().makeStatEquivalentCopy();
+        blackCard.current_x = blackCard.target_x = c.current_x;
+        blackCard.current_y = blackCard.target_y = c.current_y;
         this.p.hand.removeCard(c);
-        curseCard.superFlash();
-        System.out.println("Adding curse to hand");
-        this.p.hand.addToBottom(curseCard);
+        blackCard.superFlash(new Color(124.0f, 0.0f, 60.0f, 185.0f));
+        this.p.hand.addToBottom(blackCard);
         this.p.hand.refreshHandLayout();
         this.p.hand.update();
     }
@@ -113,7 +104,7 @@ public class TransformIntoCurseAction extends AbstractGameAction {
             if (!this.isRandom) {
                 if (this.canChoose) {
                     numTransformed = this.amount;
-                    AbstractDungeon.handCardSelectScreen.open("transform into Curses.", this.amount, this.anyNumber, this.canPickZero);
+                    AbstractDungeon.handCardSelectScreen.open("transform into Black cards.", this.amount, this.anyNumber, this.canPickZero);
                     this.tickDuration();
                 }
                 else {

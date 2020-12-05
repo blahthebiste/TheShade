@@ -11,6 +11,7 @@ import com.badlogic.gdx.files.FileHandle;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.Texture;
 import com.evacipated.cardcrawl.mod.stslib.Keyword;
+import com.evacipated.cardcrawl.modthespire.Loader;
 import com.evacipated.cardcrawl.modthespire.lib.SpireConfig;
 import com.evacipated.cardcrawl.modthespire.lib.SpireInitializer;
 import com.google.gson.Gson;
@@ -33,6 +34,7 @@ import theShade.util.IDCheckDontTouchPls;
 import theShade.util.TextureLoader;
 import theShade.variables.DefaultCustomVariable;
 import theShade.variables.DefaultSecondMagicNumber;
+import infinitespire.InfiniteSpire;
 
 import java.io.InputStream;
 import java.io.InputStreamReader;
@@ -89,7 +91,15 @@ public class DefaultMod implements
     private static final String MODNAME = "Shade Mod";
     private static final String AUTHOR = "Lumberjacksparrow"; // And pretty soon - You!
     private static final String DESCRIPTION = "WIP.";
-    
+
+    // Crossover
+    public static final boolean hasInfiniteSpire;
+    static {
+        hasInfiniteSpire = Loader.isModLoaded("infinitespire");
+        if (hasInfiniteSpire) {
+            logger.info("Enabling Infinite Spire crossover");
+        }
+    }
     // =============== INPUT TEXTURE LOCATION =================
     
     // Colors (RGB)
@@ -484,7 +494,12 @@ public class DefaultMod implements
         BaseMod.addCard(new ShadeSpreadingCorruption());
         BaseMod.addCard(new ShadeProlongedSuffering());
         BaseMod.addCard(new ShadeOverdrive());
-        BaseMod.addCard(new ShadeDistortion());
+        if (hasInfiniteSpire) {
+            BaseMod.addCard(new ShadeDistortionInfinite());
+        }
+        else {
+            BaseMod.addCard(new ShadeDistortion());
+        }
         BaseMod.addCard(new ShadeChaosStorm());
         BaseMod.addCard(new ShadeDefenseAgainstTheDarkArts());
         BaseMod.addCard(new ShadeMidnightHorizon());

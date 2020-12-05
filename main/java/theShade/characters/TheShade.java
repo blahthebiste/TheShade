@@ -217,6 +217,7 @@ public class TheShade extends CustomPlayer {
 //        retVal.add(ShadeProlongedSuffering.ID);
 //        retVal.add(ShadeOverdrive.ID);
 //        retVal.add(ShadeDistortion.ID);
+//        retVal.add(ShadeDistortionInfinite.ID);
 //        retVal.add(ShadeChaosStorm.ID);
 //        retVal.add(ShadeChaosStorm.ID);
 //        retVal.add(ShadeChaosStorm.ID);

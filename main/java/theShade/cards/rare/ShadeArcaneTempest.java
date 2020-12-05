@@ -64,7 +64,7 @@ public class ShadeArcaneTempest extends AbstractDynamicCard {
     // Actions the card should do.
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        this.addToBot(new ShadeTempestAction(p, this.baseDamage, this.energyOnUse, this.upgraded, this.freeToPlayOnce));
+        this.addToBot(new ShadeTempestAction(p, this.damage, this.energyOnUse, this.upgraded, this.freeToPlayOnce));
     }
 
 

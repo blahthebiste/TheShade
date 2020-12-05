@@ -75,14 +75,20 @@ public class LightningAction extends AbstractGameAction {
             this.x = x - (float)this.img.packedWidth / 2.0F; // Need to keep our own copies of x and y because they are private in the super class
             this.y = y;
             this.color = customColor;
-            this.duration = 0.5F;
-            this.startingDuration = 0.5F;
+            this.duration = 0.7F;
+//            this.scale =  1.50F * Settings.scale;
+            this.startingDuration = 0.7F;
         }
 
         @Override
         public void render(SpriteBatch sb) {
-            sb.setBlendFunction( GL30.GL_SRC_ALPHA,  GL30.GL_ONE_MINUS_SRC_ALPHA);
+            sb.setBlendFunction( GL30.GL_SRC_ALPHA,  GL30.GL_ONE);
+//            this.scale =  1.0F * Settings.scale;
+            sb.setColor(Color.WHITE.cpy());
+            sb.draw(this.img, this.x, this.y, (float)this.img.packedWidth / 2.0F, 0.0F, (float)this.img.packedWidth, (float)this.img.packedHeight, this.scale, this.scale, this.rotation);
             sb.setColor(this.color);
+            sb.setBlendFunction( GL30.GL_SRC_ALPHA,  GL30.GL_ONE_MINUS_SRC_ALPHA);
+//            this.scale =  1.0F * Settings.scale;
             sb.draw(this.img, this.x, this.y, (float)this.img.packedWidth / 2.0F, 0.0F, (float)this.img.packedWidth, (float)this.img.packedHeight, this.scale, this.scale, this.rotation);
         }
     }
@@ -91,6 +97,7 @@ public class LightningAction extends AbstractGameAction {
 
 
     protected void StrikeLightning(AbstractCreature target) {
+        if (target.isDeadOrEscaped() || target.isDying || target.isEscaping) return;
         if (target.hasPower("Lockon")) {
             this.damage = (int)((float)this.damage * 1.5F);
         }

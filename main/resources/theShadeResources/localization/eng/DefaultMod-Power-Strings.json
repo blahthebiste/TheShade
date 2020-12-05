@@ -73,6 +73,10 @@
                 "NAME": "Distortion",
                 "DESCRIPTIONS": ["Curses can be played. Whenever you play a Curse, gain 1 energy."]
         },
+        "theShade:ShadeDistortionInfinitePower": {
+                "NAME": "Distortion",
+                "DESCRIPTIONS": ["Whenever you draw a Curse, transform it into a random Black card."]
+        },
         "theShade:ShadeChaosStormPower": {
                 "NAME": "Chaos Storm",
                 "DESCRIPTIONS": ["At the end of each turn, randomly apply 3 #yCorruption, 2 #yWither, or 4 #yBurning, or deal 6 damage, to ","a random","each"," enemy."]

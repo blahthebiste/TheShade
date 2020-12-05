@@ -1,30 +1,26 @@
 package theShade.powers;
 
+import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
-import com.megacrit.cardcrawl.actions.ActionLogEntry;
-import com.megacrit.cardcrawl.actions.common.DrawCardAction;
-import com.megacrit.cardcrawl.actions.common.GainEnergyAction;
-import com.megacrit.cardcrawl.actions.common.HealAction;
+import infinitespire.helpers.CardHelper;
 import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
 import com.megacrit.cardcrawl.actions.utility.UseCardAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
-import com.megacrit.cardcrawl.cards.DamageInfo;
-import com.megacrit.cardcrawl.cards.tempCards.Shiv;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.powers.AbstractPower;
-import com.sun.java.swing.action.ActionManager;
+import theShade.actions.TransformIntoBlackCardAction;
 import theShade.util.TextureLoader;
 
 import java.util.Iterator;
 
 import static theShade.DefaultMod.makePowerPath;
 
-public class ShadeDistortionPower extends AbstractPower {
-    public static final String POWER_ID = "theShade:ShadeDistortionPower";
+public class ShadeDistortionInfinitePower extends AbstractPower {
+    public static final String POWER_ID = "theShade:ShadeDistortionInfinitePower";
     private static final PowerStrings powerStrings = CardCrawlGame.languagePack.getPowerStrings(POWER_ID);
     public static final String NAME = powerStrings.NAME;
     public static final String[] DESCRIPTIONS = powerStrings.DESCRIPTIONS;
@@ -34,7 +30,7 @@ public class ShadeDistortionPower extends AbstractPower {
     private static final Texture tex84 = TextureLoader.getTexture(makePowerPath("ShadeDistortion84.png"));
     private static final Texture tex32 = TextureLoader.getTexture(makePowerPath("ShadeDistortion32.png"));
 
-    public ShadeDistortionPower(AbstractCreature owner) {
+    public ShadeDistortionInfinitePower(AbstractCreature owner) {
         this.name = NAME;
         this.ID = POWER_ID;
         this.owner = owner;
@@ -52,7 +48,6 @@ public class ShadeDistortionPower extends AbstractPower {
 
         this.updateDescription();
         this.canGoNegative = false;
-        this.updateExistingCurses();
     }
 
     public void playApplyPowerSfx() {
@@ -64,9 +59,6 @@ public class ShadeDistortionPower extends AbstractPower {
         if (stackAmount < 0) {
             this.addToTop(new RemoveSpecificPowerAction(this.owner, this.owner, POWER_ID));
         }
-        else {
-            this.updateExistingCurses();
-        }
     }
 
     public void reducePower(int reduceAmount) {
@@ -77,85 +69,19 @@ public class ShadeDistortionPower extends AbstractPower {
 
     }
 
-//    @Override
-//    public void onCardDraw(AbstractCard card) {
-//        if (card.type == AbstractCard.CardType.CURSE || card.color == AbstractCard.CardColor.CURSE) {
-////            this.flash();
-//            if (card.costForTurn < -1) {
-//                card.cost = 0;
-//            }
-//        }
-//    }
-
     @Override
-    public void onUseCard(AbstractCard card, UseCardAction action) {
+    public void onCardDraw(AbstractCard card) {
         if (card.type == AbstractCard.CardType.CURSE || card.color == AbstractCard.CardColor.CURSE) {
             this.flash();
-            AbstractDungeon.actionManager.addToBottom(new GainEnergyAction(1));
+            AbstractCard blackCard = CardHelper.getRandomBlackCard().makeStatEquivalentCopy();
+            blackCard.current_x = blackCard.target_x = card.current_x;
+            blackCard.current_y = blackCard.target_y = card.current_y;
+            AbstractDungeon.player.hand.removeCard(card);
+            blackCard.superFlash(new Color(124.0f, 0.0f, 60.0f, 185.0f));
+            AbstractDungeon.player.hand.addToBottom(blackCard);
+            AbstractDungeon.player.hand.refreshHandLayout();
+            AbstractDungeon.player.hand.update();
         }
-    }
-
-    @Override
-    public void onDrawOrDiscard() {
-        Iterator var1 = AbstractDungeon.player.hand.group.iterator();
-
-        while(var1.hasNext()) {
-            AbstractCard c = (AbstractCard)var1.next();
-            if (c.type == AbstractCard.CardType.CURSE || c.color == AbstractCard.CardColor.CURSE) {
-                if (c.costForTurn < -1) {
-                    c.costForTurn = 0;
-                }
-            }
-        }
-
-    }
-
-    private void updateExistingCurses() {
-        Iterator var1 = AbstractDungeon.player.hand.group.iterator();
-
-        AbstractCard c;
-        while(var1.hasNext()) {
-            c = (AbstractCard)var1.next();
-            if (c.type == AbstractCard.CardType.CURSE || c.color == AbstractCard.CardColor.CURSE) {
-                if (c.costForTurn < -1) {
-                    c.costForTurn = 0;
-                }
-            }
-        }
-
-        var1 = AbstractDungeon.player.drawPile.group.iterator();
-
-        while(var1.hasNext()) {
-            c = (AbstractCard)var1.next();
-            if (c.type == AbstractCard.CardType.CURSE || c.color == AbstractCard.CardColor.CURSE) {
-                if (c.costForTurn < -1) {
-                    c.costForTurn = 0;
-                }
-            }
-        }
-
-        var1 = AbstractDungeon.player.discardPile.group.iterator();
-
-        while(var1.hasNext()) {
-            c = (AbstractCard)var1.next();
-            if (c.type == AbstractCard.CardType.CURSE || c.color == AbstractCard.CardColor.CURSE) {
-                if (c.costForTurn < -1) {
-                    c.costForTurn = 0;
-                }
-            }
-        }
-
-        var1 = AbstractDungeon.player.exhaustPile.group.iterator();
-
-        while(var1.hasNext()) {
-            c = (AbstractCard)var1.next();
-            if (c.type == AbstractCard.CardType.CURSE || c.color == AbstractCard.CardColor.CURSE) {
-                if (c.costForTurn < -1) {
-                    c.costForTurn = 0;
-                }
-            }
-        }
-
     }
 
     public void updateDescription() {

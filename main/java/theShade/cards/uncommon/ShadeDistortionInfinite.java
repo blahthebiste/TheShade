@@ -9,17 +9,12 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import theShade.DefaultMod;
 import theShade.cards.AbstractDynamicCard;
 import theShade.characters.TheShade;
+import theShade.powers.ShadeDistortionInfinitePower;
 import theShade.powers.ShadeDistortionPower;
 
 import static theShade.DefaultMod.makeCardPath;
 
-public class ShadeDistortion extends AbstractDynamicCard {
-
-    /*
-     * Wiki-page: https://github.com/daviscook477/BaseMod/wiki/Custom-Cards
-     *
-     * Weirdness Apply X (+1) keywords to yourself.
-     */
+public class ShadeDistortionInfinite extends AbstractDynamicCard {
 
     // TEXT DECLARATION
 
@@ -42,14 +37,16 @@ public class ShadeDistortion extends AbstractDynamicCard {
     private static final int UPGRADED_COST = 2;
     // /STAT DECLARATION/
 
-    public ShadeDistortion() {
+    public ShadeDistortionInfinite() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
+        rawDescription = UPGRADE_DESCRIPTION;
+        initializeDescription();
     }
 
     // Actions the card should do.
     @Override
     public void use(final AbstractPlayer p, final AbstractMonster m) {
-        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new ShadeDistortionPower(p)));
+        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new ShadeDistortionInfinitePower(p)));
     }
 
     //Upgraded stats.

@@ -53,7 +53,8 @@ public class ShadeOblivion extends AbstractDynamicCard {
 
     private static final int COST = 1;
 
-    private static final int DAMAGE = 18;
+    private static final int DAMAGE = 25;
+    private static final int UPGRADE_DAMAGE = 5;
 
     private static final int CURSE_AMT = 3;
     private static final int UPGRADE_CURSE_AMT = 2;
@@ -84,6 +85,7 @@ public class ShadeOblivion extends AbstractDynamicCard {
     public void upgrade() {
         if (!upgraded) {
             upgradeName();
+            upgradeDamage(UPGRADE_DAMAGE);
             upgradeMagicNumber(UPGRADE_CURSE_AMT);
             initializeDescription();
         }

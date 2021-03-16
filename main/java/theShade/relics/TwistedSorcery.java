@@ -15,7 +15,7 @@ import static theShade.DefaultMod.makeRelicPath;
 public class TwistedSorcery extends CustomRelic {
 
     // ID, images, text.
-    public static final String ID = DefaultMod.makeID("PlaceholderRelic2");
+    public static final String ID = DefaultMod.makeID("TwistedSorcery");
 
     private static final Texture IMG = TextureLoader.getTexture(makeRelicPath("sorcery.png"));
     private static final Texture OUTLINE = TextureLoader.getTexture(makeRelicOutlinePath("sorcery.png"));

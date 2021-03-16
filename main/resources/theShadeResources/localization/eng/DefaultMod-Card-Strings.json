@@ -18,7 +18,7 @@
   },
   "theShade:ShadeFatigue": {
     "NAME": "Fatigue",
-    "DESCRIPTION": "Retain. At the start of your turn, if you have any theshade:Fatigues in hand, lose 1 energy (Doesn't stack)."
+    "DESCRIPTION": "Retain. NL At the start of your turn, if you have any theshade:Fatigues in hand, lose 1 energy (Doesn't stack)."
   },
   "theShade:ShadeSpite": {
     "NAME": "Spite",
@@ -59,7 +59,7 @@
   },
   "theShade:ShadeMarkOfTheWitness": {
     "NAME": "Mark of the Witness",
-    "DESCRIPTION": "Apply theshade:Deteriorate to an enemy. Exhaust."
+    "DESCRIPTION": "Apply theshade:Deteriorate to an enemy. NL Exhaust."
   },
   "theShade:ShadeArcaneFire": {
     "NAME": "Arcane Fire",
@@ -254,7 +254,7 @@
   },
   "theShade:ShadeMutualAnnihilation": {
     "NAME": "Mutual Annihilation",
-    "DESCRIPTION": "Deal !D! damage to ALL enemies. NL Retain. NL Whenever you take unblocked damage, reduce the cost of this by 1 this combat."
+    "DESCRIPTION": "Retain. NL Deal !D! damage to ALL enemies. NL Whenever you take unblocked damage, reduce the cost of this by 1 this combat."
   },
   "theShade:ShadeArcaneTempest": {
     "NAME": "Arcane Tempest",

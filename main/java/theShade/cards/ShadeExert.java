@@ -50,7 +50,7 @@ public class ShadeExert extends AbstractDynamicCard {
 
     private static final int COST = 1;
 
-    private static final int BLOCK = 9;
+    private static final int BLOCK = 11;
     private static final int UPGRADE_PLUS_BLK = 3;
 
     // /STAT DECLARATION/

@@ -6,7 +6,7 @@
       "Gain #b1 [E] ."
     ]
   },
-  "theShade:PlaceholderRelic2": {
+  "theShade:TwistedSorcery": {
     "NAME": "Twisted Sorcery",
     "FLAVOR": "The influence of the Dark Ones can be an addicting source of power.",
     "DESCRIPTIONS": [
@@ -17,7 +17,7 @@
     "NAME": "Diabolical Sorcery",
     "FLAVOR": "No one is safe from the influence of the Dark Ones.",
     "DESCRIPTIONS": [
-      "Replaces #yPlaceholderRelic2. At the start of your turn, everyone gains #b1 #ytheshade:Corruption."
+      "Replaces #yTwistedSorcery. At the start of your turn, everyone gains #b1 #ytheshade:Corruption."
     ]
   },
   "theShade:FifthShadow": {

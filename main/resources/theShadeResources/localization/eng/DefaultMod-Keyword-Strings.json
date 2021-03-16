@@ -73,6 +73,14 @@
     "DESCRIPTION": "Temporary strength down."
   },
   {
+    "PROPER_NAME": "Constrict",
+    "NAMES": [
+      "constrict",
+      "constricted"
+    ],
+    "DESCRIPTION": "A debuff that deals damage at the end of each turn, and does not decay."
+  },
+  {
     "NAMES": [
       "keyword",
       "keywords"

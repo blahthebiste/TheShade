@@ -103,7 +103,7 @@
         },
         "theShade:ShadeElixirOfNoctisPower": {
                 "NAME": "Elixir of Noctis",
-                "DESCRIPTIONS": ["Asleep for 1 turn. At the start of the turn, heal #b","Asleep for the next #b"," turns. At the start of each turn, heal #b"," HP."]
+                "DESCRIPTIONS": ["Asleep for 1 turn. At the end of your turn, heals #b","Asleep for the next #b"," turns. At the end of your turn, heals #b"," HP."]
         },
         "theShade:ShadeApexCorruptionPower": {
                 "NAME": "Apex Corruption",

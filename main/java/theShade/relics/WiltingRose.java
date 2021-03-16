@@ -39,7 +39,7 @@ public class WiltingRose extends CustomRelic implements OnApplyPowerRelic {
     @Override
     public boolean onApplyPower(AbstractPower abstractPower, AbstractCreature target, AbstractCreature source) {
         // If the power is Wither and the source is the player, apply weak to the target
-        if (abstractPower.ID.equals(ShadeWitherPower.POWER_ID) && source.equals(AbstractDungeon.player)) {
+        if (abstractPower.ID.equals(ShadeWitherPower.POWER_ID) && source.equals(AbstractDungeon.player) && !target.hasPower(ShadeWitherPower.POWER_ID)) {
             this.addToBot(new ApplyPowerAction(target, source, new WeakPower(target, 1, false), 1));
             this.flash();
         }

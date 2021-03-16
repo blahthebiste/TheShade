@@ -66,18 +66,30 @@ public class ShadeShadowStrike extends AbstractDynamicCard {
     // Actions the card should do.
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        int bonusFromPlayer = 0;
-        int bonusFromTarget = 0;
-        if (p != null && p.hasPower("theShade:Corruption")) {
-            bonusFromPlayer = p.getPower("theShade:Corruption").amount;
-        }
-        if (m != null && m.hasPower("theShade:Corruption")) {
-            bonusFromTarget = m.getPower("theShade:Corruption").amount;
-        }
+//        int bonusFromPlayer = 0;
+//        int bonusFromTarget = 0;
+//        if (p != null && p.hasPower("theShade:Corruption")) {
+//            bonusFromPlayer = p.getPower("theShade:Corruption").amount;
+//        }
+//        if (m != null && m.hasPower("theShade:Corruption")) {
+//            bonusFromTarget = m.getPower("theShade:Corruption").amount;
+//        }
         AbstractDungeon.actionManager.addToBottom(
-                new DamageAction(m, new DamageInfo(p, damage+bonusFromPlayer+bonusFromTarget, damageTypeForTurn), AbstractGameAction.AttackEffect.SLASH_HORIZONTAL));
+                new DamageAction(m, new DamageInfo(p, damage, damageTypeForTurn), AbstractGameAction.AttackEffect.SLASH_HORIZONTAL));
     }
 
+    @Override
+    public float calculateModifiedCardDamage(AbstractPlayer player, AbstractMonster mo, float tmp) {
+        int bonusFromPlayer = 0;
+        int bonusFromTarget = 0;
+        if (player != null && player.hasPower("theShade:Corruption")) {
+            bonusFromPlayer = player.getPower("theShade:Corruption").amount;
+        }
+        if (mo != null && mo.hasPower("theShade:Corruption")) {
+            bonusFromTarget = mo.getPower("theShade:Corruption").amount;
+        }
+        return tmp + bonusFromPlayer + bonusFromTarget;
+    }
 
     // Upgraded stats.
     @Override

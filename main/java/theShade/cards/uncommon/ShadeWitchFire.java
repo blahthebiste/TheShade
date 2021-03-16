@@ -103,7 +103,7 @@ public class ShadeWitchFire extends AbstractDynamicCard {
     @Override
     public void update() {
         super.update();
-        if(isAnyTarget && AbstractDungeon.player != null) {
+        if(!upgraded && isAnyTarget && AbstractDungeon.player != null) {
             AbstractPlayer p = AbstractDungeon.player;
             if (p.isDraggingCard && p.hoveredCard.equals(this)) {
                 AbstractMonster hoveredEnemy = null;

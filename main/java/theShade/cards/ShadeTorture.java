@@ -84,7 +84,7 @@ public class ShadeTorture extends AbstractDynamicCard {
         if (!upgraded) {
             upgradeName();
             upgradeDamage(UPGRADE_PLUS_DMG);
-            upgradeMagicNumber(UPGRADE_PLUS_SELF_DMG);
+//            upgradeMagicNumber(UPGRADE_PLUS_SELF_DMG);
             initializeDescription();
         }
     }

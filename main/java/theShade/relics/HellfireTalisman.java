@@ -38,7 +38,7 @@ public class HellfireTalisman extends CustomRelic implements OnApplyPowerRelic {
     @Override
     public boolean onApplyPower(AbstractPower abstractPower, AbstractCreature target, AbstractCreature source) {
         // If the power is Burning and the source is the player, apply vulnerable to the target
-        if (abstractPower.ID.equals(ShadeBurnPower.POWER_ID) && source.equals(AbstractDungeon.player)) {
+        if (abstractPower.ID.equals(ShadeBurnPower.POWER_ID) && source.equals(AbstractDungeon.player)&& !target.hasPower(ShadeBurnPower.POWER_ID)) {
             this.addToBot(new ApplyPowerAction(target, source, new VulnerablePower(target, 1, false), 1));
             this.flash();
         }

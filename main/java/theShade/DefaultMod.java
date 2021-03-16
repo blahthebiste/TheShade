@@ -454,7 +454,7 @@ public class DefaultMod implements
         BaseMod.addCard(new ShadeSpite());
         BaseMod.addCard(new ShadeContaminate());
         BaseMod.addCard(new ShadeCorruptBlade());
-        BaseMod.addCard(new ShadeStrangle());
+//        BaseMod.addCard(new ShadeStrangle()); // DEPRECATED
         BaseMod.addCard(new ShadeFinalStrike());
         BaseMod.addCard(new ShadeArcaneLightning());
         BaseMod.addCard(new ShadePursuit());
@@ -525,7 +525,7 @@ public class DefaultMod implements
         BaseMod.addCard(new ShadeElixirOfNoctis());
 //        BaseMod.addCard(new ShadeApexCorruption()); //DEPRECATED
         BaseMod.addCard(new ShadeShadowBlend());
-        BaseMod.addCard(new ShadeAmalgamForm());
+//        BaseMod.addCard(new ShadeAmalgamForm());
         BaseMod.addCard(new ShadeUnveil());
         BaseMod.addCard(new ShadeConflagration());
 //        BaseMod.addCard(new ShadeInfusion()); //DEPRECATED

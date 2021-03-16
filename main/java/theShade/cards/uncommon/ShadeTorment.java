@@ -54,7 +54,7 @@ public class ShadeTorment extends AbstractDynamicCard {
     private static final int COST = 2;
 
     private static final int DAMAGE = 9;
-    private static final int UPGRADE_PLUS_DMG = 4;
+    private static final int UPGRADE_PLUS_DMG = 5;
 
     // /STAT DECLARATION/
 

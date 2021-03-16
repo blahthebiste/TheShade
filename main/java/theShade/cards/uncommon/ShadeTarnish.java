@@ -54,7 +54,7 @@ public class ShadeTarnish extends AbstractDynamicCard {
     private static final int COST = 1;
 
     private static final int SELF_DAMAGE = 1;
-    private static final int UPGRADE_SELF_DAMAGE = 1;
+//    private static final int UPGRADE_SELF_DAMAGE = 1;
 
     private static final int BLOCK = 11;
     private static final int UPGRADE_PLUS_BLK = 4;
@@ -85,7 +85,7 @@ public class ShadeTarnish extends AbstractDynamicCard {
         if (!upgraded) {
             upgradeName();
             upgradeBlock(UPGRADE_PLUS_BLK);
-            upgradeMagicNumber(UPGRADE_SELF_DAMAGE);
+//            upgradeMagicNumber(UPGRADE_SELF_DAMAGE);
             initializeDescription();
         }
     }

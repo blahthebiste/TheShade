@@ -98,7 +98,7 @@
   "theShade:ShadeEncroachingShadows": {
     "NAME": "Encroaching Shadows",
     "DESCRIPTION": "At the start of each turn, gain 1 theshade:Corruption.",
-    "UPGRADE_DESCRIPTION": "At the start of each turn, gain 1 theshade:Corruption. NL Innate."
+    "UPGRADE_DESCRIPTION": "Innate. NL At the start of each turn, gain 1 theshade:Corruption."
   },
   "theShade:ShadeVesselOfSuffering": {
     "NAME": "Vessel of Suffering",
@@ -128,7 +128,7 @@
   },
   "theShade:ShadeDefile": {
     "NAME": "Defile",
-    "DESCRIPTION": "Transform every card in your hand into a random Curse. Deal !D! Damage to all enemies for each one."
+    "DESCRIPTION": "Transform every card in your hand into a random Curse. Deal !D! Damage to ALL enemies for each one."
   },
   "theShade:ShadeBlackLightning": {
     "NAME": "Black Lightning",
@@ -151,7 +151,7 @@
   "theShade:ShadeWitchFire": {
     "NAME": "Witch Fire",
     "DESCRIPTION": "Apply 3 theshade:Burning and 2 theshade:Wither to ANY target.",
-    "UPGRADE_DESCRIPTION": "Apply 3 theshade:Burning and 2 theshade:Wither to all enemies."
+    "UPGRADE_DESCRIPTION": "Apply 3 theshade:Burning and 2 theshade:Wither to ALL enemies."
   },
   "theShade:ShadeWrithingFlame": {
     "NAME": "Writhing Flame",
@@ -254,7 +254,7 @@
   },
   "theShade:ShadeMutualAnnihilation": {
     "NAME": "Mutual Annihilation",
-    "DESCRIPTION": "Deal !D! damage to all enemies. NL Retain. NL Whenever you take unblocked damage, reduce the cost of this by 1 this combat."
+    "DESCRIPTION": "Deal !D! damage to ALL enemies. NL Retain. NL Whenever you take unblocked damage, reduce the cost of this by 1 this combat."
   },
   "theShade:ShadeArcaneTempest": {
     "NAME": "Arcane Tempest",
@@ -263,12 +263,12 @@
   },
   "theShade:ShadePureStrike": {
     "NAME": "Pure Strike",
-    "DESCRIPTION": "Can only be played if you have 0 theshade:Corruption. NL Deal !D! damage to all enemies.",
-    "UPGRADE_DESCRIPTION": "I cannot play that card while I have theshade:Corruption."
+    "DESCRIPTION": "Can only be played if you have 0 theshade:Corruption. NL Deal !D! damage to ALL enemies.",
+    "UPGRADE_DESCRIPTION": "I cannot play that card while I have Corruption!"
   },
   "theShade:ShadeFexnil": {
     "NAME": "Fexnil",
-    "DESCRIPTION": "Deal !D! damage to the leftmost enemy, then do it again to each consecutive enemy with doubled damage."
+    "DESCRIPTION": "Deal !D! damage to the leftmost enemy, then do it again to each consecutive enemy, doubling the damage each time."
   },
   "theShade:ShadeArcaneInferno": {
     "NAME": "Arcane Inferno",
@@ -297,8 +297,8 @@
   },
   "theShade:ShadeElixirOfNoctis": {
     "NAME": "Elixir of Noctis",
-    "DESCRIPTION": "Choose ANY target. Put them to sleep for !M! turns. At the end of each turn they are asleep, they recover 30 HP. NL Exhaust.",
-    "UPGRADE_DESCRIPTION":"Choose ANY target. Put them to sleep for !M! turns. At the end of each turn they are asleep, they recover 50 HP. NL Exhaust."
+    "DESCRIPTION": "Choose ANY target. Put them to sleep for !M! turns. While they sleep, at the end of your turn, they recover 30 HP. NL Exhaust.",
+    "UPGRADE_DESCRIPTION":"Choose ANY target. Put them to sleep for !M! turns. While they sleep, at the end of your turn, they recover 50 HP. NL Exhaust."
   },
   "theShade:ShadeApexCorruption": {
     "NAME": "Apex Corruption",
@@ -325,8 +325,8 @@
   },
   "theShade:ShadeConflagration": {
     "NAME": "Conflagration",
-    "DESCRIPTION": "Whenever you play an attack, if you are not Intangible, apply !M! Burning to all enemies.",
-    "UPGRADE_DESCRIPTION": "Whenever you play an attack, if you are not Intangible, apply !M! Burning to all enemies."
+    "DESCRIPTION": "Whenever you play an attack, if you are not Intangible, apply !M! Burning to ALL enemies.",
+    "UPGRADE_DESCRIPTION": "Whenever you play an attack, if you are not Intangible, apply !M! Burning to ALL enemies."
   },
   "theShade:ShadeVoodooDoll": {
     "NAME": "Soul Bind",

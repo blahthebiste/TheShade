@@ -50,7 +50,7 @@ public class ShadeDescend extends AbstractDynamicCard {
 
     private static final int COST = 1;
 
-    private static final int BLOCK = 8;
+    private static final int BLOCK = 9;
     private static final int UPGRADE_PLUS_BLK = 3;
     private static final int CORRUPTION_GAIN = 3;
     private static final int CORRUPTION_GAIN_UPGRADE = 1;

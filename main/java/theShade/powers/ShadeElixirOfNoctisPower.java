@@ -104,8 +104,8 @@ public class ShadeElixirOfNoctisPower extends AbstractPower {
     public void atStartOfTurn() {
         this.applySleep();
         // Apply healing
-        this.addToBot(new HealAction(this.owner, this.owner, this.healing));
         if (this.targetIsMonster) {
+            this.addToBot(new HealAction(this.owner, this.owner, this.healing));
             switch (this.monster.id) {
                 case "GiantHead":
                     int count = (int) ReflectionHacks.getPrivate(this.monster, this.monster.getClass(), "count");
@@ -130,7 +130,9 @@ public class ShadeElixirOfNoctisPower extends AbstractPower {
         if (!isPlayer) {
             this.applySleep();
         }
-        this.addToBot(new HealAction(this.owner, this.owner, this.healing));
+        else {
+            this.addToBot(new HealAction(this.owner, this.owner, this.healing));
+        }
 
         if (!AbstractDungeon.getMonsters().areMonstersBasicallyDead())
         {

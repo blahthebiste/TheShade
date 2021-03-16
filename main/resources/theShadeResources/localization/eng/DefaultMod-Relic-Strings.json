@@ -17,7 +17,7 @@
     "NAME": "Diabolical Sorcery",
     "FLAVOR": "No one is safe from the influence of the Dark Ones.",
     "DESCRIPTIONS": [
-      "Replaces #yPlaceholderRelic2. At the start of each turn, everyone gains #b1 #ytheshade:Corruption."
+      "Replaces #yPlaceholderRelic2. At the start of your turn, everyone gains #b1 #ytheshade:Corruption."
     ]
   },
   "theShade:FifthShadow": {
@@ -31,14 +31,14 @@
     "NAME": "Wilting Rose",
     "FLAVOR": "Typical Rose, always meddling with eldritch horrors.",
     "DESCRIPTIONS": [
-      "Applying #ytheshade:Wither to enemies also makes them #yWeak."
+      "Applying #ytheshade:Wither to enemies that are not withering also makes them #yWeak."
     ]
   },
   "theShade:HellfireTalisman": {
     "NAME": "Hellfire Talisman",
     "FLAVOR": "Say what you want about demons, but they sure know their arson.",
     "DESCRIPTIONS": [
-      "Applying #ytheshade:Burning to enemies also makes them #yVulnerable."
+      "Applying #ytheshade:Burning to enemies that are not burning also makes them #yVulnerable."
     ]
   },
   "theShade:BurningTome": {

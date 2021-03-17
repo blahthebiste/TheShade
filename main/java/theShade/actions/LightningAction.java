@@ -97,7 +97,7 @@ public class LightningAction extends AbstractGameAction {
 
 
     protected void StrikeLightning(AbstractCreature target) {
-        if (target.isDeadOrEscaped() || target.isDying || target.isEscaping) return;
+        if (target.isDeadOrEscaped() || target.isDying || target.isEscaping || target.currentHealth <= 0) return;
         if (target.hasPower("Lockon")) {
             this.damage = (int)((float)this.damage * 1.5F);
         }

@@ -51,8 +51,9 @@ public class ShadeExecute extends AbstractDynamicCard {
     public static final CardColor COLOR = TheShade.Enums.COLOR_GRAY;
 
     private static final int COST = 2;
+//    private static final int UPGRADE_COST = 2;
 
-    private static final int STACKS = 1;
+    private static final int STACKS = 2;
     private static final int UPGRADE_STACKS = 1;
 
     // /STAT DECLARATION/
@@ -76,6 +77,7 @@ public class ShadeExecute extends AbstractDynamicCard {
     public void upgrade() {
         if (!upgraded) {
             upgradeName();
+//            upgradeBaseCost(UPGRADE_COST);
             upgradeMagicNumber(UPGRADE_STACKS);
             rawDescription = UPGRADE_DESCRIPTION;
             initializeDescription();

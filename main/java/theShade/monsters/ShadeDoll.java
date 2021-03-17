@@ -35,8 +35,8 @@ public class ShadeDoll extends AbstractMonster
                 master = master.getPower(MinionPower.POWER_ID).owner;
             }
             AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(this, this, new MinionPower(master)));
-            this.maxHealth = Math.min((int) (victim.maxHealth*(hp_multi/100)), 1);
-            this.currentHealth = Math.min((int) (victim.currentHealth*(hp_multi/100)), 1);
+            this.maxHealth = Math.max((int) (victim.maxHealth*hp_multi/100.0), 1);
+            this.currentHealth = Math.max((int) (victim.currentHealth*hp_multi/100.0), 1);
         }
         else {
             this.maxHealth = 50;

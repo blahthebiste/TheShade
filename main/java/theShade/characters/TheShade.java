@@ -251,7 +251,7 @@ public class TheShade extends CustomPlayer {
 //        retVal.add(ShadeBlightBolt.ID);
 //        retVal.add(ShadeUnveil.ID);
 //        retVal.add(ShadeConflagration.ID);
-//        retVal.add(ShadeVoodooDoll.ID);
+        retVal.add(ShadeVoodooDoll.ID);
 //        retVal.add(ShadeInfusion.ID);
 //        retVal.add(ShadeGrudge.ID);
 //        retVal.add(ShadeEnkindle.ID);

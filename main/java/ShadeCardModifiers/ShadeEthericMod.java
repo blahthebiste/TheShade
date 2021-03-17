@@ -1,9 +1,11 @@
 package ShadeCardModifiers;
 import basemod.abstracts.AbstractCardModifier;
 import basemod.helpers.CardModifierManager;
+import com.megacrit.cardcrawl.actions.common.ExhaustSpecificCardAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.CardGroup;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
+import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 
 public class ShadeEthericMod extends AbstractCardModifier  {
     public static String MOD_ID = "ShadeEthericModID";
@@ -28,9 +30,15 @@ public class ShadeEthericMod extends AbstractCardModifier  {
         return MOD_ID;
     }
 
+    @Override
+    public void atEndOfTurn(AbstractCard card, CardGroup group) {
+        //CardModifierManager.removeSpecificModifier(card, ShadeEthericMod, );
+        AbstractDungeon.actionManager.addToTop(new ExhaustSpecificCardAction(card, AbstractDungeon.player.hand));
+    }
+
 //    @Override
-//    public void atEndOfTurn(AbstractCard card, CardGroup group) {
-//        CardModifierManager.removeSpecificModifier(card, ShadeEthericMod, );
+//    public void triggerOnEndOfPlayerTurn() {
+//        this.addToTop(new ExhaustSpecificCardAction(this, AbstractDungeon.player.hand));
 //    }
 
     @Override

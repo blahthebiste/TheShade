@@ -38,7 +38,7 @@ public class TwistedSorcery extends CustomRelic {
     public void atTurnStart() {
         flash();
         AbstractDungeon.actionManager.addToTop(new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player, new ShadeCorruptionPower(AbstractDungeon.player, 1), 1));
-        AbstractDungeon.actionManager.addToTop(new RelicAboveCreatureAction(AbstractDungeon.player, this));
+//        AbstractDungeon.actionManager.addToTop(new RelicAboveCreatureAction(AbstractDungeon.player, this));
     }
 
     // Description

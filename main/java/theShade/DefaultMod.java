@@ -28,13 +28,12 @@ import theShade.cards.uncommon.*;
 import theShade.cards.rare.*;
 import theShade.characters.TheShade;
 import theShade.events.*;
-import theShade.potions.PlaceholderPotion;
+import theShade.potions.BrewOfShadows;
 import theShade.relics.*;
 import theShade.util.IDCheckDontTouchPls;
 import theShade.util.TextureLoader;
 import theShade.variables.DefaultCustomVariable;
 import theShade.variables.DefaultSecondMagicNumber;
-import infinitespire.InfiniteSpire;
 
 import java.io.InputStream;
 import java.io.InputStreamReader;
@@ -370,7 +369,7 @@ public class DefaultMod implements
         // Class Specific Potion. If you want your potion to not be class-specific,
         // just remove the player class at the end (in this case the "TheDefaultEnum.THE_DEFAULT".
         // Remember, you can press ctrl+P inside parentheses like addPotions)
-        BaseMod.addPotion(PlaceholderPotion.class, PLACEHOLDER_POTION_LIQUID, PLACEHOLDER_POTION_HYBRID, PLACEHOLDER_POTION_SPOTS, PlaceholderPotion.POTION_ID, TheShade.Enums.THE_DEFAULT);
+        BaseMod.addPotion(BrewOfShadows.class, PLACEHOLDER_POTION_LIQUID, PLACEHOLDER_POTION_HYBRID, PLACEHOLDER_POTION_SPOTS, BrewOfShadows.POTION_ID, TheShade.Enums.THE_DEFAULT);
         
         logger.info("Done editing potions");
     }

@@ -103,7 +103,7 @@ public class ShadeEthericShiftPower extends AbstractPower {
     }
 
     public void atEndOfRound() {
-        this.addToBot(new ReducePowerAction(this.owner, this.owner, this.POWER_ID, 1));
+        this.addToBot(new RemoveSpecificPowerAction(this.owner, this.owner, POWER_ID));
     }
 
     @Override
@@ -127,9 +127,11 @@ public class ShadeEthericShiftPower extends AbstractPower {
                 modifiedCards.add(c);
             }
 //            c.isEthereal = true;
-            c.setCostForTurn(c.costForTurn - this.amount);
-            if (c.costForTurn < 0) {
-                c.costForTurn = 0;
+            if(c.costForTurn > 0) {
+                c.setCostForTurn(c.costForTurn - this.amount);
+                if (c.costForTurn < 0) {
+                    c.costForTurn = 0;
+                }
             }
         }
     }

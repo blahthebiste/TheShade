@@ -52,7 +52,7 @@ public class ShadeRebuff extends AbstractDynamicCard {
 
     private static final int COST = 1;
 
-    private static final int BLOCK = 4;
+    private static final int BLOCK = 5;
     private static final int UPGRADE_PLUS_BLK = 2;
 
     private static final int CORRUPTION_LOSS = 4;

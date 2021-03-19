@@ -79,7 +79,7 @@
         },
         "theShade:ShadeChaosStormPower": {
                 "NAME": "Chaos Storm",
-                "DESCRIPTIONS": ["At the end of each turn, randomly apply 3 #yCorruption, 2 #yWither, or 4 #yBurning, or deal 6 damage, to ","a random","each"," enemy."]
+                "DESCRIPTIONS": ["At the end of each turn, randomly apply 3 #yCorruption, 2 #yWither, or 4 #yBurning, or deal 6 damage to ","a random","each"," enemy."]
         },
         "theShade:ShadeDefenseAgainstTheDarkArtsPower": {
                 "NAME": "Defense Against The Dark Arts",

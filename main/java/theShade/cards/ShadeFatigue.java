@@ -33,11 +33,7 @@ public class ShadeFatigue extends AbstractDynamicCard
     }
 
     @Override
-    public void use(AbstractPlayer p, AbstractMonster m) {
-//        if (this.dontTriggerOnUseCard) {
-//            this.addToTop(new DamageAction(AbstractDungeon.player, new DamageInfo(AbstractDungeon.player, 2, DamageInfo.DamageType.THORNS), AbstractGameAction.AttackEffect.FIRE));
-//        }
-    }
+    public void use(AbstractPlayer p, AbstractMonster m) {    }
 
     @Override
     public void atTurnStart() {

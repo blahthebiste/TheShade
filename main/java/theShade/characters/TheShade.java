@@ -164,7 +164,7 @@ public class TheShade extends CustomPlayer {
         retVal.add(ShadeShadows.ID);
         retVal.add(ShadeShadows.ID);
         retVal.add(ShadeShadows.ID);
-        retVal.add(ShadeShadows.ID);
+//        retVal.add(ShadeShadows.ID);
         retVal.add(ShadePurge.ID);
         //Debug stuff vvv
 //        retVal.add(ShadeTorture.ID);
@@ -177,7 +177,7 @@ public class TheShade extends CustomPlayer {
 //        retVal.add(ShadeSpite.ID);
 //        retVal.add(ShadeSpite.ID);
 //        retVal.add(ShadePursuit.ID);
-//        retVal.add(ShadeCorruptBlade.ID);
+        retVal.add(ShadeCorruptBlade.ID);
 //        retVal.add(ShadeFinalStrike.ID);
 //        retVal.add(ShadeArcaneLightning.ID);
 //        retVal.add(ShadeStrangle.ID);
@@ -208,7 +208,7 @@ public class TheShade extends CustomPlayer {
 //        retVal.add(ShadeWrithingFlame.ID);
 //        retVal.add(ShadeTarnish.ID);
 //        retVal.add(ShadeAnoint.ID);
-//        retVal.add(ShadeHaunt.ID);
+        retVal.add(ShadeHaunt.ID);
 //        retVal.add(ShadeForbiddenKnowledge.ID);
 //        retVal.add(ShadeForbiddenKnowledge.ID);
 //        retVal.add(ShadeRemission.ID);
@@ -232,6 +232,9 @@ public class TheShade extends CustomPlayer {
 //        retVal.add(ShadeVividNightmare.ID);
 //        retVal.add(ShadeOblivion.ID);
 //        retVal.add(ShadeMutualAnnihilation.ID);
+//        retVal.add(ShadeMutualAnnihilation.ID);
+//        retVal.add(ShadeMutualAnnihilation.ID);
+//        retVal.add(ShadeMutualAnnihilation.ID);
 //        retVal.add(ShadeArcaneTempest.ID);
 //        retVal.add(ShadePureStrike.ID);
 //        retVal.add(ShadeFexnil.ID);
@@ -251,7 +254,7 @@ public class TheShade extends CustomPlayer {
 //        retVal.add(ShadeBlightBolt.ID);
 //        retVal.add(ShadeUnveil.ID);
 //        retVal.add(ShadeConflagration.ID);
-        retVal.add(ShadeVoodooDoll.ID);
+//        retVal.add(ShadeVoodooDoll.ID);
 //        retVal.add(ShadeInfusion.ID);
 //        retVal.add(ShadeGrudge.ID);
 //        retVal.add(ShadeEnkindle.ID);
@@ -322,7 +325,7 @@ public class TheShade extends CustomPlayer {
     //Which card should be obtainable from the Match and Keep event?
     @Override
     public AbstractCard getStartCardForEvent() {
-        return new DefaultCommonAttack();
+        return new ShadeVoodooDoll();
     }
 
     // The class name as it appears next to your player name in-game

@@ -54,10 +54,10 @@ public class ShadePureStrike extends AbstractDynamicCard {
     private static final CardType TYPE = CardType.ATTACK;       //
     public static final CardColor COLOR = TheShade.Enums.COLOR_GRAY;
 
-    private static final int COST = 0;
+    private static final int COST = 1;
 
-    private static final int DAMAGE = 44;
-    private static final int UPGRADE_PLUS_DMG = 11;
+    private static final int DAMAGE = 40;
+    private static final int UPGRADE_PLUS_DMG = 10;
 
     // /STAT DECLARATION/
 
@@ -73,7 +73,7 @@ public class ShadePureStrike extends AbstractDynamicCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         AbstractDungeon.actionManager.addToBottom(
-                new DamageAllEnemiesAction(p, damage, DamageInfo.DamageType.NORMAL, AbstractGameAction.AttackEffect.SLASH_HORIZONTAL));
+                new DamageAllEnemiesAction(p, baseDamage, DamageInfo.DamageType.NORMAL, AbstractGameAction.AttackEffect.SLASH_HORIZONTAL));
     }
 
     @Override

@@ -79,8 +79,8 @@ public class ShadeExecute extends AbstractDynamicCard {
             upgradeName();
 //            upgradeBaseCost(UPGRADE_COST);
             upgradeMagicNumber(UPGRADE_STACKS);
-            rawDescription = UPGRADE_DESCRIPTION;
-            initializeDescription();
+//            rawDescription = UPGRADE_DESCRIPTION;
+//            initializeDescription();
         }
     }
 }

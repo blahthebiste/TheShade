@@ -65,7 +65,8 @@ public class ShadeVesselOfSufferingPower extends AbstractPower {
     }
 
     public void wasHPLost(DamageInfo info, int damageAmount) {
-        if (info.owner != null && info.type != DamageInfo.DamageType.HP_LOSS && damageAmount > 0) {
+//        if (info.owner != null && info.type != DamageInfo.DamageType.HP_LOSS && damageAmount > 0) {
+        if (info.owner != null && damageAmount > 0) {
             if (isPlayerTurn) { // Give raw energy during the players turn
                 this.flash();
 //                System.out.println("DEBUGFORELI: took damage with vessel of suffering, during player turn!");

@@ -9,7 +9,8 @@
   },
   "theShade:ShadePurge": {
     "NAME": "Purge",
-    "DESCRIPTION": "Set your  theshade:Corruption to 0. NL Heal !M! HP. NL Exhaust."
+    "DESCRIPTION": "Set your  theshade:Corruption to 0. NL Heal !M! HP. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "Retain. NL Set your  theshade:Corruption to 0. NL Heal !M! HP. NL Exhaust."
   },
   "theShade:ShadeShadows": {
     "NAME": "Shadows",
@@ -176,7 +177,7 @@
   },
   "theShade:ShadeDeception": {
     "NAME": "Deception",
-    "DESCRIPTION": "Gain block equal to your theshade:Corruption, plus !B!."
+    "DESCRIPTION": "Gain Block equal to your theshade:Corruption, plus !B!."
   },
   "theShade:ShadeBlackHeart": {
     "NAME": "Black Heart",
@@ -237,7 +238,7 @@
   },
   "theShade:ShadeExecute": {
     "NAME": "Execute",
-    "DESCRIPTION": "Your next attack is played !M! additional time if that would kill the target.",
+    "DESCRIPTION": "Your next attack is played !M! additional times if that would kill the target.",
     "UPGRADE_DESCRIPTION": "Your next attack is played !M! additional times if that would kill the target."
   },
   "theShade:ShadeUltimateStrike": {
@@ -254,7 +255,8 @@
   },
   "theShade:ShadeMutualAnnihilation": {
     "NAME": "Mutual Annihilation",
-    "DESCRIPTION": "Retain. NL Deal !D! damage to ALL enemies. NL Whenever you take unblocked damage, reduce the cost of this by 1 this combat."
+    "DESCRIPTION": "Retain. NL If you have taken unblocked damage 13 times this combat, deal !D! damage to ALL enemies.",
+    "UPGRADE_DESCRIPTION": " NL ( !M! Left!)"
   },
   "theShade:ShadeArcaneTempest": {
     "NAME": "Arcane Tempest",
@@ -289,7 +291,7 @@
   },
   "theShade:ShadeShadowBarrier": {
     "NAME": "Shadow Barrier",
-    "DESCRIPTION": "Gain block equal to your theshade:Corruption. NL Set your theshade:Corruption to 0. At the start of your next turn, gain it all back."
+    "DESCRIPTION": "Gain Block equal to your theshade:Corruption. NL Set your theshade:Corruption to 0. At the start of your next turn, gain it all back."
   },
   "theShade:ShadeImbue": {
     "NAME": "Imbue",

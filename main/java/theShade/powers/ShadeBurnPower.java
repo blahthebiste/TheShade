@@ -132,7 +132,6 @@ public class ShadeBurnPower extends AbstractPower implements HealthBarRenderPowe
     public void atStartOfTurn() {
         // Can't be blocked this way, but oh well
 //        if (!owner.isPlayer)
-        System.out.println("DEBUGFORELI: atStartTurn (burning) now!");
             performBurningTick();
     }
 

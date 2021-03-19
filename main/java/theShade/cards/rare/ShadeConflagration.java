@@ -40,8 +40,8 @@ public class ShadeConflagration extends AbstractDynamicCard {
 
     private static final int COST = 1;
 
-    private static final int BURN_AMOUNT = 4;
-    private static final int UPGRADED_BURN_AMOUNT = 2;
+    private static final int BURN_AMOUNT = 3;
+    private static final int UPGRADED_BURN_AMOUNT = 1;
     // /STAT DECLARATION/
 
     public ShadeConflagration() {

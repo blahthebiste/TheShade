@@ -1,0 +1,101 @@
+[
+  {
+    "PROPER_NAME": "Wither",
+    "NAMES": [
+      "wither",
+      "withered"
+    ],
+    "DESCRIPTION": "A debuff that prevents other debuffs from decaying over time."
+  },
+  {
+    "PROPER_NAME": "Burning",
+    "NAMES": [
+      "burning",
+      "theShadeThatFades:burning"
+    ],
+    "DESCRIPTION": "A damage over time effect that decays by half each turn."
+  },
+  {
+    "PROPER_NAME": "Purge",
+    "NAMES": [
+      "purge",
+      "purges"
+    ],
+    "DESCRIPTION": "A 2 cost skill that removes Corruption."
+  },
+  {
+    "PROPER_NAME": "Rebuff",
+    "NAMES": [
+      "rebuff",
+      "rebuffs"
+    ],
+    "DESCRIPTION": "A 1 cost skill that reduces Corruption and gives Block."
+  },
+  {
+    "PROPER_NAME": "Shadows",
+    "NAMES": [
+      "shadows"
+    ],
+    "DESCRIPTION": "A 1 cost skill that makes you Intangible, but shuffles a curse into your draw pile."
+  },
+  {
+    "PROPER_NAME": "Fatigue",
+    "NAMES": [
+      "fatigue",
+      "theShadeThatFades:fatigue",
+      "theShadeThatFades:fatigues",
+      "fatigues"
+    ],
+    "DESCRIPTION": "A 1 cost Curse that retains, and saps your energy at the start of each turn."
+  },
+  {
+    "PROPER_NAME": "Corruption",
+    "NAMES": [
+      "corruption"
+    ],
+    "DESCRIPTION": "A status effect that increases both damage done and taken from attacks."
+  },
+  {
+    "PROPER_NAME": "Deteriorate",
+    "NAMES": [
+      "deteriorate",
+      "deteriorating"
+    ],
+    "DESCRIPTION": "A debuff that deals damage equal to the player's Corruption at the end of each turn."
+  },
+  {
+    "PROPER_NAME": "Shackled",
+    "NAMES": [
+      "shackled",
+      "shackles",
+      "shackle"
+    ],
+    "DESCRIPTION": "Temporary strength down."
+  },
+  {
+    "PROPER_NAME": "Constrict",
+    "NAMES": [
+      "constrict",
+      "constricted"
+    ],
+    "DESCRIPTION": "A debuff that deals damage at the end of each turn, and does not decay."
+  },
+  {
+    "NAMES": [
+      "keyword",
+      "keywords"
+    ],
+    "DESCRIPTION": "Whenever you play a card, gain 1 dexterity this turn only."
+  },
+  {
+    "PROPER_NAME": "Multiword Keyword",
+    "NAMES": [
+      "Multiword Keyword",
+      "multiword_keyword",
+      "multiword_keywords",
+      "multikey",
+      "multikeyword"
+    ],
+    "DESCRIPTION": "Make sure the first element in the NAMES is the same as your PROPER_NAME. The rest is to match keywords like the single word keyword."
+  }
+]

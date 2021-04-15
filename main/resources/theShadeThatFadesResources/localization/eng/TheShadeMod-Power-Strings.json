@@ -1,0 +1,141 @@
+{
+"theShadeThatFades:CommonPower": {
+        "NAME": "Placeholder Power",
+        "DESCRIPTIONS": ["You applied #b", " keyword.", " keywords."]
+},
+"theShadeThatFades:RarePower": {
+        "NAME": "Placeholder Power",
+        "DESCRIPTIONS": ["At the start of your turn, TOUCH #b", " enemy." , " enemies."]
+},
+"theShadeThatFades:Corruption": {
+        "NAME": "Corruption",
+        "DESCRIPTIONS": ["Deal and take #b"," more #yAttack damage."," more #yAttack damage."]
+},
+"theShadeThatFades:Deteriorate": {
+        "NAME": "Deteriorate",
+        "DESCRIPTIONS": ["At the end of each of its turns, the target loses HP equal to your #yCorruption."]
+},
+        "theShadeThatFades:EncroachingShadows": {
+        "NAME": "Encroaching Shadows",
+        "DESCRIPTIONS": ["At the start of each turn, gain #b"," #yCorruption."]
+},
+        "theShadeThatFades:Anointed": {
+        "NAME": "Anointed",
+        "DESCRIPTIONS": ["At the start of each of its turns, gains #b"," #yCorruption."]
+},
+        "theShadeThatFades:Haunt": {
+        "NAME": "Haunted",
+        "DESCRIPTIONS": ["At the start of each of its turns, the target is #yShackled for #b","."]
+},
+        "theShadeThatFades:SubversionPower": {
+        "NAME": "Subversion",
+        "DESCRIPTIONS": ["Converts damage into healing during the player's turn, and healing into damage during enemy turn, for #b"," turns."," turns."]
+},
+        "theShadeThatFades:VesselOfSuffering": {
+                "NAME": "Vessel of Suffering",
+                "DESCRIPTIONS": ["Whenever you take unblocked damage during your turn, gain #b"," Energy."]
+        },
+        "theShadeThatFades:VesselOfSufferingUpgraded": {
+                "NAME": "Vessel of Suffering II",
+                "DESCRIPTIONS": ["Whenever you take unblocked damage, gain #b"," Energy."]
+        },
+        "theShadeThatFades:Shatter2": {
+                "NAME": "Shatter",
+                "DESCRIPTIONS": ["The next Attack you play deals additional damage equal to twice the target's block.",
+                        "The next #b"," Attacks you play deal additional damage equal to twice the target's block."]
+        },
+        "theShadeThatFades:Shatter3": {
+                "NAME": "Shatter",
+                "DESCRIPTIONS": ["The next Attack you play deals additional damage equal to three times the target's block.",
+                        "The next #b"," Attacks you play deal additional damage equal to three times the target's block."]
+        },
+        "theShadeThatFades:Burn": {
+                "NAME": "Burning",
+                "DESCRIPTIONS": ["At the start of its turn, the target takes #b","At the start of your turn, take #b"," Damage and loses half its #yBurning stacks."," Damage and lose half your #yBurning stacks."]
+        },
+        "theShadeThatFades:WrithingFlame": {
+                "NAME": "Writhing Flame",
+                "DESCRIPTIONS": ["Whenever you are attacked this turn, apply #b"," #yBurning to the attacker."]
+        },
+        "theShadeThatFades:ShadeSpreadingCorruptionPower": {
+                "NAME": "Spreading Corruption",
+                "DESCRIPTIONS": ["At the start of each of your turns, apply #yDeteriorate to all enemies that are not Deteriorating."]
+        },
+        "theShadeThatFades:ShadeProlongedSufferingPower": {
+                "NAME": "Prolonged Suffering",
+                "DESCRIPTIONS": ["Whenever you apply a debuff, apply #b"," #yWither."]
+        },
+        "theShadeThatFades:ShadeOverdrive": {
+                "NAME": "Overdrive",
+                "DESCRIPTIONS": ["Whenever you gain #yCorruption, gain twice as much."]
+        },
+        "theShadeThatFades:ShadeDistortionPower": {
+                "NAME": "Distortion",
+                "DESCRIPTIONS": ["Curses can be played. Whenever you play a Curse, gain 1 energy."]
+        },
+        "theShadeThatFades:ShadeDistortionInfinitePower": {
+                "NAME": "Distortion",
+                "DESCRIPTIONS": ["Whenever you draw a Curse, transform it into a random Black card."]
+        },
+        "theShadeThatFades:ShadeChaosStormPower": {
+                "NAME": "Chaos Storm",
+                "DESCRIPTIONS": ["At the end of each turn, randomly apply 3 #yCorruption, 2 #yWither, or 4 #yBurning, or deal 6 damage to ","a random","each"," enemy."]
+        },
+        "theShadeThatFades:ShadeDefenseAgainstTheDarkArtsPower": {
+                "NAME": "Defense Against The Dark Arts",
+                "DESCRIPTIONS": ["At the start of each turn, add an Ethereal #yRebuff to your hand.","At the start of each turn, add an upgraded Ethereal #yRebuff to your hand.","At the start of each turn, add #b"," #yPurges to your hand."," upgraded #yPurges to your hand."]
+        },
+        "theShadeThatFades:ShadeCorruptionNextTurnPower": {
+                "NAME": "Shadow Barrier",
+                "DESCRIPTIONS": ["At the start of next turn, gain #b"," #yCorruption."]
+        },
+        "theShadeThatFades:MidnightHorizon": {
+                "NAME": "Midnight Horizon",
+                "DESCRIPTIONS": ["Your next attack is replayed against each enemy other than the original target."]
+        },
+        "theShadeThatFades:ExecutePower": {
+                "NAME": "Execute",
+                "DESCRIPTIONS": ["Your next attack is played #b","an additional time"," additional times"," if that would kill the target."]
+        },
+        "theShadeThatFades:ShadeEthericShiftPower": {
+                "NAME": "Etheric Shift",
+                "DESCRIPTIONS": ["Your cards are Ethereal, but cost #b"," less energy, until the end of the turn."]
+        },
+        "theShadeThatFades:ShadeElixirOfNoctisPower": {
+                "NAME": "Elixir of Noctis",
+                "DESCRIPTIONS": ["Asleep for 1 turn. At the end of your turn, heals #b","Asleep for the next #b"," turns. At the end of your turn, heals #b"," HP."]
+        },
+        "theShadeThatFades:ShadeApexCorruptionPower": {
+                "NAME": "Apex Corruption",
+                "DESCRIPTIONS": ["Gain 3 energy, and draw 3 extra cards, each turn."," You cannot gain or lose Corruption."]
+        },
+        "theShadeThatFades:ShadeShadowBlend": {
+                "NAME": "Shadow Blend",
+                "DESCRIPTIONS": ["Wears off in #b"," turns. Any cards you play now are replayed when this wears off."]
+        },
+        "theShadeThatFades:ShadeAmalgamFormPower": {
+                "NAME": "Amalgam Form",
+                "DESCRIPTIONS": ["At the end of each turn, gain block equal to your #yCorruption. You can no longer become Intangible.","At the end of each turn, gain block equal to #b"," times your Corruption. You can no longer become Intangible."]
+        },
+        "theShadeThatFades:ShadeConflagrationPower": {
+                "NAME": "Conflagration",
+                "DESCRIPTIONS": ["Whenever you play an attack, if you are not Intangible, apply "," #yBurning to all enemies."]
+        },
+        "theShadeThatFades:ShadeHpTetherPower": {
+                "NAME": "Soul Tether",
+                "DESCRIPTIONS": ["Whenever this entity receives damage or healing, so does the tethered ","."]
+        },
+        "theShadeThatFades:ShadeInfusionPower": {
+                "NAME": "Infusion",
+                "DESCRIPTIONS": ["This entity receives double damage and healing outside of the player's turn."]
+        },
+        "theShadeThatFades:ShadeInfusionUpgradedPower": {
+                "NAME": "Strong Infusion",
+                "DESCRIPTIONS": ["This entity receives triple damage and healing outside of the player's turn."]
+        },
+        "theShadeThatFades:Wither": {
+        "NAME": "Wither",
+        "DESCRIPTIONS": ["Prevents other debuffs from decaying over time. Decreases every turn."]
+}
+
+}

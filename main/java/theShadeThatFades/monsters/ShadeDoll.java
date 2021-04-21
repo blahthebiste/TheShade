@@ -21,7 +21,7 @@ public class ShadeDoll extends AbstractMonster
 
     public ShadeDoll(final float x, final float y, AbstractCreature victim, float hp_multi) {
         super(ShadeDoll.NAME, ID, 50, 0,0, 160.0f, 160.0f, "theShadeThatFadesResources/images/monsters/ShadeDoll.png", x -160, y +160);
-        System.out.println("Doll draw x/y: "+this.drawX+"/"+this.drawY);
+//        System.out.println("Doll draw x/y: "+this.drawX+"/"+this.drawY);
         this.victim = victim;
         if(victim != null) {
             AbstractCreature master = victim;

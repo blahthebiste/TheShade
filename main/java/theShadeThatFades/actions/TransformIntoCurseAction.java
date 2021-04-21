@@ -27,7 +27,7 @@ public class TransformIntoCurseAction extends AbstractGameAction {
         this.amount = amount;
         this.duration = this.startDuration = Settings.ACTION_DUR_FAST;
         this.actionType = ActionType.CARD_MANIPULATION;
-        System.out.println("Transforming " + this.amount + " cards into Curses.");
+//        System.out.println("Transforming " + this.amount + " cards into Curses.");
     }
 
     public TransformIntoCurseAction(AbstractCreature target, AbstractCreature source, int amount, boolean isRandom, boolean anyNumber) {
@@ -86,7 +86,7 @@ public class TransformIntoCurseAction extends AbstractGameAction {
         curseCard.current_y = curseCard.target_y = c.current_y;
         this.p.hand.removeCard(c);
         curseCard.superFlash();
-        System.out.println("Adding curse to hand");
+//        System.out.println("Adding curse to hand");
         this.p.hand.addToBottom(curseCard);
         this.p.hand.refreshHandLayout();
         this.p.hand.update();

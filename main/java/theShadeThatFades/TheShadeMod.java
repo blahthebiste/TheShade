@@ -24,6 +24,7 @@ import com.megacrit.cardcrawl.unlock.UnlockTracker;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import theShadeThatFades.cards.*;
+import theShadeThatFades.cards.deprecated.ShadeAmalgamForm;
 import theShadeThatFades.cards.uncommon.*;
 import theShadeThatFades.cards.rare.*;
 import theShadeThatFades.characters.TheShade;
@@ -493,12 +494,6 @@ public class TheShadeMod implements
         BaseMod.addCard(new ShadeSpreadingCorruption());
         BaseMod.addCard(new ShadeProlongedSuffering());
         BaseMod.addCard(new ShadeOverdrive());
-        if (hasInfiniteSpire) {
-            BaseMod.addCard(new ShadeDistortionInfinite());
-        }
-        else {
-            BaseMod.addCard(new ShadeDistortion());
-        }
         BaseMod.addCard(new ShadeChaosStorm());
         BaseMod.addCard(new ShadeDefenseAgainstTheDarkArts());
         BaseMod.addCard(new ShadeMidnightHorizon());
@@ -524,12 +519,20 @@ public class TheShadeMod implements
         BaseMod.addCard(new ShadeElixirOfNoctis());
 //        BaseMod.addCard(new ShadeApexCorruption()); //DEPRECATED
         BaseMod.addCard(new ShadeShadowBlend());
-//        BaseMod.addCard(new ShadeAmalgamForm());
-        BaseMod.addCard(new ShadeUnveil());
+//        BaseMod.addCard(new ShadeAmalgamForm()); //DEPRECATED
         BaseMod.addCard(new ShadeConflagration());
 //        BaseMod.addCard(new ShadeInfusion()); //DEPRECATED
         BaseMod.addCard(new ShadeGrudge());
-
+        if (hasInfiniteSpire) {
+            BaseMod.addCard(new ShadeDistortionInfinite());
+            BaseMod.addCard(new ShadeUnveilInfinite());
+            BaseMod.addCard(new ShadeEidolonFormInfinite());
+        }
+        else {
+            BaseMod.addCard(new ShadeDistortion());
+            BaseMod.addCard(new ShadeUnveil());
+            BaseMod.addCard(new ShadeEidolonForm());
+        }
 
         logger.info("Making sure the cards are unlocked.");
         // Unlock the cards
@@ -597,7 +600,6 @@ public class TheShadeMod implements
         UnlockTracker.unlockCard(ShadeSpreadingCorruption.ID);
         UnlockTracker.unlockCard(ShadeProlongedSuffering.ID);
         UnlockTracker.unlockCard(ShadeOverdrive.ID);
-        UnlockTracker.unlockCard(ShadeDistortion.ID);
         UnlockTracker.unlockCard(ShadeChaosStorm.ID);
         UnlockTracker.unlockCard(ShadeDefenseAgainstTheDarkArts.ID);
         UnlockTracker.unlockCard(ShadeMidnightHorizon.ID);
@@ -624,10 +626,20 @@ public class TheShadeMod implements
 //        UnlockTracker.unlockCard(ShadeApexCorruption.ID); //DEPRECATED
         UnlockTracker.unlockCard(ShadeShadowBlend.ID);
         UnlockTracker.unlockCard(ShadeAmalgamForm.ID);
-        UnlockTracker.unlockCard(ShadeUnveil.ID);
         UnlockTracker.unlockCard(ShadeConflagration.ID);
 //        UnlockTracker.unlockCard(ShadeInfusion.ID); //DEPRECATED
         UnlockTracker.unlockCard(ShadeGrudge.ID);
+
+        if (hasInfiniteSpire) {
+            UnlockTracker.unlockCard(ShadeDistortionInfinite.ID);
+            UnlockTracker.unlockCard(ShadeUnveilInfinite.ID);
+            UnlockTracker.unlockCard(ShadeEidolonFormInfinite.ID);
+        }
+        else {
+            UnlockTracker.unlockCard(ShadeDistortion.ID);
+            UnlockTracker.unlockCard(ShadeUnveil.ID);
+            UnlockTracker.unlockCard(ShadeEidolonForm.ID);
+        }
 
         logger.info("Done adding cards!");
     }

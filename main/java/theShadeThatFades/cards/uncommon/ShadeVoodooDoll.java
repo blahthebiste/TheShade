@@ -55,7 +55,7 @@ public class ShadeVoodooDoll extends AbstractDynamicCard {
     public void use(AbstractPlayer p, AbstractMonster m) {
         if (m != null && !m.isDying && !m.isDeadOrEscaped()) {
             // Figure out where to spawn it
-            System.out.println("Target draw x/y: "+m.drawX+"/"+m.drawY);
+//            System.out.println("Target draw x/y: "+m.drawX+"/"+m.drawY);
             ShadeDoll doll = new ShadeDoll((m.drawX - (float)Settings.WIDTH * 0.75F)/ Settings.scale, (m.drawY -AbstractDungeon.floorY )/Settings.scale, m, magicNumber);
             this.addToBot(new ApplyPowerAction(doll, p, new ShadeHpTetherPower(doll, m)));
             this.addToBot(new SpawnMonsterAction(doll, true));

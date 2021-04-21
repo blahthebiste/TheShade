@@ -1,33 +1,35 @@
 package theShadeThatFades.powers;
 
-import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
-import infinitespire.helpers.CardHelper;
+import com.megacrit.cardcrawl.actions.common.GainEnergyAction;
 import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
+import com.megacrit.cardcrawl.actions.utility.UseCardAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.powers.AbstractPower;
-import theShadeThatFades.cards.ShadeSpite;
+import theShadeThatFades.actions.TransformIntoBlackCardAction;
 import theShadeThatFades.util.TextureLoader;
+
+import java.util.Iterator;
 
 import static theShadeThatFades.TheShadeMod.makePowerPath;
 
-public class ShadeDistortionInfinitePower extends AbstractPower {
-    public static final String POWER_ID = "theShadeThatFades:ShadeDistortionInfinitePower";
+public class ShadeEidolonFormInfinitePower extends AbstractPower {
+    public static final String POWER_ID = "theShadeThatFades:ShadeEidolonFormInfinitePower";
     private static final PowerStrings powerStrings = CardCrawlGame.languagePack.getPowerStrings(POWER_ID);
     public static final String NAME = powerStrings.NAME;
     public static final String[] DESCRIPTIONS = powerStrings.DESCRIPTIONS;
 
     // We create 2 new textures *Using This Specific Texture Loader* - an 84x84 image and a 32x32 one.
     // There's a fallback "missing texture" image, so the game shouldn't crash if you accidentally put a non-existent file.
-    private static final Texture tex84 = TextureLoader.getTexture(makePowerPath("ShadeDistortion84.png"));
-    private static final Texture tex32 = TextureLoader.getTexture(makePowerPath("ShadeDistortion32.png"));
+    private static final Texture tex84 = TextureLoader.getTexture(makePowerPath("ShadeAmalgamFormPower84.png"));
+    private static final Texture tex32 = TextureLoader.getTexture(makePowerPath("ShadeAmalgamFormPower32.png"));
 
-    public ShadeDistortionInfinitePower(AbstractCreature owner) {
+    public ShadeEidolonFormInfinitePower(AbstractCreature owner) {
         this.name = NAME;
         this.ID = POWER_ID;
         this.owner = owner;
@@ -67,17 +69,13 @@ public class ShadeDistortionInfinitePower extends AbstractPower {
     }
 
     @Override
-    public void onCardDraw(AbstractCard card) {
-        if (card.type == AbstractCard.CardType.CURSE || card.color == AbstractCard.CardColor.CURSE || card.cardID.equals(ShadeSpite.ID)) {
-            this.flash();
-            AbstractCard blackCard = CardHelper.getRandomBlackCard().makeStatEquivalentCopy();
-            blackCard.current_x = blackCard.target_x = card.current_x;
-            blackCard.current_y = blackCard.target_y = card.current_y;
-            AbstractDungeon.player.hand.removeCard(card);
-            blackCard.superFlash(new Color(124.0f, 0.0f, 60.0f, 185.0f));
-            AbstractDungeon.player.hand.addToBottom(blackCard);
-            AbstractDungeon.player.hand.refreshHandLayout();
-            AbstractDungeon.player.hand.update();
+    public void atEndOfTurn(boolean isPlayer) {
+        if (isPlayer) {
+            int count = AbstractDungeon.player.hand.size();
+            int i;
+            for(i = 0; i < count; ++i) {
+                this.addToBot(new TransformIntoBlackCardAction(1, false, false, false, false, false));
+            }
         }
     }
 

@@ -129,7 +129,7 @@ public class ShadeShadowBlendPower extends AbstractPower {
 
             tmp.purgeOnUse = true;
             dupedCards.put(tmp, m);
-            System.out.println("Added " + tmp.cardID);
+//            System.out.println("Added " + tmp.cardID);
         }
     }
 

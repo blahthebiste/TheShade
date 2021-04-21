@@ -23,6 +23,10 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import theShadeThatFades.TheShadeMod;
 import theShadeThatFades.cards.*;
+import theShadeThatFades.cards.rare.ShadeEidolonForm;
+import theShadeThatFades.cards.rare.ShadeEidolonFormInfinite;
+import theShadeThatFades.cards.rare.ShadeUnveil;
+import theShadeThatFades.cards.rare.ShadeUnveilInfinite;
 import theShadeThatFades.cards.uncommon.*;
 import theShadeThatFades.relics.*;
 
@@ -252,11 +256,14 @@ public class TheShade extends CustomPlayer {
 //        retVal.add(ShadeAmalgamForm.ID);
 //        retVal.add(ShadeBlightBolt.ID);
 //        retVal.add(ShadeUnveil.ID);
+//        retVal.add(ShadeUnveilInfinite.ID);
 //        retVal.add(ShadeConflagration.ID);
 //        retVal.add(ShadeVoodooDoll.ID);
 //        retVal.add(ShadeInfusion.ID);
 //        retVal.add(ShadeGrudge.ID);
 //        retVal.add(ShadeEnkindle.ID);
+//        retVal.add(ShadeEidolonForm.ID);
+//        retVal.add(ShadeEidolonFormInfinite.ID);
         return retVal;
     }
 
@@ -264,13 +271,8 @@ public class TheShade extends CustomPlayer {
     public ArrayList<String> getStartingRelics() {
         ArrayList<String> retVal = new ArrayList<>();
 
-//        retVal.add(PlaceholderRelic.ID);
         retVal.add(TwistedSorcery.ID);
-//        retVal.add(DefaultClickableRelic.ID);
-
-//        UnlockTracker.markRelicAsSeen(PlaceholderRelic.ID);
         UnlockTracker.markRelicAsSeen(TwistedSorcery.ID);
-//        UnlockTracker.markRelicAsSeen(DefaultClickableRelic.ID);
 
         return retVal;
     }
@@ -293,7 +295,7 @@ public class TheShade extends CustomPlayer {
     // Ascension 14 or higher. (ironclad loses 5, defect and silent lose 4 hp respectively)
     @Override
     public int getAscensionMaxHPLoss() {
-        return 5;
+        return 4;
     }
 
     // Should return the card color enum to be associated with your character.

@@ -14,8 +14,8 @@
   },
   "theShadeThatFades:ShadeShadows": {
     "NAME": "Shadows",
-    "DESCRIPTION": "Gain 1 Intangible. Shuffle a theshadethatfades:Fatigue into your draw pile. Exhaust.",
-    "UPGRADE_DESCRIPTION": "Gain 1 Intangible. Shuffle a theshadethatfades:Fatigue into your discard pile. Exhaust."
+    "DESCRIPTION": "Gain 1 Intangible. Shuffle a theshadethatfades:Fatigue into your draw pile. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "Gain 1 Intangible. Shuffle a theshadethatfades:Fatigue into your discard pile. NL Exhaust."
   },
   "theShadeThatFades:ShadeFatigue": {
     "NAME": "Fatigue",
@@ -36,7 +36,7 @@
   },
   "theShadeThatFades:ShadeStrangle": {
     "NAME": "Strangle",
-    "DESCRIPTION": "Deal !D! Damage. NL Apply 3 Constrict. Exhaust."
+    "DESCRIPTION": "Deal !D! Damage. NL Apply 3 Constrict. NL Exhaust."
   },
   "theShadeThatFades:ShadeArcaneLightning": {
     "NAME": "Arcane Lightning",
@@ -122,6 +122,16 @@
   "theShadeThatFades:ShadeDelve": {
     "NAME": "Delve",
     "DESCRIPTION": "Deal !D! damage. NL Gain !M! theshadethatfades:Corruption."
+  },
+  "theShadeThatFades:ShadeEidolonForm": {
+    "NAME": "Eidolon Form",
+    "DESCRIPTION": "At the end of your turn, Exhaust your hand. NL Gain 1 Intangible for every 5 cards Exhausted. NL Grave.",
+    "UPGRADE_DESCRIPTION": "At the end of your turn, Exhaust your hand. NL Gain 1 Intangible for every 5 cards Exhausted."
+  },
+  "theShadeThatFades:ShadeEidolonFormInfinite": {
+    "NAME": "Eidolon Form",
+    "DESCRIPTION": "At the end of your turn, transform cards in your hand into random Black Cards. NL Grave.",
+    "UPGRADE_DESCRIPTION": "At the end of your turn, transform cards in your hand into random Black Cards."
   },
   "theShadeThatFades:ShadeDarkTendrils": {
     "NAME": "Dark Tendrils",
@@ -324,6 +334,11 @@
   "theShadeThatFades:ShadeUnveil": {
     "NAME": "Unveil",
     "DESCRIPTION": "Transform a card in your hand into a random Curse. NL Gain !B! block."
+  },
+  "theShadeThatFades:ShadeUnveilInfinite": {
+    "NAME": "Unveil",
+    "DESCRIPTION": "Transform a card in your hand into a random Black Card. NL At the end of your turn, transform it back.",
+    "UPGRADE_DESCRIPTION": "Transform a card in your hand into a random Black Card. NL At the end of your turn, transform it back. NL Repeatable."
   },
   "theShadeThatFades:ShadeConflagration": {
     "NAME": "Conflagration",

@@ -1,5 +1,6 @@
 package theShadeThatFades.cards.rare;
 
+import com.evacipated.cardcrawl.mod.stslib.fields.cards.AbstractCard.GraveField;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
@@ -9,22 +10,16 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import theShadeThatFades.TheShadeMod;
 import theShadeThatFades.cards.AbstractDynamicCard;
 import theShadeThatFades.characters.TheShade;
-import theShadeThatFades.powers.ShadeAmalgamFormPower;
+import theShadeThatFades.powers.ShadeEidolonFormInfinitePower;
 
 import static theShadeThatFades.TheShadeMod.makeCardPath;
 
-public class ShadeAmalgamForm extends AbstractDynamicCard {
-
-    /*
-     * Wiki-page: https://github.com/daviscook477/BaseMod/wiki/Custom-Cards
-     *
-     * Weirdness Apply X (+1) keywords to yourself.
-     */
+public class ShadeEidolonFormInfinite extends AbstractDynamicCard {
 
     // TEXT DECLARATION
 
-    public static final String ID = TheShadeMod.makeID(ShadeAmalgamForm.class.getSimpleName());
-    public static final String IMG = makeCardPath("ShadeAmalgamForm.png");
+    public static final String ID = TheShadeMod.makeID(ShadeEidolonFormInfinite.class.getSimpleName());
+    public static final String IMG = makeCardPath("ShadeEidolonForm.png");
 
     private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
     public static final String UPGRADE_DESCRIPTION = cardStrings.UPGRADE_DESCRIPTION;
@@ -39,17 +34,17 @@ public class ShadeAmalgamForm extends AbstractDynamicCard {
     public static final CardColor COLOR = TheShade.Enums.COLOR_GRAY;
 
     private static final int COST = 3;
-    private static final int UPGRADED_COST = 2;
     // /STAT DECLARATION/
 
-    public ShadeAmalgamForm() {
+    public ShadeEidolonFormInfinite() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
+        GraveField.grave.set(this, true);
     }
 
     // Actions the card should do.
     @Override
     public void use(final AbstractPlayer p, final AbstractMonster m) {
-        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new ShadeAmalgamFormPower(p, 1)));
+        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new ShadeEidolonFormInfinitePower(p)));
     }
 
     //Upgraded stats.
@@ -57,7 +52,8 @@ public class ShadeAmalgamForm extends AbstractDynamicCard {
     public void upgrade() {
         if (!upgraded) {
             upgradeName();
-            upgradeBaseCost(UPGRADED_COST);
+            GraveField.grave.set(this, false);
+            rawDescription = UPGRADE_DESCRIPTION;
             initializeDescription();
         }
     }

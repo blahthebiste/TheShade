@@ -111,12 +111,12 @@ public class ShadeShatterUpgradedPower extends AbstractPower {
 
     public float atDamageGive(float damage, DamageInfo.DamageType type) {
         float returnDamage = 0;
-        System.out.println("DEBUGFORELI: atDamageGive");
+//        System.out.println("DEBUGFORELI: atDamageGive");
         if (playingAttack) {
             returnDamage = damage + (targetBlock * 3);
             playingAttack = false;
             targetBlock = 0;
-            System.out.println("DEBUGFORELI: atDamageGive: extra damage! returnDamage = "+ returnDamage);
+//            System.out.println("DEBUGFORELI: atDamageGive: extra damage! returnDamage = "+ returnDamage);
             return returnDamage;
         }
         else     return damage;

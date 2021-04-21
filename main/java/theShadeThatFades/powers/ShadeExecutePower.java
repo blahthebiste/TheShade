@@ -99,7 +99,7 @@ public class ShadeExecutePower extends AbstractPower {
                         if (monster.currentHealth <= lowestHP) {
                             m = monster;
                             lowestHP = monster.currentHealth;
-                            System.out.println("New lowest HP found: " + lowestHP);
+//                            System.out.println("New lowest HP found: " + lowestHP);
                         }
                     }
                 }
@@ -108,7 +108,7 @@ public class ShadeExecutePower extends AbstractPower {
                 return;
             }
             if (!m.isDead && !m.isDying && m.currentHealth + m.currentBlock <= (card.damage * (this.amount + 1))) {
-                System.out.println("Card damage was enough: " + card.damage);
+//                System.out.println("Card damage was enough: " + card.damage);
                 // Only trigger if the target's remaining HP is low enough
                 this.flash();
                 while (true) {
@@ -130,7 +130,7 @@ public class ShadeExecutePower extends AbstractPower {
                         break;
                     }
                 }
-            } else System.out.println("Card damage was not enough: " + card.damage);
+            } //else System.out.println("Card damage was not enough: " + card.damage);
         }
     }
 

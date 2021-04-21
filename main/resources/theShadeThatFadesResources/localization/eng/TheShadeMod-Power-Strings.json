@@ -1,12 +1,4 @@
 {
-"theShadeThatFades:CommonPower": {
-        "NAME": "Placeholder Power",
-        "DESCRIPTIONS": ["You applied #b", " keyword.", " keywords."]
-},
-"theShadeThatFades:RarePower": {
-        "NAME": "Placeholder Power",
-        "DESCRIPTIONS": ["At the start of your turn, TOUCH #b", " enemy." , " enemies."]
-},
 "theShadeThatFades:Corruption": {
         "NAME": "Corruption",
         "DESCRIPTIONS": ["Deal and take #b"," more #yAttack damage."," more #yAttack damage."]
@@ -75,7 +67,7 @@
         },
         "theShadeThatFades:ShadeDistortionInfinitePower": {
                 "NAME": "Distortion",
-                "DESCRIPTIONS": ["Whenever you draw a Curse, transform it into a random Black card."]
+                "DESCRIPTIONS": ["Whenever you draw a Curse, transform it into a random Black Card."]
         },
         "theShadeThatFades:ShadeChaosStormPower": {
                 "NAME": "Chaos Storm",
@@ -124,6 +116,14 @@
         "theShadeThatFades:ShadeHpTetherPower": {
                 "NAME": "Soul Tether",
                 "DESCRIPTIONS": ["Whenever this entity receives damage or healing, so does the tethered ","."]
+        },
+        "theShadeThatFades:ShadeEidolonFormPower": {
+                "NAME": "Eidolon Form",
+                "DESCRIPTIONS": ["At the end of your turn, Exhaust your hand. Gain Intangible for every "," cards Exhausted."]
+        },
+        "theShadeThatFades:ShadeEidolonFormInfinitePower": {
+                "NAME": "Eidolon Form",
+                "DESCRIPTIONS": ["At the end of your turn, transform cards in your hand into random Black Cards."]
         },
         "theShadeThatFades:ShadeInfusionPower": {
                 "NAME": "Infusion",

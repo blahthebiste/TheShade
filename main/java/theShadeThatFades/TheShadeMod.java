@@ -137,9 +137,9 @@ public class TheShadeMod implements
     // Character assets
     private static final String THE_DEFAULT_BUTTON = "theShadeThatFadesResources/images/charSelect/DefaultCharacterButton.png";
     private static final String THE_DEFAULT_PORTRAIT = "theShadeThatFadesResources/images/charSelect/DefaultCharacterPortraitBG.png";
-    public static final String THE_DEFAULT_SHOULDER_1 = "theShadeThatFadesResources/images/char/defaultCharacter/shoulder.png";
-    public static final String THE_DEFAULT_SHOULDER_2 = "theShadeThatFadesResources/images/char/defaultCharacter/shoulder2.png";
-    public static final String THE_DEFAULT_CORPSE = "theShadeThatFadesResources/images/char/defaultCharacter/corpse.png";
+    public static final String THE_DEFAULT_SHOULDER_1 = "theShadeThatFadesResources/images/char/defaultCharacter/shoulderShade.png";
+    public static final String THE_DEFAULT_SHOULDER_2 = "theShadeThatFadesResources/images/char/defaultCharacter/shoulderShade2.png";
+    public static final String THE_DEFAULT_CORPSE = "theShadeThatFadesResources/images/char/defaultCharacter/corpseShade.png";
     
     //Mod Badge - A small icon that appears in the mod settings menu next to your mod.
     public static final String BADGE_IMAGE = "theShadeThatFadesResources/images/Badge.png";

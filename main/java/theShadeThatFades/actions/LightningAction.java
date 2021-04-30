@@ -73,13 +73,13 @@ public class LightningAction extends AbstractGameAction {
         @Override
         public void render(SpriteBatch sb) {
             sb.setBlendFunction( GL30.GL_SRC_ALPHA,  GL30.GL_ONE);
-//            this.scale =  1.0F * Settings.scale;
             sb.setColor(Color.WHITE.cpy());
             sb.draw(this.img, this.x, this.y, (float)this.img.packedWidth / 2.0F, 0.0F, (float)this.img.packedWidth, (float)this.img.packedHeight, this.scale, this.scale, this.rotation);
-            sb.setColor(this.color);
-            sb.setBlendFunction( GL30.GL_SRC_ALPHA,  GL30.GL_ONE_MINUS_SRC_ALPHA);
-//            this.scale =  1.0F * Settings.scale;
-            sb.draw(this.img, this.x, this.y, (float)this.img.packedWidth / 2.0F, 0.0F, (float)this.img.packedWidth, (float)this.img.packedHeight, this.scale, this.scale, this.rotation);
+            if (!this.color.equals(Color.WHITE.cpy())) {
+                sb.setColor(this.color); // Extra flash for different colors
+                sb.setBlendFunction(GL30.GL_SRC_ALPHA, GL30.GL_ONE_MINUS_SRC_ALPHA);
+                sb.draw(this.img, this.x, this.y, (float) this.img.packedWidth / 2.0F, 0.0F, (float) this.img.packedWidth, (float) this.img.packedHeight, this.scale, this.scale, this.rotation);
+            }
         }
     }
     //======================================END CUSTOM LIGHTNING EFFECT=================================================

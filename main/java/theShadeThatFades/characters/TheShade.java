@@ -171,7 +171,7 @@ public class TheShade extends CustomPlayer {
         retVal.add(ShadePurge.ID);
         //Debug stuff vvv
 //        retVal.add(ShadeTorture.ID);
-//        retVal.add(ShadeContaminate.ID);
+        retVal.add(ShadeContaminate.ID);
 //        retVal.add(ShadeShadowStrike.ID);
 //        retVal.add(ShadeFatigue.ID);
 //        retVal.add(ShadeSpite.ID);
@@ -185,7 +185,7 @@ public class TheShade extends CustomPlayer {
 //        retVal.add(ShadeArcaneLightning.ID);
 //        retVal.add(ShadeStrangle.ID);
 //        retVal.add(ShadeArcaneFire.ID);
-//        retVal.add(ShadeMarkOfTheWitness.ID);
+        retVal.add(ShadeMarkOfTheWitness.ID);
 //        retVal.add(ShadeDescend.ID);
 //        retVal.add(ShadeFade.ID);
 //        retVal.add(ShadeShroud.ID);
@@ -264,6 +264,7 @@ public class TheShade extends CustomPlayer {
 //        retVal.add(ShadeEnkindle.ID);
 //        retVal.add(ShadeEidolonForm.ID);
 //        retVal.add(ShadeEidolonFormInfinite.ID);
+        retVal.add(ShadeDestructivore.ID);
         return retVal;
     }
 

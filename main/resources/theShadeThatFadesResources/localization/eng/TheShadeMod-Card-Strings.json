@@ -403,8 +403,8 @@
     "NAME": "Cool 2 Number Card",
     "DESCRIPTION": "Apply !M! vulnerable and !theShadeThatFades:SecondMagic! poison to an enemy."
   },
-  "theShadeThatFades:OrbSkill": {
-    "NAME": "Get Orb",
-    "DESCRIPTION": "Channel 1 Default Orb."
+  "theShadeThatFades:ShadeDestructivore": {
+    "NAME": "Destructivore",
+    "DESCRIPTION": "Steal an enemy's Strength until the end of their turn."
   }
 }

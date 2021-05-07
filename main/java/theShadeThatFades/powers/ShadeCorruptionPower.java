@@ -98,6 +98,10 @@ public class ShadeCorruptionPower extends AbstractPower {
 
     @Override
     public float atDamageGive(float damage, DamageInfo.DamageType type) {
+        if (this.owner.hasPower(ShadeDeterioratePower.POWER_ID)) {
+            // Deteriorating creatures do not get the damage bonus from Corruption.
+            return  damage;
+        }
         return type == DamageInfo.DamageType.NORMAL ? damage + this.amount : damage;
     }
 

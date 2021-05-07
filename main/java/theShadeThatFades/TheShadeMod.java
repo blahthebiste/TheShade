@@ -456,6 +456,7 @@ public class TheShadeMod implements
         BaseMod.addCard(new ShadeCorruptBlade());
 //        BaseMod.addCard(new ShadeStrangle()); // DEPRECATED
         BaseMod.addCard(new ShadeFinalStrike());
+        BaseMod.addCard(new ShadeDestructivore());
         BaseMod.addCard(new ShadeArcaneLightning());
         BaseMod.addCard(new ShadePursuit());
         BaseMod.addCard(new ShadeShadowStrike());
@@ -568,6 +569,7 @@ public class TheShadeMod implements
         UnlockTracker.unlockCard(ShadeArcaneFire.ID);
         UnlockTracker.unlockCard(ShadeMarkOfTheWitness.ID);
         UnlockTracker.unlockCard(ShadeDescend.ID);
+        UnlockTracker.unlockCard(ShadeDestructivore.ID);
         UnlockTracker.unlockCard(ShadeFade.ID);
         UnlockTracker.unlockCard(ShadeShroud.ID);
         UnlockTracker.unlockCard(ShadeExert.ID);

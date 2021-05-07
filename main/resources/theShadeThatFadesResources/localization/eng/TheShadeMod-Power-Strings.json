@@ -5,7 +5,7 @@
 },
 "theShadeThatFades:Deteriorate": {
         "NAME": "Deteriorate",
-        "DESCRIPTIONS": ["At the end of each of its turns, the target loses HP equal to your #yCorruption."]
+        "DESCRIPTIONS": ["At the end of each of its turns, the target loses HP equal to your #yCorruption. The target's damage is no longer boosted by their own Corruption."]
 },
         "theShadeThatFades:EncroachingShadows": {
         "NAME": "Encroaching Shadows",
@@ -18,6 +18,10 @@
         "theShadeThatFades:Haunt": {
         "NAME": "Haunted",
         "DESCRIPTIONS": ["At the start of each of its turns, the target is #yShackled for #b","."]
+},
+        "theShadeThatFades:StealBackStrength": {
+        "NAME": "Destructivore",
+        "DESCRIPTIONS": ["At the end of its turn, the target regains #b"," stolen Strength."]
 },
         "theShadeThatFades:SubversionPower": {
         "NAME": "Subversion",

@@ -40,7 +40,7 @@ public class ShadeDestructivore extends AbstractDynamicCard {
     private static final CardType TYPE = CardType.SKILL;       //
     public static final CardColor COLOR = TheShade.Enums.COLOR_GRAY;
 
-    private static final int COST = 1;
+    private static final int COST = 0;
 
     // /STAT DECLARATION/
 
@@ -53,9 +53,11 @@ public class ShadeDestructivore extends AbstractDynamicCard {
     // Actions the card should do.
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        int strengthAmount = 0;
-        if (m != null && m.hasPower(StrengthPower.POWER_ID)) {
-            strengthAmount = m.getPower(StrengthPower.POWER_ID).amount;
+        int strengthAmount = 2;
+        if (m != null) {
+            if (m.hasPower(StrengthPower.POWER_ID)) {
+                strengthAmount = Math.max(m.getPower(StrengthPower.POWER_ID).amount, 2);
+            }
 
             // Monster loses strength
             this.addToBot(new ApplyPowerAction(m, p, new StrengthPower(m, -strengthAmount), -strengthAmount));

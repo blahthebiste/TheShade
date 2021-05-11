@@ -70,6 +70,7 @@ public class ShadeBurnPower extends AbstractPower implements HealthBarRenderPowe
         if (this.amount == 0) {
             this.addToTop(new RemoveSpecificPowerAction(this.owner, this.owner, this.ID));
         }
+        this.updateDescription();
     }
 
     public void reducePower(int reduceAmount) {
@@ -85,7 +86,7 @@ public class ShadeBurnPower extends AbstractPower implements HealthBarRenderPowe
         if (this.amount == 0) {
             this.addToTop(new RemoveSpecificPowerAction(this.owner, this.owner, this.ID));
         }
-
+        this.updateDescription();
     }
 
     public void updateDescription() {
@@ -93,9 +94,9 @@ public class ShadeBurnPower extends AbstractPower implements HealthBarRenderPowe
             this.description = String.format(DESCRIPTIONS[0],DESCRIPTIONS[2]);
         } else {
             if (this.owner != null && !this.owner.isPlayer) {
-                this.description = String.format(DESCRIPTIONS[0], this.amount, DESCRIPTIONS[2]);
+                this.description = DESCRIPTIONS[0] + this.amount + DESCRIPTIONS[2];
             } else {
-                this.description = String.format(DESCRIPTIONS[1], this.amount, DESCRIPTIONS[3]);
+                this.description = DESCRIPTIONS[1] + this.amount + DESCRIPTIONS[3];
             }
         }
     }

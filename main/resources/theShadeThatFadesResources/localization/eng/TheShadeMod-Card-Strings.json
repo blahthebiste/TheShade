@@ -404,7 +404,7 @@
     "DESCRIPTION": "Apply !M! vulnerable and !theShadeThatFades:SecondMagic! poison to an enemy."
   },
   "theShadeThatFades:ShadeDestructivore": {
-    "NAME": "Destructivore",
-    "DESCRIPTION": "Steal an enemy's Strength until the end of their turn."
+    "NAME": "Siphon Strength",
+    "DESCRIPTION": "Steal an enemy's Strength (minimum 2) until the end of their turn."
   }
 }

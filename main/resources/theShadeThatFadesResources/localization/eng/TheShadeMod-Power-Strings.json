@@ -20,7 +20,7 @@
         "DESCRIPTIONS": ["At the start of each of its turns, the target is #yShackled for #b","."]
 },
         "theShadeThatFades:StealBackStrength": {
-        "NAME": "Destructivore",
+        "NAME": "Siphoned Strength",
         "DESCRIPTIONS": ["At the end of its turn, the target regains #b"," stolen Strength."]
 },
         "theShadeThatFades:SubversionPower": {

@@ -1,5 +1,7 @@
 package theShadeThatFades.monsters;
 
+import com.megacrit.cardcrawl.actions.animations.VFXAction;
+import com.megacrit.cardcrawl.actions.utility.HideHealthBarAction;
 import com.megacrit.cardcrawl.monsters.*;
 import com.megacrit.cardcrawl.localization.*;
 import com.megacrit.cardcrawl.dungeons.*;
@@ -7,6 +9,9 @@ import com.megacrit.cardcrawl.cards.*;
 import com.megacrit.cardcrawl.actions.common.*;
 import com.megacrit.cardcrawl.core.*;
 import com.megacrit.cardcrawl.powers.MinionPower;
+import com.megacrit.cardcrawl.vfx.combat.InflameEffect;
+
+import java.util.Iterator;
 
 public class ShadeDoll extends AbstractMonster
 {
@@ -27,7 +32,20 @@ public class ShadeDoll extends AbstractMonster
             AbstractCreature master = victim;
             while (master.hasPower(MinionPower.POWER_ID)) {
                 // Can't minion to a minion, so get its master instead
-                master = master.getPower(MinionPower.POWER_ID).owner;
+                if (master == master.getPower(MinionPower.POWER_ID).owner) {
+                    // Cover the case where the minion thinks it is its own master
+                    Iterator var1 = AbstractDungeon.getCurrRoom().monsters.monsters.iterator();
+
+                    while(var1.hasNext()) {
+                        AbstractMonster m = (AbstractMonster)var1.next();
+                        if (!m.isDead && !m.isDying && !m.hasPower(MinionPower.POWER_ID)) {
+                            master = m;
+                        }
+                    }
+                }
+                else {
+                    master = master.getPower(MinionPower.POWER_ID).owner;
+                }
             }
             AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(this, this, new MinionPower(master)));
             this.maxHealth = Math.max((int) (victim.maxHealth*hp_multi/100.0), 1);

@@ -104,7 +104,7 @@ public class TheShadeMod implements
     
     // Colors (RGB)
     // Character Color
-    public static final Color DEFAULT_GRAY = CardHelper.getColor(124.0f, 0.0f, 60.0f);
+    public static final Color SHADE_PURPLE = CardHelper.getColor(124.0f, 0.0f, 60.0f);
     
     // Potion Colors in RGB
 //    public static final Color PLACEHOLDER_POTION_LIQUID = CardHelper.getColor(209.0f, 53.0f, 18.0f); // Orange-ish Red
@@ -122,17 +122,17 @@ public class TheShadeMod implements
     // ONCE YOU CHANGE YOUR MOD ID (BELOW, YOU CAN'T MISS IT) CHANGE THESE PATHS!!!!!!!!!!!
   
     // Card backgrounds - The actual rectangular card.
-    private static final String ATTACK_DEFAULT_GRAY = "theShadeThatFadesResources/images/512/bg_attack_default_gray.png";
-    private static final String SKILL_DEFAULT_GRAY = "theShadeThatFadesResources/images/512/bg_skill_default_gray.png";
-    private static final String POWER_DEFAULT_GRAY = "theShadeThatFadesResources/images/512/bg_power_default_gray.png";
+    private static final String ATTACK_SHADE_PURPLE = "theShadeThatFadesResources/images/512/bg_attack_default_gray.png";
+    private static final String SKILL_SHADE_PURPLE = "theShadeThatFadesResources/images/512/bg_skill_default_gray.png";
+    private static final String POWER_SHADE_PURPLE = "theShadeThatFadesResources/images/512/bg_power_default_gray.png";
     
-    private static final String ENERGY_ORB_DEFAULT_GRAY = "theShadeThatFadesResources/images/512/card_default_gray_orb.png";
+    private static final String ENERGY_ORB_SHADE_PURPLE = "theShadeThatFadesResources/images/512/card_default_gray_orb.png";
     private static final String CARD_ENERGY_ORB = "theShadeThatFadesResources/images/512/card_small_orb.png";
     
-    private static final String ATTACK_DEFAULT_GRAY_PORTRAIT = "theShadeThatFadesResources/images/1024/bg_attack_default_gray.png";
-    private static final String SKILL_DEFAULT_GRAY_PORTRAIT = "theShadeThatFadesResources/images/1024/bg_skill_default_gray.png";
-    private static final String POWER_DEFAULT_GRAY_PORTRAIT = "theShadeThatFadesResources/images/1024/bg_power_default_gray.png";
-    private static final String ENERGY_ORB_DEFAULT_GRAY_PORTRAIT = "theShadeThatFadesResources/images/1024/card_default_gray_orb.png";
+    private static final String ATTACK_SHADE_PURPLE_PORTRAIT = "theShadeThatFadesResources/images/1024/bg_attack_default_gray.png";
+    private static final String SKILL_SHADE_PURPLE_PORTRAIT = "theShadeThatFadesResources/images/1024/bg_skill_default_gray.png";
+    private static final String POWER_SHADE_PURPLE_PORTRAIT = "theShadeThatFadesResources/images/1024/bg_power_default_gray.png";
+    private static final String ENERGY_ORB_SHADE_PURPLE_PORTRAIT = "theShadeThatFadesResources/images/1024/card_default_gray_orb.png";
     
     // Character assets
     private static final String THE_DEFAULT_BUTTON = "theShadeThatFadesResources/images/charSelect/DefaultCharacterButton.png";
@@ -179,7 +179,7 @@ public class TheShadeMod implements
     // =============== /INPUT TEXTURE LOCATION/ =================
     
     
-    // =============== SUBSCRIBE, CREATE THE COLOR_GRAY, INITIALIZE =================
+    // =============== SUBSCRIBE, CREATE THE COLOR_SHADE_PURPLE, INITIALIZE =================
     
     public TheShadeMod() {
         logger.info("Subscribe to BaseMod hooks");
@@ -212,13 +212,13 @@ public class TheShadeMod implements
         
         logger.info("Done subscribing");
         
-        logger.info("Creating the color " + TheShade.Enums.COLOR_GRAY.toString());
+        logger.info("Creating the color " + TheShade.Enums.COLOR_SHADE_PURPLE.toString());
         
-        BaseMod.addColor(TheShade.Enums.COLOR_GRAY, DEFAULT_GRAY, DEFAULT_GRAY, DEFAULT_GRAY,
-                DEFAULT_GRAY, DEFAULT_GRAY, DEFAULT_GRAY, DEFAULT_GRAY,
-                ATTACK_DEFAULT_GRAY, SKILL_DEFAULT_GRAY, POWER_DEFAULT_GRAY, ENERGY_ORB_DEFAULT_GRAY,
-                ATTACK_DEFAULT_GRAY_PORTRAIT, SKILL_DEFAULT_GRAY_PORTRAIT, POWER_DEFAULT_GRAY_PORTRAIT,
-                ENERGY_ORB_DEFAULT_GRAY_PORTRAIT, CARD_ENERGY_ORB);
+        BaseMod.addColor(TheShade.Enums.COLOR_SHADE_PURPLE, SHADE_PURPLE, SHADE_PURPLE, SHADE_PURPLE,
+                SHADE_PURPLE, SHADE_PURPLE, SHADE_PURPLE, SHADE_PURPLE,
+                ATTACK_SHADE_PURPLE, SKILL_SHADE_PURPLE, POWER_SHADE_PURPLE, ENERGY_ORB_SHADE_PURPLE,
+                ATTACK_SHADE_PURPLE_PORTRAIT, SKILL_SHADE_PURPLE_PORTRAIT, POWER_SHADE_PURPLE_PORTRAIT,
+                ENERGY_ORB_SHADE_PURPLE_PORTRAIT, CARD_ENERGY_ORB);
         
         logger.info("Done creating the color");
         
@@ -290,20 +290,20 @@ public class TheShadeMod implements
         logger.info("========================= /ShadeThatFades Mod Initialized./ =========================");
     }
     
-    // ============== /SUBSCRIBE, CREATE THE COLOR_GRAY, INITIALIZE/ =================
+    // ============== /SUBSCRIBE, CREATE THE COLOR_SHADE_PURPLE, INITIALIZE/ =================
     
     
     // =============== LOAD THE CHARACTER =================
     
     @Override
     public void receiveEditCharacters() {
-        logger.info("Beginning to edit characters. " + "Add " + TheShade.Enums.THE_DEFAULT.toString());
+        logger.info("Beginning to edit characters. " + "Add " + TheShade.Enums.THE_SHADE_THAT_FADES.toString());
         
-        BaseMod.addCharacter(new TheShade("the Default", TheShade.Enums.THE_DEFAULT),
-                THE_DEFAULT_BUTTON, THE_DEFAULT_PORTRAIT, TheShade.Enums.THE_DEFAULT);
+        BaseMod.addCharacter(new TheShade("the Default", TheShade.Enums.THE_SHADE_THAT_FADES),
+                THE_DEFAULT_BUTTON, THE_DEFAULT_PORTRAIT, TheShade.Enums.THE_SHADE_THAT_FADES);
         
         receiveEditPotions();
-        logger.info("Added " + TheShade.Enums.THE_DEFAULT.toString());
+        logger.info("Added " + TheShade.Enums.THE_SHADE_THAT_FADES.toString());
     }
     
     // =============== /LOAD THE CHARACTER/ =================
@@ -370,7 +370,7 @@ public class TheShadeMod implements
         // Class Specific Potion. If you want your potion to not be class-specific,
         // just remove the player class at the end (in this case the "TheDefaultEnum.THE_DEFAULT".
         // Remember, you can press ctrl+P inside parentheses like addPotions)
-        BaseMod.addPotion(BrewOfShadows.class, PLACEHOLDER_POTION_LIQUID, PLACEHOLDER_POTION_HYBRID, PLACEHOLDER_POTION_SPOTS, BrewOfShadows.POTION_ID, TheShade.Enums.THE_DEFAULT);
+        BaseMod.addPotion(BrewOfShadows.class, PLACEHOLDER_POTION_LIQUID, PLACEHOLDER_POTION_HYBRID, PLACEHOLDER_POTION_SPOTS, BrewOfShadows.POTION_ID, TheShade.Enums.THE_SHADE_THAT_FADES);
         
         logger.info("Done editing potions");
     }
@@ -385,17 +385,17 @@ public class TheShadeMod implements
         logger.info("Adding relics");
         
         // This adds a character specific relic. Only when you play with the mentioned color, will you get this relic.
-//        BaseMod.addRelicToCustomPool(new PlaceholderRelic(), TheShade.Enums.COLOR_GRAY);
-//        BaseMod.addRelicToCustomPool(new BottledPlaceholderRelic(), TheShade.Enums.COLOR_GRAY);
-//        BaseMod.addRelicToCustomPool(new DefaultClickableRelic(), TheShade.Enums.COLOR_GRAY);
-        BaseMod.addRelicToCustomPool(new TwistedSorcery(), TheShade.Enums.COLOR_GRAY);
-        BaseMod.addRelicToCustomPool(new FifthShadow(), TheShade.Enums.COLOR_GRAY);
-        BaseMod.addRelicToCustomPool(new WiltingRose(), TheShade.Enums.COLOR_GRAY);
-        BaseMod.addRelicToCustomPool(new HellfireTalisman(), TheShade.Enums.COLOR_GRAY);
-        BaseMod.addRelicToCustomPool(new BurningTome(), TheShade.Enums.COLOR_GRAY);
-        BaseMod.addRelicToCustomPool(new CursedTome(), TheShade.Enums.COLOR_GRAY);
-        BaseMod.addRelicToCustomPool(new TitanTome(), TheShade.Enums.COLOR_GRAY);
-        BaseMod.addRelicToCustomPool(new DiabolicalSorcery(), TheShade.Enums.COLOR_GRAY);
+//        BaseMod.addRelicToCustomPool(new PlaceholderRelic(), TheShade.Enums.COLOR_SHADE_PURPLE);
+//        BaseMod.addRelicToCustomPool(new BottledPlaceholderRelic(), TheShade.Enums.COLOR_SHADE_PURPLE);
+//        BaseMod.addRelicToCustomPool(new DefaultClickableRelic(), TheShade.Enums.COLOR_SHADE_PURPLE);
+        BaseMod.addRelicToCustomPool(new TwistedSorcery(), TheShade.Enums.COLOR_SHADE_PURPLE);
+        BaseMod.addRelicToCustomPool(new FifthShadow(), TheShade.Enums.COLOR_SHADE_PURPLE);
+        BaseMod.addRelicToCustomPool(new WiltingRose(), TheShade.Enums.COLOR_SHADE_PURPLE);
+        BaseMod.addRelicToCustomPool(new HellfireTalisman(), TheShade.Enums.COLOR_SHADE_PURPLE);
+        BaseMod.addRelicToCustomPool(new BurningTome(), TheShade.Enums.COLOR_SHADE_PURPLE);
+        BaseMod.addRelicToCustomPool(new CursedTome(), TheShade.Enums.COLOR_SHADE_PURPLE);
+        BaseMod.addRelicToCustomPool(new TitanTome(), TheShade.Enums.COLOR_SHADE_PURPLE);
+        BaseMod.addRelicToCustomPool(new DiabolicalSorcery(), TheShade.Enums.COLOR_SHADE_PURPLE);
 
         // This adds a relic to the Shared pool. Every character can find this relic.
 //        BaseMod.addRelic(new FifthShadow(), RelicType.SHARED);

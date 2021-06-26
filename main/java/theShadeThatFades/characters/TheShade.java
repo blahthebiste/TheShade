@@ -23,17 +23,13 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import theShadeThatFades.TheShadeMod;
 import theShadeThatFades.cards.*;
-import theShadeThatFades.cards.rare.ShadeEidolonForm;
-import theShadeThatFades.cards.rare.ShadeEidolonFormInfinite;
-import theShadeThatFades.cards.rare.ShadeUnveil;
-import theShadeThatFades.cards.rare.ShadeUnveilInfinite;
 import theShadeThatFades.cards.uncommon.*;
 import theShadeThatFades.relics.*;
 
 import java.util.ArrayList;
 
 import static theShadeThatFades.TheShadeMod.*;
-import static theShadeThatFades.characters.TheShade.Enums.COLOR_GRAY;
+import static theShadeThatFades.characters.TheShade.Enums.COLOR_SHADE_PURPLE;
 
 //Wiki-page https://github.com/daviscook477/BaseMod/wiki/Custom-Characters
 //and https://github.com/daviscook477/BaseMod/wiki/Migrating-to-5.0
@@ -51,10 +47,10 @@ public class TheShade extends CustomPlayer {
 
     public static class Enums {
         @SpireEnum
-        public static AbstractPlayer.PlayerClass THE_DEFAULT;
-        @SpireEnum(name = "DEFAULT_GRAY_COLOR") // These two HAVE to have the same absolutely identical name.
-        public static AbstractCard.CardColor COLOR_GRAY;
-        @SpireEnum(name = "DEFAULT_GRAY_COLOR") @SuppressWarnings("unused")
+        public static AbstractPlayer.PlayerClass THE_SHADE_THAT_FADES;
+        @SpireEnum(name = "SHADE_PURPLE_COLOR") // These two HAVE to have the same absolutely identical name.
+        public static AbstractCard.CardColor COLOR_SHADE_PURPLE;
+        @SpireEnum(name = "SHADE_PURPLE_COLOR") @SuppressWarnings("unused")
         public static CardLibrary.LibraryType LIBRARY_COLOR;
     }
 
@@ -302,13 +298,13 @@ public class TheShade extends CustomPlayer {
     // Should return the card color enum to be associated with your character.
     @Override
     public AbstractCard.CardColor getCardColor() {
-        return COLOR_GRAY;
+        return COLOR_SHADE_PURPLE;
     }
 
     // Should return a color object to be used to color the trail of moving cards
     @Override
     public Color getCardTrailColor() {
-        return TheShadeMod.DEFAULT_GRAY;
+        return TheShadeMod.SHADE_PURPLE;
     }
 
     // Should return a BitmapFont object that you can use to customize how your
@@ -345,14 +341,14 @@ public class TheShade extends CustomPlayer {
     // Should return a Color object to be used to color the miniature card images in run history.
     @Override
     public Color getCardRenderColor() {
-        return TheShadeMod.DEFAULT_GRAY;
+        return TheShadeMod.SHADE_PURPLE;
     }
 
     // Should return a Color object to be used as screen tint effect when your
     // character attacks the heart.
     @Override
     public Color getSlashAttackColor() {
-        return TheShadeMod.DEFAULT_GRAY;
+        return TheShadeMod.SHADE_PURPLE;
     }
 
     // Should return an AttackEffect array of any size greater than 0. These effects

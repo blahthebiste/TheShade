@@ -61,7 +61,7 @@
       "deteriorate",
       "deteriorating"
     ],
-    "DESCRIPTION": "A debuff that deals damage equal to the player's Corruption at the end of each turn."
+    "DESCRIPTION": "A debuff that deals damage equal to the player's Corruption at the end of each turn. Deteriorating entities do not get the damage bonus from their own Corruption."
   },
   {
     "PROPER_NAME": "Shackled",

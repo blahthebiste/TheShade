@@ -55,7 +55,7 @@ public class ShadeTempestAction extends AbstractGameAction {
                 target_all = false;
             }
             for(int i = 0; i < effect; ++i) {
-                this.addToBot(new LightningAction(this.damage, DamageInfo.DamageType.NORMAL, p, null, !target_all, target_all));
+                    this.addToBot(new LightningAction(this.damage, DamageInfo.DamageType.NORMAL, p, null, !target_all, target_all));
             }
 
             if (!this.freeToPlayOnce) {

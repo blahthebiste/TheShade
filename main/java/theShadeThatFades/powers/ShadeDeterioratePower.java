@@ -53,6 +53,7 @@ public class ShadeDeterioratePower extends AbstractPower implements HealthBarRen
 //    }
     public void atEndOfRound() {
         int playerCorruption = 0;
+        this.flash();
         if (AbstractDungeon.player.hasPower("theShadeThatFades:Corruption")) {
             playerCorruption = AbstractDungeon.player.getPower("theShadeThatFades:Corruption").amount;
         }

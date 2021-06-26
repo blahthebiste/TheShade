@@ -135,7 +135,7 @@
   },
   "theShadeThatFades:ShadeDarkTendrils": {
     "NAME": "Dark Tendrils",
-    "DESCRIPTION": "Deal !D! damage. NL Apply !M! Constrict."
+    "DESCRIPTION": "Deal !D! damage. NL Apply !M! theshadethatfades:Constrict."
   },
   "theShadeThatFades:ShadeDefile": {
     "NAME": "Defile",

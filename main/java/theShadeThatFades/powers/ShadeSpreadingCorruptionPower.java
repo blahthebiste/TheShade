@@ -60,6 +60,21 @@ public class ShadeSpreadingCorruptionPower extends AbstractPower {
     }
 
     @Override
+    public void atEndOfTurn(boolean isPlayer) {
+        if (!AbstractDungeon.getMonsters().areMonstersBasicallyDead()) {
+            this.flash();
+            Iterator var3 = AbstractDungeon.getMonsters().monsters.iterator();
+
+            while(var3.hasNext()) {
+                AbstractCreature monster = (AbstractMonster)var3.next();
+                if (!monster.isDead && !monster.isDying && !monster.hasPower("theShadeThatFades:Deteriorate")) {
+                    // Apply Deteriorate to all monsters that don't already have it
+                    this.addToBot(new ApplyPowerAction(monster, this.owner, new ShadeDeterioratePower(monster), 1));
+                }
+            }
+        }
+    }
+    @Override
     public void atStartOfTurn() {
         if (!AbstractDungeon.getMonsters().areMonstersBasicallyDead()) {
             this.flash();
@@ -76,7 +91,7 @@ public class ShadeSpreadingCorruptionPower extends AbstractPower {
     }
 
     public void updateDescription() {
-            this.description = DESCRIPTIONS[0] + this.amount + DESCRIPTIONS[2];
+            this.description = DESCRIPTIONS[0];
             this.type = PowerType.BUFF;
     }
 

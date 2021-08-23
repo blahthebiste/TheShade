@@ -53,11 +53,13 @@ public class ShadeShadowBarrier extends AbstractDynamicCard {
     private static final CardTarget TARGET = CardTarget.SELF;  //   since they don't change much.
     private static final CardType TYPE = CardType.SKILL;       //
     public static final CardColor COLOR = TheShade.Enums.COLOR_SHADE_PURPLE;
+    public static final String DESCRIPTION = cardStrings.DESCRIPTION;
 
-    private static final int COST = 2;
-    private static final int UPGRADED_COST = 1;
+    private static final int COST = 1;
+//    private static final int UPGRADED_COST = 1;
 
     private static final int BLOCK = 0;
+    private boolean descriptionUpdated = false;
 
     // /STAT DECLARATION/
 
@@ -65,6 +67,9 @@ public class ShadeShadowBarrier extends AbstractDynamicCard {
     public ShadeShadowBarrier() { // - This one and the one right under the imports are the most important ones, don't forget them
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
         baseBlock = BLOCK;
+        this.exhaust = true;
+        rawDescription = DESCRIPTION + " NL Exhaust.";
+        this.initializeDescription();
     }
 
 
@@ -89,7 +94,8 @@ public class ShadeShadowBarrier extends AbstractDynamicCard {
     public void upgrade() {
         if (!upgraded) {
             upgradeName();
-            upgradeBaseCost(UPGRADED_COST);
+            this.exhaust = false;
+            rawDescription = DESCRIPTION;
             initializeDescription();
         }
     }

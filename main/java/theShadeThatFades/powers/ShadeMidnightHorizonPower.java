@@ -85,17 +85,14 @@ public class ShadeMidnightHorizonPower extends AbstractPower {
     public void onUseCard(AbstractCard card, UseCardAction action) {
         if (!card.purgeOnUse && card.type == AbstractCard.CardType.ATTACK && this.amount > 0) {
             this.flash();
-            AbstractMonster originalTarget = null;
-            if (action.target != null) {
-                originalTarget = (AbstractMonster)action.target;
-            }
-            int numMonsters = 0;
+//            AbstractMonster originalTarget = null;
+//            if (action.target != null) {
+//                originalTarget = (AbstractMonster)action.target;
+//            }
             Iterator var1 = AbstractDungeon.getMonsters().monsters.iterator();
             while(var1.hasNext()) {
                 AbstractMonster monster = (AbstractMonster) var1.next();
                 if (!monster.isDead && !monster.isDying) {
-                    numMonsters++;
-                    if (originalTarget != null && !monster.equals(originalTarget)) {
                         AbstractCard tmp = card.makeSameInstanceOf();
                         AbstractDungeon.player.limbo.addToBottom(tmp);
                         tmp.current_x = card.current_x;
@@ -105,18 +102,6 @@ public class ShadeMidnightHorizonPower extends AbstractPower {
                         tmp.calculateCardDamage(monster);
                         tmp.purgeOnUse = true;
                         AbstractDungeon.actionManager.addCardQueueItem(new CardQueueItem(tmp, monster, card.energyOnUse, true, true), true);
-                    }
-                    else if (numMonsters > 1 && !monster.equals(originalTarget)) {
-                        AbstractCard tmp = card.makeSameInstanceOf();
-                        AbstractDungeon.player.limbo.addToBottom(tmp);
-                        tmp.current_x = card.current_x;
-                        tmp.current_y = card.current_y;
-                        tmp.target_x = (float) Settings.WIDTH / 2.0F - 300.0F * Settings.scale;
-                        tmp.target_y = (float) Settings.HEIGHT / 2.0F;
-                        tmp.calculateCardDamage(monster);
-                        tmp.purgeOnUse = true;
-                        AbstractDungeon.actionManager.addCardQueueItem(new CardQueueItem(tmp, monster, card.energyOnUse, true, true), true);
-                    }
                 }
             }
             --this.amount;

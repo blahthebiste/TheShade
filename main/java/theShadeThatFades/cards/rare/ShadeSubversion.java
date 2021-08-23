@@ -52,7 +52,7 @@ public class ShadeSubversion extends AbstractDynamicCard {
     private static final CardType TYPE = CardType.SKILL;       //
     public static final CardColor COLOR = TheShade.Enums.COLOR_SHADE_PURPLE;
 
-    private static final int COST = 2;
+    private static final int COST = 1;
     private static final int DURATION = 1;
     private static final int UPGRADE_DURATION = 1;
 

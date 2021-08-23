@@ -24,6 +24,7 @@ import org.apache.logging.log4j.Logger;
 import theShadeThatFades.TheShadeMod;
 import theShadeThatFades.cards.*;
 import theShadeThatFades.cards.uncommon.*;
+import theShadeThatFades.cards.rare.*;
 import theShadeThatFades.relics.*;
 
 import java.util.ArrayList;
@@ -155,16 +156,16 @@ public class TheShade extends CustomPlayer {
 
         logger.info("Begin loading starter Deck Strings");
         // Actual starting deck vvv
-        retVal.add(ShadeStrike.ID);
-        retVal.add(ShadeStrike.ID);
-        retVal.add(ShadeStrike.ID);
-        retVal.add(ShadeStrike.ID);
-        retVal.add(ShadeStrike.ID);
+//        retVal.add(ShadeStrike.ID);
+//        retVal.add(ShadeStrike.ID);
+//        retVal.add(ShadeStrike.ID);
+//        retVal.add(ShadeStrike.ID);
+//        retVal.add(ShadeStrike.ID);
         retVal.add(ShadeShadows.ID);
         retVal.add(ShadeShadows.ID);
         retVal.add(ShadeShadows.ID);
 //        retVal.add(ShadeShadows.ID);
-        retVal.add(ShadePurge.ID);
+//        retVal.add(ShadePurge.ID);
         //Debug stuff vvv
 //        retVal.add(ShadeTorture.ID);
 //        retVal.add(ShadeContaminate.ID);
@@ -198,7 +199,7 @@ public class TheShade extends CustomPlayer {
 //        retVal.add(ShadeDelve.ID);
 //        retVal.add(ShadeDarkTendrils.ID);
 //        retVal.add(ShadeDefile.ID);
-//        retVal.add(ShadeBlackLightning.ID);
+        retVal.add(ShadeBlackLightning.ID);
 //        retVal.add(ShadeBlackLightning.ID);
 //        retVal.add(ShadeScourge.ID);
 //        retVal.add(ShadeFalteringBlade.ID);
@@ -234,7 +235,7 @@ public class TheShade extends CustomPlayer {
 //        retVal.add(ShadeMutualAnnihilation.ID);
 //        retVal.add(ShadeMutualAnnihilation.ID);
 //        retVal.add(ShadeMutualAnnihilation.ID);
-//        retVal.add(ShadeArcaneTempest.ID);
+        retVal.add(ShadeArcaneTempest.ID);
 //        retVal.add(ShadePureStrike.ID);
 //        retVal.add(ShadeFexnil.ID);
 //        retVal.add(ShadeArcaneInferno.ID);
@@ -242,19 +243,19 @@ public class TheShade extends CustomPlayer {
 //        retVal.add(ShadeSubversion.ID);
 //        retVal.add(ShadeEthericShift.ID);
 //        retVal.add(ShadeShadowBarrier.ID);
-//        retVal.add(ShadeShadowBarrier.ID);
+        retVal.add(ShadeShadowBarrier.ID);
 //        retVal.add(ShadeShadowBarrier.ID);
 //        retVal.add(ShadeShadowBarrier.ID);
 //        retVal.add(ShadeImbue.ID);
 //        retVal.add(ShadeElixirOfNoctis.ID);
 //        retVal.add(ShadeApexCorruption.ID);
-//        retVal.add(ShadeShadowBlend.ID);
+        retVal.add(ShadeShadowBlend.ID);
 //        retVal.add(ShadeAmalgamForm.ID);
 //        retVal.add(ShadeBlightBolt.ID);
 //        retVal.add(ShadeUnveil.ID);
 //        retVal.add(ShadeUnveilInfinite.ID);
 //        retVal.add(ShadeConflagration.ID);
-//        retVal.add(ShadeVoodooDoll.ID);
+        retVal.add(ShadeVoodooDoll.ID);
 //        retVal.add(ShadeInfusion.ID);
 //        retVal.add(ShadeGrudge.ID);
 //        retVal.add(ShadeEnkindle.ID);

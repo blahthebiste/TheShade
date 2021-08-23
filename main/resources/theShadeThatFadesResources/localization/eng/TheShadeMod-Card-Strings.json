@@ -213,7 +213,7 @@
   },
   "theShadeThatFades:ShadeSpreadingCorruption": {
     "NAME": "Spreading Corruption",
-    "DESCRIPTION": "At the start of each of your turns, apply theshadethatfades:Deteriorate to all enemies that are not Deteriorating."
+    "DESCRIPTION": "At the start and end of your turn, apply theshadethatfades:Deteriorate to all enemies that are not Deteriorating."
   },
   "theShadeThatFades:ShadeDistortion": {
     "NAME": "Distortion",
@@ -244,7 +244,7 @@
   },
   "theShadeThatFades:ShadeMidnightHorizon": {
     "NAME": "Midnight Horizon",
-    "DESCRIPTION": "Your next attack is replayed against each other enemy."
+    "DESCRIPTION": "Your next attack is replayed against each enemy."
   },
   "theShadeThatFades:ShadeExecute": {
     "NAME": "Execute",

@@ -124,7 +124,8 @@ public class LightningAction extends AbstractGameAction {
 
 
     protected void StrikeLightning(AbstractCreature target) {
-        if (target.isDeadOrEscaped() || target.isDying || target.isEscaping || target.currentHealth <= 0) return;
+        // Lightning must always have a target to strike. The target is always supplied by the update code below.
+        if (target == null || target.isDeadOrEscaped() || target.isDying || target.isEscaping || target.currentHealth <= 0) return;
         if (target.hasPower(LockOnPower.POWER_ID)) {
             this.damage = (int)((float)this.damage * 1.5F);
         }
@@ -132,7 +133,6 @@ public class LightningAction extends AbstractGameAction {
         this.addToTop(new VFXAction(new CustomLightningEffect(this.target.drawX, this.target.drawY, this.customColor)));
 //        this.addToTop(new VFXAction(new FlashAtkImgEffect(this.target.hb.cX, this.target.hb.cY, this.attackEffect)));
         this.addToTop(new SFXAction("ORB_LIGHTNING_EVOKE", 0.1F));
-
     }
 
     public void update() {
@@ -155,6 +155,7 @@ public class LightningAction extends AbstractGameAction {
             if (target == null && isRandom) {
                 AbstractCreature m = AbstractDungeon.getMonsters().getRandomMonster((AbstractMonster)null, true, AbstractDungeon.cardRandomRng);
                 this.target = m;
+                assert m != null;
             }
             else if (target == null) {
                 // Weird case where targetsAll was false, isRandom is false, and target is null. Not a valid case.

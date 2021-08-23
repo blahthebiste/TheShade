@@ -25,7 +25,7 @@ public class ShadeHpTetherPower extends AbstractPower {
 
     public AbstractCreature victim;
     private static int hptetherIdOffset; // To keep each instance seperate
-
+    private static int bufferedParticles;
     // We create 2 new textures *Using This Specific Texture Loader* - an 84x84 image and a 32x32 one.
     // There's a fallback "missing texture" image, so the game shouldn't crash if you accidentally put a non-existent file.
     private static final Texture tex84 = TextureLoader.getTexture(makePowerPath("ShadeHpTetherPower84.png"));
@@ -43,6 +43,7 @@ public class ShadeHpTetherPower extends AbstractPower {
 
         this.updateDescription();
         this.canGoNegative = false;
+        bufferedParticles = 0;
     }
 
     public void playApplyPowerSfx() {
@@ -54,49 +55,34 @@ public class ShadeHpTetherPower extends AbstractPower {
         if (damageAmount > 0) {
             this.flash();
             this.addToTop(new DamageAction(this.victim, new DamageInfo(this.victim, damageAmount, DamageInfo.DamageType.HP_LOSS)));
+            bufferedParticles += damageAmount;
         }
         return damageAmount;
     }
 
     @Override
-    public int onHeal(int healAmount) { // Replace healing with damage during enemy turn
+    public int onHeal(int healAmount) {
         if (healAmount > 0) {
             this.flash();
             this.addToTop(new HealAction(this.victim, this.owner, healAmount));
+            bufferedParticles += healAmount;
         }
         return healAmount;
     }
 
     @Override
     public void updateParticles() {
-        if(this.owner.hb.hovered) {
+        if(this.owner.hb.hovered || bufferedParticles > 0) {
             float startX = this.owner.hb.cX + MathUtils.random(16.0F, -16.0F) * Settings.scale;
             float startY = this.owner.hb.cY + MathUtils.random(16.0F, -16.0F) * Settings.scale;
             float endX = this.victim.hb.cX;
             float endY = this.victim.hb.cY - (this.victim.hb.height)/2;
 
             AbstractDungeon.effectsQueue.add(new ShadeTetherParticle(startX, startY, endX, endY, false));
-//            AbstractDungeon.effectsQueue.add(new ShadeTetherParticle(endX, endY, startX, startY, false));
+//            AbstractDungeon.effectsQueue.add(new ShadeTetherParticle(endX, endY, startX, startY, true));
+            if(bufferedParticles > 0) bufferedParticles--;
         }
     }
-//    @Override
-//    public void onVictory() {
-//        this.owner = null;
-//    }
-//
-//    @Override
-//    public void  atEndOfRound() {
-//        if (victim.isDeadOrEscaped() && this.owner != null && !this.owner.isDeadOrEscaped()) {
-//            AbstractDungeon.actionManager.addToBottom(new SuicideAction((AbstractMonster) this.owner));
-//        }
-//    }
-//
-//    @Override
-//    public void  atStartOfTurn() {
-//        if (victim.isDeadOrEscaped() && this.owner != null && !this.owner.isDeadOrEscaped()) {
-//            AbstractDungeon.actionManager.addToBottom(new SuicideAction((AbstractMonster) this.owner));
-//        }
-//    }
 
     public void updateDescription() {
         this.description = DESCRIPTIONS[0] + this.victim.name + DESCRIPTIONS[1];

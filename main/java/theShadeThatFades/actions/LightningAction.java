@@ -129,17 +129,16 @@ public class LightningAction extends AbstractGameAction {
         if (target.hasPower(LockOnPower.POWER_ID)) {
             this.damage = (int)((float)this.damage * 1.5F);
         }
-        this.addToBot(new SFXAction("ORB_LIGHTNING_EVOKE", 0.1F));
-        this.addToBot(new VFXAction(new CustomLightningEffect(this.target.drawX, this.target.drawY, this.customColor)));
+        if (!Settings.FAST_MODE) {
+            this.addToTop(new WaitAction(0.1F));
+        }
+        this.addToTop(new DamageAction(this.target, new DamageInfo(this.source, this.damage, this.type)));
+        this.addToTop(new VFXAction(new CustomLightningEffect(this.target.drawX, this.target.drawY, this.customColor)));
 //        this.addToTop(new VFXAction(new FlashAtkImgEffect(this.target.hb.cX, this.target.hb.cY, this.attackEffect)));
-        this.addToBot(new DamageAction(this.target, new DamageInfo(this.source, this.damage, this.type)));
+        this.addToTop(new SFXAction("ORB_LIGHTNING_EVOKE", 0.1F));
     }
 
     public void update() {
-        if (!Settings.FAST_MODE) {
-            this.addToBot(new WaitAction(0.1F));
-        }
-
         if (targetsAll) {
             Iterator var1 = AbstractDungeon.getMonsters().monsters.iterator();
             while(var1.hasNext()) {

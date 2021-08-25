@@ -1,5 +1,6 @@
 package theShadeThatFades.cards;
 
+import com.evacipated.cardcrawl.mod.stslib.cards.targeting.SelfOrEnemyTargeting;
 import com.megacrit.cardcrawl.actions.common.*;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.AbstractCreature;
@@ -47,13 +48,11 @@ public class ShadeArcaneFire extends AbstractDynamicCard {
     // STAT DECLARATION
 
     private static final CardRarity RARITY = CardRarity.COMMON; //  Up to you, I like auto-complete on these
-    private static final CardTarget TARGET = CardTarget.SELF;  //   since they don't change much.
+    private static final CardTarget TARGET = SelfOrEnemyTargeting.SELF_OR_ENEMY;  //   since they don't change much.
     private static final CardType TYPE = CardType.SKILL;       //
     public static final CardColor COLOR = TheShade.Enums.COLOR_SHADE_PURPLE;
 
     private static final int COST = 0;
-    public boolean isAnyTarget = true;
-    private boolean targetingEnemy = false;
     private static final int BURN_AMOUNT = 5;
     // /STAT DECLARATION/
 
@@ -67,112 +66,15 @@ public class ShadeArcaneFire extends AbstractDynamicCard {
     // Actions the card should do.
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        AbstractCreature target;
-        if(m != null) {
-            target = m;
-        }else{
-            target = p;
-        }
+        AbstractCreature target = SelfOrEnemyTargeting.getTarget(this);
+        if (target == null)
+            target = AbstractDungeon.player;
+
         this.addToBot(new ApplyPowerAction(target, p, new ShadeBurnPower(target, p, 5), 5));
         if(upgraded) {
             this.addToBot(new DrawCardAction(p, 1));
         }
     }
-
-//    // WIP Newer upgrade function with enemy as the default target and player as the hover target
-//    @Override
-//    public void update() {
-//        super.update();
-//        if(isAnyTarget && AbstractDungeon.player != null) {
-////            System.out.println("DEBUGFORELI: Hurdle 1. Printing player hitbox info");
-//            AbstractPlayer p = AbstractDungeon.player;
-//            if ( p.isDraggingCard) {
-//                if( p.hoveredCard.equals(this)) {
-//                    this.playerUsingThis = true;
-//                }
-//                else{
-//                    this.playerUsingThis = false;
-//                }
-//            }
-////            System.out.printf("DEBUGFORELI: p.hb.cX: %.2f  p.hb.cY: %.2f  p.hb.width: %.2f  p.hb.height: %.2f\n",p.hb.cX,p.hb.cY,p.hb.width,p.hb.height);
-////            System.out.printf("DEBUGFORELI: this.current_x: %.2f  this.current_y: %.2f\n",);
-//            if (p.isHoveringDropZone && this.playerUsingThis) {//
-//                System.out.println("DEBUGFORELI: mouse in drop zone");
-//                if ((InputHelper.mX > p.hb.x && InputHelper.mX < p.hb.x + p.hb.width) && (InputHelper.mY > p.hb.y && InputHelper.mY < p.hb.y + p.hb.height)) {
-//                    System.out.println("DEBUGFORELI: Hovering over player!");
-//                    if(!this.targetingPlayer) {
-//                        System.out.println("DEBUGFORELI: Change to self targeting");
-//                        this.targetingPlayer = true;
-//                        p.inSingleTargetMode = false;
-//                        this.target = CardTarget.SELF;
-////                        this.target_x = p.hb.cX - this.hb.width * 0.6F - p.hb_w * 0.6F;
-////                        this.target_y = p.hb.cY;
-//                        this.applyPowers();
-//                    }
-//                } else {
-//                    System.out.println("DEBUGFORELI: mX: "+InputHelper.mX);
-//                    System.out.println("DEBUGFORELI: mY: "+InputHelper.mY);
-//                    System.out.printf("DEBUGFORELI: p.hb.cX: %.2f  p.hb.cY: %.2f  p.hb.width: %.2f  p.hb.height: %.2f\n",p.hb.cX,p.hb.cY,p.hb.width,p.hb.height);
-//
-//                    if(this.targetingPlayer) {
-//                        System.out.println("DEBUGFORELI: NOT hovering over player, change to enemy targeting");
-//                        this.targetingPlayer = false;
-//                        p.inSingleTargetMode = true;
-//                        this.target_x = p.hb.cX - this.hb.width * 0.6F - p.hb_w * 0.6F;
-//                        this.target_y = p.hb.cY;
-//                        this.target = CardTarget.ENEMY;
-//                        this.applyPowers();
-//                    }
-//                }
-//            }else if(this.targetingPlayer){
-//                System.out.println("DEBUGFORELI: NOT hovering at all, change to enemy targeting");
-//                this.targetingPlayer = false;
-//                p.inSingleTargetMode = true;
-//                this.target_x = p.hb.cX - this.hb.width * 0.6F - p.hb_w * 0.6F;
-//                this.target_y = p.hb.cY;
-//                this.target = CardTarget.ENEMY;
-//            }
-//        }
-//    }
-
-    // Original update func vvv
-
-    @Override
-    public void update() {
-        super.update();
-        if(isAnyTarget && AbstractDungeon.player != null) {
-            AbstractPlayer p = AbstractDungeon.player;
-            if (p.isDraggingCard && p.hoveredCard.equals(this)) {
-                AbstractMonster hoveredEnemy = null;
-                for (AbstractMonster enemy : AbstractDungeon.getCurrRoom().monsters.monsters) {
-                    if (enemy.hb.hovered && !enemy.isDead && !enemy.halfDead) {
-                        hoveredEnemy = enemy;
-                    }
-                }
-                if (hoveredEnemy != null) {
-                    if(!this.targetingEnemy) {
-                        this.targetingEnemy = true;
-                        p.inSingleTargetMode = true;
-                        this.target = CardTarget.ENEMY;
-                        this.target_x = hoveredEnemy.hb.cX - this.hb.width * 0.6F - hoveredEnemy.hb_w * 0.6F;
-                        this.target_y = hoveredEnemy.hb.cY;
-                        this.applyPowers();
-                    }
-                } else {
-                    if(this.targetingEnemy) {
-                        this.targetingEnemy = false;
-                        p.inSingleTargetMode = false;
-                        this.target = CardTarget.SELF;
-                        this.applyPowers();
-                    }
-                }
-            }else if(this.targetingEnemy){
-                this.targetingEnemy = false;
-                this.target = CardTarget.SELF;
-            }
-        }
-    }
-
 
     // Upgraded stats.
     @Override

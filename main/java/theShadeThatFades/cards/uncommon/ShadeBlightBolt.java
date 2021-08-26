@@ -2,6 +2,7 @@ package theShadeThatFades.cards.uncommon;
 
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
+import com.megacrit.cardcrawl.actions.common.ReducePowerAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
@@ -9,6 +10,8 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.AbstractPower;
+import com.megacrit.cardcrawl.powers.GainStrengthPower;
+import com.megacrit.cardcrawl.powers.LoseStrengthPower;
 import com.megacrit.cardcrawl.vfx.ThoughtBubble;
 import theShadeThatFades.TheShadeMod;
 import theShadeThatFades.cards.AbstractDynamicCard;
@@ -91,7 +94,11 @@ public class ShadeBlightBolt extends AbstractDynamicCard {
             Iterator var2 = m.powers.iterator();
             while(var2.hasNext()) {
                 AbstractPower pw = (AbstractPower) var2.next();
-                pw.reducePower(1);
+                // Only reduce debuffs that are positive (so don't touch -strength), and ignore the shackles "debuff" which is actually a buff
+                if (pw.type == AbstractPower.PowerType.DEBUFF && pw.amount > 0 && !pw.ID.equals(GainStrengthPower.POWER_ID)) {
+                    addToBot(new ReducePowerAction(m, p, pw, 1));
+//                    pw.reducePower(1);
+                }
             }
         }
         else {

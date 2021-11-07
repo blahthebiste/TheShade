@@ -6,6 +6,7 @@ package theShadeThatFades.actions;
 //
 
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
+import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.Settings;
@@ -16,17 +17,15 @@ public class ShadeTempestAction extends AbstractGameAction {
     private boolean freeToPlayOnce = false;
     private AbstractPlayer p;
     private int energyOnUse = -1;
-    private boolean upgraded;
-    private int damage;
+    private AbstractCard card;
     private boolean target_all;
 
-    public ShadeTempestAction(AbstractPlayer p, int damageAmount, int energyOnUse, boolean upgraded, boolean freeToPlayOnce) {
+    public ShadeTempestAction(AbstractPlayer p, AbstractCard card, int energyOnUse, boolean freeToPlayOnce) {
         this.p = p;
-        this.damage = damageAmount;
+        this.card = card;
         this.duration = Settings.ACTION_DUR_XFAST;
         this.actionType = ActionType.SPECIAL;
         this.energyOnUse = energyOnUse;
-        this.upgraded = upgraded;
         this.freeToPlayOnce = freeToPlayOnce;
         this.target_all = false;
     }
@@ -42,9 +41,9 @@ public class ShadeTempestAction extends AbstractGameAction {
             this.p.getRelic("Chemical X").flash();
         }
 
-        if (this.upgraded) {
-            ++effect;
-        }
+//        if (this.upgraded) {
+//            ++effect;
+//        }
 
         if (effect > 0) {
 //            AbstractCard tmpLightningCard = new ShadeChaosStormTmpLightningCard(this.damage);
@@ -55,7 +54,7 @@ public class ShadeTempestAction extends AbstractGameAction {
                 target_all = false;
             }
             for(int i = 0; i < effect; ++i) {
-                    this.addToBot(new LightningAction(this.damage, DamageInfo.DamageType.NORMAL, p, null, !target_all, target_all));
+                    this.addToTop(new LightningAction(this.card, DamageInfo.DamageType.NORMAL, p, null, !target_all, target_all));
             }
 
             if (!this.freeToPlayOnce) {

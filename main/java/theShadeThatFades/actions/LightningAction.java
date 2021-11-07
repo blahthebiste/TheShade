@@ -12,6 +12,7 @@ import com.megacrit.cardcrawl.actions.animations.VFXAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.actions.utility.SFXAction;
 import com.megacrit.cardcrawl.actions.utility.WaitAction;
+import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
@@ -35,30 +36,32 @@ public class LightningAction extends AbstractGameAction {
     protected DamageInfo.DamageType type;
     protected AbstractCreature source;
     protected AbstractCreature target;
+    protected AbstractCard card;
     protected boolean isRandom;
     protected boolean targetsAll;
     protected Color customColor;
 
-    public LightningAction(int damage, DamageInfo.DamageType type, AbstractCreature source, AbstractCreature target, boolean isRandom, boolean targetsAll, Color customColor) {
+    public LightningAction(int damage, AbstractCard card, DamageInfo.DamageType type, AbstractCreature source, AbstractCreature target, boolean isRandom, boolean targetsAll, Color customColor) {
         this.damage = damage;
         this.type = type;
         this.source = source;
         this.target = target; // Target has top priority.
+        this.card = card; // Needed for recalculating damage
         this.isRandom = isRandom; // If target is null, defer to isRandom and targetsAll
         this.targetsAll = targetsAll;
         this.customColor = customColor;
     }
 
+    public LightningAction(AbstractCard card, DamageInfo.DamageType type, AbstractCreature source, AbstractCreature target, boolean isRandom, boolean targetsAll, Color customColor) {
+        this(-1, card, type, source, target, isRandom, targetsAll, customColor);
+    }
+
+    public LightningAction(AbstractCard card, DamageInfo.DamageType type, AbstractCreature source, AbstractCreature target, boolean isRandom, boolean targetsAll) {
+        this(-1, card, type, source, target, isRandom, targetsAll, DEFAULT_LIGHTNING_COLOR);
+    }
+
     public LightningAction(int damage, DamageInfo.DamageType type, AbstractCreature source, AbstractCreature target, boolean isRandom, boolean targetsAll) {
-        this(damage, type, source, target, isRandom, targetsAll, DEFAULT_LIGHTNING_COLOR);
-    }
-
-    public LightningAction(int damage, DamageInfo.DamageType type, AbstractCreature source, AbstractCreature target) {
-        this(damage, type, source, target, false, source.hasPower("Electro"), DEFAULT_LIGHTNING_COLOR);
-    }
-
-    public LightningAction(int damage, DamageInfo.DamageType type, AbstractCreature source) {
-        this(damage, type, source, null, true, source.hasPower("Electro"), DEFAULT_LIGHTNING_COLOR);
+        this(damage, null, type, source, target, isRandom, targetsAll, DEFAULT_LIGHTNING_COLOR);
     }
 
     //====================================START CUSTOM LIGHTNING EFFECT=================================================
@@ -126,11 +129,16 @@ public class LightningAction extends AbstractGameAction {
     protected void StrikeLightning(AbstractCreature target) {
         // Lightning must always have a target to strike. The target is always supplied by the update code below.
         if (target == null || target.isDeadOrEscaped() || target.isDying || target.isEscaping || target.currentHealth <= 0) return;
-        if (target.hasPower(LockOnPower.POWER_ID)) {
-            this.damage = (int)((float)this.damage * 1.5F);
-        }
+
         if (!Settings.FAST_MODE) {
             this.addToTop(new WaitAction(0.1F));
+        }
+        if(this.damage < 0 && this.card != null) {
+            this.card.calculateCardDamage((AbstractMonster)target);
+            this.damage = this.card.damage;
+        }
+        if (target.hasPower(LockOnPower.POWER_ID)) {
+            this.damage = (int)((float)this.damage * 1.5F);
         }
         this.addToTop(new DamageAction(this.target, new DamageInfo(this.source, this.damage, this.type)));
         this.addToTop(new VFXAction(new CustomLightningEffect(this.target.drawX, this.target.drawY, this.customColor)));
@@ -151,17 +159,17 @@ public class LightningAction extends AbstractGameAction {
         else {
 //            System.out.println("target: " + target + "  isRandom: " + isRandom);
             // Need to figure out who to hit if the target is null
-            if (target == null && isRandom) {
+            if (this.target == null && isRandom) {
                 AbstractCreature m = AbstractDungeon.getMonsters().getRandomMonster((AbstractMonster)null, true, AbstractDungeon.cardRandomRng);
                 this.target = m;
                 assert m != null;
             }
-            else if (target == null) {
+            else if (this.target == null) {
                 // Weird case where targetsAll was false, isRandom is false, and target is null. Not a valid case.
                 throw new NullPointerException("No valid target given! Use random target or all targets, or give valid target!");
             }
 //            System.out.println("Striking target");
-            StrikeLightning(target);
+            StrikeLightning(this.target);
         }
         this.isDone = true;
     }

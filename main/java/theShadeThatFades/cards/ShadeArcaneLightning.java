@@ -63,7 +63,6 @@ public class ShadeArcaneLightning extends AbstractDynamicCard {
         baseDamage = DAMAGE;
         baseMagicNumber = magicNumber = NUM_LIGHTNING;
         target_all = false;
-//        returnToHand = true;
     }
 
 
@@ -77,7 +76,7 @@ public class ShadeArcaneLightning extends AbstractDynamicCard {
             target_all = false;
         }
         for(int i = 0; i < magicNumber; ++i) {
-            this.addToBot(new LightningAction(this.damage, DamageInfo.DamageType.NORMAL, p, null, !target_all, target_all));
+            this.addToBot(new LightningAction(this, DamageInfo.DamageType.NORMAL, p, null, !target_all, target_all));
         }
     }
 

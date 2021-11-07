@@ -52,6 +52,7 @@ public class ShadeArcaneTempest extends AbstractDynamicCard {
     private static final int COST = -1;
 
     private static final int DAMAGE = 8;
+    private static final int UPGRADE_PLUS_DMG = 2;
 
     // /STAT DECLARATION/
 
@@ -64,7 +65,7 @@ public class ShadeArcaneTempest extends AbstractDynamicCard {
     // Actions the card should do.
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        this.addToTop(new ShadeTempestAction(p, this.damage, this.energyOnUse, this.upgraded, this.freeToPlayOnce));
+        this.addToTop(new ShadeTempestAction(p, this, this.energyOnUse, this.freeToPlayOnce));
     }
 
 
@@ -73,7 +74,7 @@ public class ShadeArcaneTempest extends AbstractDynamicCard {
     public void upgrade() {
         if (!upgraded) {
             upgradeName();
-            rawDescription = UPGRADE_DESCRIPTION;
+            upgradeDamage(UPGRADE_PLUS_DMG);
             initializeDescription();
         }
     }

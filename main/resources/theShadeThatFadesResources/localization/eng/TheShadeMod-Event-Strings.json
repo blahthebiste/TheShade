@@ -26,7 +26,7 @@
       "As you turn to leave, the old woman calls out to you, ~[#999999]\"Please,~ ~[#999999]listen~ ~[#999999]to~ ~[#999999]me!~ ~[#999999]I’ve~ ~[#999999]seen~ ~[#999999]this~ ~[#999999]before!~ ~[#999999]You~ ~[#999999]will~ ~[#999999]lose~ ~[#999999]yourself~ ~[#999999]to~ ~[#999999]the~ ~[#999999][#7c0060]Dark[]~ ~[#999999][#7c0060]Ones![]\"~ NL NL Little does she know, [#7c0060]you [#7c0060]already [#7c0060]have."
     ],
     "OPTIONS": [
-      "[Renounce Darkness] #yReplace #yall #yShadows #ywith #yPurges.",
+      "[Renounce Darkness] #yReplace #yall #yShadows #ywith #gupgraded #yPurges.",
       "[Ignore her]",
       "[Leave]"
     ]

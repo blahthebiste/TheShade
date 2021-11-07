@@ -84,46 +84,13 @@ public class ShadeWitherPower extends AbstractPower {
             this.description = DESCRIPTIONS[0];
     }
 
-//    public float atDamageGive(float damage, DamageInfo.DamageType type) {
-//        return type == DamageInfo.DamageType.NORMAL ? damage + this.amount : damage;
-//    }
     public void atEndOfRound() {
-//        if (this.amount == 0) {
-//            this.addToBot(new RemoveSpecificPowerAction(this.owner, this.owner, "theShadeThatFades:Wither"));
-//        } else {
-            this.addToBot(new ReducePowerAction(this.owner, this.owner, "theShadeThatFades:Wither", 1));
-//        }
-    }
-
-    public void atStartOfTurn() { // Decay over time
-        if (AbstractDungeon.getCurrRoom().phase == AbstractRoom.RoomPhase.COMBAT && !AbstractDungeon.getMonsters().areMonstersBasicallyDead()) {
-//        this.flashWithoutSound();
-            // Add to other turn based DOTs
-            if (this.owner != null) {
-                Iterator var2 = this.owner.powers.iterator();
-
-                AbstractPower effect;
-                while (var2.hasNext()) {
-                    effect = (AbstractPower) var2.next();
-                    // TODO: rework this so it doesn't trigger Sadistic Nature or Snecko Skull
-                    if (effect.type == PowerType.DEBUFF && effect.ID == "Poison" || effect.ID == "Vulnerable"|| effect.ID == "Weakened"|| effect.ID == "Frail"|| effect.ID == "Lockon") {
-//                        this.addToTop(new ApplyPowerAction(this.owner, this.owner, new PoisonPower(this.owner, this.owner, 1), 1, true));
-                        effect.amount++;
-                    }
-                    // Other DOT effects should be added here. Burn is a special case, it is smart enough to check for Wither on its own.
-                }
-            }
+        if (this.amount == 0) {
+            this.addToBot(new RemoveSpecificPowerAction(this.owner, this.owner, this.ID));
+        } else {
+            this.addToBot(new ReducePowerAction(this.owner, this.owner, this.ID, 1));
         }
     }
 
-
-//    @Override
-//    public int onHeal(int healAmount) {
-//        healAmount -= this.amount;
-//        if (healAmount < 0) {
-//            healAmount = 0;
-//        }
-//        return healAmount;
-//    }
 
 }

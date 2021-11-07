@@ -271,7 +271,7 @@
   "theShadeThatFades:ShadeArcaneTempest": {
     "NAME": "Arcane Tempest",
     "DESCRIPTION": "Deal !D! damage to a random enemy X times.",
-    "UPGRADE_DESCRIPTION": "Deal !D! damage to a random enemy X + 1 times."
+    "UPGRADE_DESCRIPTION": "Deal !D! damage to a random enemy X times."
   },
   "theShadeThatFades:ShadePureStrike": {
     "NAME": "Pure Strike",

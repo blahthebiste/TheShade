@@ -128,7 +128,7 @@ public class ShadeBlackLightning extends AbstractDynamicCard {
             target_all = false;
         }
         for(int i = 0; i < num_curses; ++i) {
-            this.addToBot(new LightningAction(this.damage, DamageInfo.DamageType.NORMAL, p, null, !target_all, target_all, BLACK_LIGHTNING_COLOR));
+            this.addToBot(new LightningAction(this, DamageInfo.DamageType.NORMAL, p, null, !target_all, target_all, BLACK_LIGHTNING_COLOR));
         }
     }
 

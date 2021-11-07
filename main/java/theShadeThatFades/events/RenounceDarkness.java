@@ -25,13 +25,16 @@ public class RenounceDarkness extends AbstractImageEvent {
     private static final String[] DESCRIPTIONS = eventStrings.DESCRIPTIONS;
     private static final String[] OPTIONS = eventStrings.OPTIONS;
     public static final String IMG = makeEventPath("RenounceDarkness.png");
+    private final AbstractCard upgradedPurge;
 
     private int screenNum = 0; // The initial screen we will see when encountering the event - screen 0;
 
     public RenounceDarkness() {
         super(NAME, DESCRIPTIONS[0], IMG);
         // The first dialogue options available to us.
-        imageEventText.setDialogOption(OPTIONS[0], new ShadePurge()); // Renounce Darkness - Replace Shadows with Purges
+        upgradedPurge = new ShadePurge();
+        upgradedPurge.upgrade();
+        imageEventText.setDialogOption(OPTIONS[0], upgradedPurge); // Renounce Darkness - Replace Shadows with Purges
         imageEventText.setDialogOption(OPTIONS[1]); // Ignore her - Leave
     }
 
@@ -87,8 +90,7 @@ public class RenounceDarkness extends AbstractImageEvent {
             AbstractCard card = masterDeck.get(i);
             if (card.cardID.equals(ShadeShadows.ID)) {
                 AbstractDungeon.player.masterDeck.removeCard(card);
-                AbstractCard purge = new ShadePurge();
-                AbstractDungeon.effectList.add(new ShowCardAndObtainEffect(purge, (float)(Settings.WIDTH / 2), (float)(Settings.HEIGHT / 2)));
+                AbstractDungeon.effectList.add(new ShowCardAndObtainEffect(upgradedPurge.makeStatEquivalentCopy(), (float)(Settings.WIDTH / 2), (float)(Settings.HEIGHT / 2)));
             }
         }
     }

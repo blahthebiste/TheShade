@@ -8,6 +8,7 @@ import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import com.megacrit.cardcrawl.powers.PoisonPower;
 import theShadeThatFades.TheShadeMod;
 import theShadeThatFades.cards.AbstractDynamicCard;
 import theShadeThatFades.characters.TheShade;
@@ -42,7 +43,7 @@ public class ShadeWitchFire extends AbstractDynamicCard {
     private static final int COST = 0;
 
     private static final int BURN_AMOUNT = 3;
-    private static final int WITHER_AMOUNT = 2;
+    private static final int POISON_AMOUNT = 3;
 
     // /STAT DECLARATION/
 
@@ -56,26 +57,21 @@ public class ShadeWitchFire extends AbstractDynamicCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         AbstractCreature target = SelfOrEnemyTargeting.getTarget(this);
-        if (target == null)
-            target = AbstractDungeon.player;
-
         if (upgraded) {
             if (!AbstractDungeon.getMonsters().areMonstersBasicallyDead()) {
                 Iterator var3 = AbstractDungeon.getMonsters().monsters.iterator();
 
-                while(var3.hasNext()) {
-                    AbstractMonster monster = (AbstractMonster)var3.next();
+                while (var3.hasNext()) {
+                    AbstractMonster monster = (AbstractMonster) var3.next();
                     if (!monster.isDead && !monster.isDying) {
                         this.addToBot(new ApplyPowerAction(monster, p, new ShadeBurnPower(monster, p, this.BURN_AMOUNT), this.BURN_AMOUNT));
-                        this.addToBot(new ApplyPowerAction(monster, p, new ShadeWitherPower(monster, WITHER_AMOUNT), WITHER_AMOUNT));
+                        this.addToBot(new ApplyPowerAction(monster, p, new PoisonPower(monster, p, POISON_AMOUNT), POISON_AMOUNT));
                     }
                 }
             }
-        }
-        else
-        {
-                this.addToBot(new ApplyPowerAction(target, p, new ShadeBurnPower(target, p, this.BURN_AMOUNT), this.BURN_AMOUNT));
-                this.addToBot(new ApplyPowerAction(target, p, new ShadeWitherPower(target, WITHER_AMOUNT), WITHER_AMOUNT));
+        } else if (target != null) {
+            this.addToBot(new ApplyPowerAction(target, p, new ShadeBurnPower(target, p, this.BURN_AMOUNT), this.BURN_AMOUNT));
+            this.addToBot(new ApplyPowerAction(target, p, new PoisonPower(target, p, POISON_AMOUNT), POISON_AMOUNT));
         }
     }
 

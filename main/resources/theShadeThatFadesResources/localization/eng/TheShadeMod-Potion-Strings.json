@@ -1,6 +1,14 @@
 {
-"theShadeThatFades:BrewOfShadows": {
-        "NAME": "Brew of Shadows",
-        "DESCRIPTIONS": ["Gain ", " #yCorruption."]
-}
+        "theShadeThatFades:BrewOfShadows": {
+                "NAME": "Brew of Shadows",
+                "DESCRIPTIONS": ["Gain ", " #yCorruption."]
+        },
+        "theShadeThatFades:WitherPotion": {
+                "NAME": "Wither Potion",
+                "DESCRIPTIONS": ["Apply ", " #yWither."]
+        },
+        "theShadeThatFades:PurgingDraught": {
+                "NAME": "Purging Draught",
+                "DESCRIPTIONS": ["Set your #yCorruption to 0.", "Remove all of your debuffs and #yCorruption."]
+        }
 }

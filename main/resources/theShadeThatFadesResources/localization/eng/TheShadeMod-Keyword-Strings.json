@@ -39,16 +39,6 @@
     "DESCRIPTION": "A 1 cost skill that makes you Intangible, but shuffles a curse into your draw pile."
   },
   {
-    "PROPER_NAME": "Fatigue",
-    "NAMES": [
-      "fatigue",
-      "theShadeThatFades:fatigue",
-      "theShadeThatFades:fatigues",
-      "fatigues"
-    ],
-    "DESCRIPTION": "A 1 cost Curse that retains, and saps your energy at the start of each turn."
-  },
-  {
     "PROPER_NAME": "Corruption",
     "NAMES": [
       "corruption"
@@ -61,7 +51,7 @@
       "deteriorate",
       "deteriorating"
     ],
-    "DESCRIPTION": "A debuff that deals damage equal to the player's Corruption at the end of each turn. Deteriorating entities do not get the damage bonus from their own Corruption."
+    "DESCRIPTION": "A debuff that causes the target to lose HP equal to their total debuff stacks, and then loses 1 Strength, each turn."
   },
   {
     "PROPER_NAME": "Shackled",
@@ -71,6 +61,15 @@
       "shackle"
     ],
     "DESCRIPTION": "Temporary strength down."
+  },
+  {
+    "PROPER_NAME": "Tethered",
+    "NAMES": [
+      "tethered",
+      "tethers",
+      "tether"
+    ],
+    "DESCRIPTION": "Whenever this entity receives damage or healing, so does the tether target."
   },
   {
     "PROPER_NAME": "Constrict",

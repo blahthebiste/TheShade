@@ -30,6 +30,8 @@ import theShadeThatFades.cards.rare.*;
 import theShadeThatFades.characters.TheShade;
 import theShadeThatFades.events.*;
 import theShadeThatFades.potions.BrewOfShadows;
+import theShadeThatFades.potions.PurgingDraught;
+import theShadeThatFades.potions.WitherPotion;
 import theShadeThatFades.relics.*;
 import theShadeThatFades.util.IDCheckDontTouchPls;
 import theShadeThatFades.util.TextureLoader;
@@ -107,20 +109,17 @@ public class TheShadeMod implements
     public static final Color SHADE_PURPLE = CardHelper.getColor(124.0f, 0.0f, 60.0f);
     
     // Potion Colors in RGB
-//    public static final Color PLACEHOLDER_POTION_LIQUID = CardHelper.getColor(209.0f, 53.0f, 18.0f); // Orange-ish Red
-//    public static final Color PLACEHOLDER_POTION_HYBRID = CardHelper.getColor(255.0f, 230.0f, 230.0f); // Near White
-//    public static final Color PLACEHOLDER_POTION_SPOTS = CardHelper.getColor(100.0f, 25.0f, 10.0f); // Super Dark Red/Brown
-    public static final Color PLACEHOLDER_POTION_LIQUID = CardHelper.getColor(42.0f, 0.0f, 78.0f); // Near-black purple
-    public static final Color PLACEHOLDER_POTION_SPOTS = CardHelper.getColor(22.0f, 0.0f, 78.0f); // Near black indigo
-    public static final Color PLACEHOLDER_POTION_HYBRID = CardHelper.getColor(124.0f, 31.0f, 100.0f); // Dark Magenta
+    public static final Color WITHER_POTION_LIQUID = CardHelper.getColor(0.0f, 0.0f, 0.0f); // Black
+    public static final Color WITHER_POTION_HYBRID = CardHelper.getColor(25.0f, 23.0f, 23.0f); // Near black
 
-    // ONCE YOU CHANGE YOUR MOD ID (BELOW, YOU CAN'T MISS IT) CHANGE THESE PATHS!!!!!!!!!!!
-    // ONCE YOU CHANGE YOUR MOD ID (BELOW, YOU CAN'T MISS IT) CHANGE THESE PATHS!!!!!!!!!!!
-    // ONCE YOU CHANGE YOUR MOD ID (BELOW, YOU CAN'T MISS IT) CHANGE THESE PATHS!!!!!!!!!!!
-    // ONCE YOU CHANGE YOUR MOD ID (BELOW, YOU CAN'T MISS IT) CHANGE THESE PATHS!!!!!!!!!!!
-    // ONCE YOU CHANGE YOUR MOD ID (BELOW, YOU CAN'T MISS IT) CHANGE THESE PATHS!!!!!!!!!!!
-    // ONCE YOU CHANGE YOUR MOD ID (BELOW, YOU CAN'T MISS IT) CHANGE THESE PATHS!!!!!!!!!!!
-  
+    public static final Color SHADOW_BREW_LIQUID = CardHelper.getColor(42.0f, 0.0f, 78.0f); // Near-black purple
+    public static final Color SHADOW_BREW_SPOTS = CardHelper.getColor(22.0f, 0.0f, 78.0f); // Near black indigo
+    public static final Color SHADOW_BREW_HYBRID = CardHelper.getColor(124.0f, 31.0f, 100.0f); // Dark Magenta
+
+    public static final Color PURGING_DRAUGHT_LIQUID = CardHelper.getColor(130.0f, 210.0f, 255.0f); // Light blue
+    public static final Color PURGING_DRAUGHT_HYBRID = CardHelper.getColor(55.0f, 145.0f, 255.0f); // water blue
+    public static final Color PURGING_DRAUGHT_SPOTS = CardHelper.getColor(255.0f, 255.0f, 255.0f); // white bubbles
+
     // Card backgrounds - The actual rectangular card.
     private static final String ATTACK_SHADE_PURPLE = "theShadeThatFadesResources/images/512/bg_attack_default_gray.png";
     private static final String SKILL_SHADE_PURPLE = "theShadeThatFadesResources/images/512/bg_skill_default_gray.png";
@@ -352,7 +351,6 @@ public class TheShadeMod implements
         // If you want to have a character-specific event, look at slimebound (CityRemoveEventPatch).
         // Essentially, you need to patch the game and say "if a player is not playing my character class, remove the event from the pool"
 //        BaseMod.addEvent(IdentityCrisisEvent.ID, IdentityCrisisEvent.class, TheCity.ID);
-//        BaseMod.addEvent(RenounceDarkness.ID, RenounceDarkness.class);
         BaseMod.addEvent(new AddEventParams.Builder(RenounceDarkness.ID, RenounceDarkness.class).spawnCondition(() -> (AbstractDungeon.player instanceof TheShade)).eventType(EventUtils.EventType.NORMAL).create());
 
         // =============== /EVENTS/ =================
@@ -370,8 +368,11 @@ public class TheShadeMod implements
         // Class Specific Potion. If you want your potion to not be class-specific,
         // just remove the player class at the end (in this case the "TheDefaultEnum.THE_DEFAULT".
         // Remember, you can press ctrl+P inside parentheses like addPotions)
-        BaseMod.addPotion(BrewOfShadows.class, PLACEHOLDER_POTION_LIQUID, PLACEHOLDER_POTION_HYBRID, PLACEHOLDER_POTION_SPOTS, BrewOfShadows.POTION_ID, TheShade.Enums.THE_SHADE_THAT_FADES);
-        
+        BaseMod.addPotion(BrewOfShadows.class, SHADOW_BREW_LIQUID, SHADOW_BREW_HYBRID, SHADOW_BREW_SPOTS, BrewOfShadows.POTION_ID, TheShade.Enums.THE_SHADE_THAT_FADES);
+        BaseMod.addPotion(PurgingDraught.class, PURGING_DRAUGHT_LIQUID, PURGING_DRAUGHT_HYBRID, PURGING_DRAUGHT_SPOTS, PurgingDraught.POTION_ID, TheShade.Enums.THE_SHADE_THAT_FADES);
+        // Only 1 character-generic potion, wither:
+        BaseMod.addPotion(WitherPotion.class, WITHER_POTION_LIQUID, WITHER_POTION_HYBRID, null, WitherPotion.POTION_ID);
+
         logger.info("Done editing potions");
     }
     
@@ -396,6 +397,7 @@ public class TheShadeMod implements
         BaseMod.addRelicToCustomPool(new CursedTome(), TheShade.Enums.COLOR_SHADE_PURPLE);
         BaseMod.addRelicToCustomPool(new TitanTome(), TheShade.Enums.COLOR_SHADE_PURPLE);
         BaseMod.addRelicToCustomPool(new DiabolicalSorcery(), TheShade.Enums.COLOR_SHADE_PURPLE);
+        BaseMod.addRelicToCustomPool(new TetheredCrystal(), TheShade.Enums.COLOR_SHADE_PURPLE);
 
         // This adds a relic to the Shared pool. Every character can find this relic.
 //        BaseMod.addRelic(new FifthShadow(), RelicType.SHARED);
@@ -409,6 +411,7 @@ public class TheShadeMod implements
         UnlockTracker.markRelicAsSeen(CursedTome.ID);
         UnlockTracker.markRelicAsSeen(TitanTome.ID);
         UnlockTracker.markRelicAsSeen(DiabolicalSorcery.ID);
+        UnlockTracker.markRelicAsSeen(TetheredCrystal.ID);
         logger.info("Done adding relics!");
     }
     
@@ -430,21 +433,7 @@ public class TheShadeMod implements
         
         logger.info("Adding cards");
         // Add the cards
-        // Don't comment out/delete these cards (yet). You need 1 of each type and rarity (technically) for your game not to crash
-        // when generating card rewards/shop screen items.
         //Common
-//        BaseMod.addCard(new OrbSkill());
-//        BaseMod.addCard(new DefaultSecondMagicNumberSkill());
-//        BaseMod.addCard(new DefaultCommonAttack());
-//        BaseMod.addCard(new DefaultAttackWithVariable());
-//        BaseMod.addCard(new DefaultCommonSkill());
-//        BaseMod.addCard(new DefaultCommonPower());
-//        BaseMod.addCard(new DefaultUncommonSkill());
-//        BaseMod.addCard(new DefaultUncommonAttack());
-//        BaseMod.addCard(new DefaultUncommonPower());
-//        BaseMod.addCard(new DefaultRareAttack());
-//        BaseMod.addCard(new DefaultRareSkill());
-//        BaseMod.addCard(new DefaultRarePower());
         BaseMod.addCard(new ShadeStrike());
         BaseMod.addCard(new ShadeShadows());
         BaseMod.addCard(new ShadePurge());
@@ -462,15 +451,16 @@ public class TheShadeMod implements
         BaseMod.addCard(new ShadeShadowStrike());
         BaseMod.addCard(new ShadeArcaneFire());
         BaseMod.addCard(new ShadeMarkOfTheWitness());
-        BaseMod.addCard(new ShadeDescend());
+//        BaseMod.addCard(new ShadeDescend()); // DEPRECATED
         BaseMod.addCard(new ShadeFade());
         BaseMod.addCard(new ShadeShroud());
         BaseMod.addCard(new ShadeExert());
         BaseMod.addCard(new ShadeForbiddenThoughts());
         BaseMod.addCard(new ShadeDusk());
         BaseMod.addCard(new ShadeArcaneBarrier());
-        BaseMod.addCard(new ShadeEncroachingShadows());
-        BaseMod.addCard(new ShadeVesselOfSuffering());
+        BaseMod.addCard(new ShadeRebuff());
+        BaseMod.addCard(new ShadeDeception());
+
         // Uncommon
         BaseMod.addCard(new ShadeTorment());
         BaseMod.addCard(new ShadeSchadenfreude());
@@ -480,14 +470,14 @@ public class TheShadeMod implements
         BaseMod.addCard(new ShadeBlackLightning());
         BaseMod.addCard(new ShadeScourge());
         BaseMod.addCard(new ShadeFalteringBlade());
-        BaseMod.addCard(new ShadeRebuff());
         BaseMod.addCard(new ShadeWitchFire());
         BaseMod.addCard(new ShadeWrithingFlame());
         BaseMod.addCard(new ShadeTarnish());
         BaseMod.addCard(new ShadeAnoint());
         BaseMod.addCard(new ShadeHaunt());
-        BaseMod.addCard(new ShadeDeception());
         BaseMod.addCard(new ShadeBlackHeart());
+        BaseMod.addCard(new ShadeEncroachingShadows());
+        BaseMod.addCard(new ShadeVesselOfSuffering());
 //        BaseMod.addCard(new ShadeShatter()); //DEPRECATED
         BaseMod.addCard(new ShadeForbiddenKnowledge());
         BaseMod.addCard(new ShadeRemission());
@@ -512,7 +502,7 @@ public class TheShadeMod implements
         BaseMod.addCard(new ShadePureStrike());
         BaseMod.addCard(new ShadeFexnil());
         BaseMod.addCard(new ShadeArcaneInferno());
-        BaseMod.addCard(new ShadeDeathSentence());
+//        BaseMod.addCard(new ShadeDeathSentence());  // DEPRECATED
         BaseMod.addCard(new ShadeSubversion());
         BaseMod.addCard(new ShadeEthericShift());
         BaseMod.addCard(new ShadeShadowBarrier());
@@ -524,6 +514,7 @@ public class TheShadeMod implements
         BaseMod.addCard(new ShadeConflagration());
 //        BaseMod.addCard(new ShadeInfusion()); //DEPRECATED
         BaseMod.addCard(new ShadeGrudge());
+        BaseMod.addCard(new ShadeRitualOfBinding());
         if (hasInfiniteSpire) {
             BaseMod.addCard(new ShadeDistortionInfinite());
             BaseMod.addCard(new ShadeUnveilInfinite());
@@ -537,21 +528,7 @@ public class TheShadeMod implements
 
         logger.info("Making sure the cards are unlocked.");
         // Unlock the cards
-        // This is so that they are all "seen" in the library, for people who like to look at the card list
-        // before playing your mod.
         // Common
-//        UnlockTracker.unlockCard(OrbSkill.ID);
-//        UnlockTracker.unlockCard(DefaultSecondMagicNumberSkill.ID);
-//        UnlockTracker.unlockCard(DefaultCommonAttack.ID);
-//        UnlockTracker.unlockCard(DefaultAttackWithVariable.ID);
-//        UnlockTracker.unlockCard(DefaultCommonSkill.ID);
-//        UnlockTracker.unlockCard(DefaultCommonPower.ID);
-//        UnlockTracker.unlockCard(DefaultUncommonSkill.ID);
-//        UnlockTracker.unlockCard(DefaultUncommonAttack.ID);
-//        UnlockTracker.unlockCard(DefaultUncommonPower.ID);
-//        UnlockTracker.unlockCard(DefaultRareAttack.ID);
-//        UnlockTracker.unlockCard(DefaultRareSkill.ID);
-//        UnlockTracker.unlockCard(DefaultRarePower.ID);
         UnlockTracker.unlockCard(ShadeStrike.ID);
         UnlockTracker.unlockCard(ShadeShadows.ID);
         UnlockTracker.unlockCard(ShadePurge.ID);
@@ -568,7 +545,7 @@ public class TheShadeMod implements
         UnlockTracker.unlockCard(ShadePursuit.ID);
         UnlockTracker.unlockCard(ShadeArcaneFire.ID);
         UnlockTracker.unlockCard(ShadeMarkOfTheWitness.ID);
-        UnlockTracker.unlockCard(ShadeDescend.ID);
+//        UnlockTracker.unlockCard(ShadeDescend.ID);  // DEPRECATED
         UnlockTracker.unlockCard(ShadeDestructivore.ID);
         UnlockTracker.unlockCard(ShadeFade.ID);
         UnlockTracker.unlockCard(ShadeShroud.ID);
@@ -619,7 +596,7 @@ public class TheShadeMod implements
         UnlockTracker.unlockCard(ShadePureStrike.ID);
         UnlockTracker.unlockCard(ShadeFexnil.ID);
         UnlockTracker.unlockCard(ShadeArcaneInferno.ID);
-        UnlockTracker.unlockCard(ShadeDeathSentence.ID);
+//        UnlockTracker.unlockCard(ShadeDeathSentence.ID);  // DEPRECATED
         UnlockTracker.unlockCard(ShadeSubversion.ID);
         UnlockTracker.unlockCard(ShadeEthericShift.ID);
         UnlockTracker.unlockCard(ShadeShadowBarrier.ID);
@@ -631,6 +608,7 @@ public class TheShadeMod implements
         UnlockTracker.unlockCard(ShadeConflagration.ID);
 //        UnlockTracker.unlockCard(ShadeInfusion.ID); //DEPRECATED
         UnlockTracker.unlockCard(ShadeGrudge.ID);
+        UnlockTracker.unlockCard(ShadeRitualOfBinding.ID);
 
         if (hasInfiniteSpire) {
             UnlockTracker.unlockCard(ShadeDistortionInfinite.ID);

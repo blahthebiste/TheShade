@@ -1,8 +1,11 @@
 package theShadeThatFades.cards.uncommon;
 
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
+import com.megacrit.cardcrawl.actions.GameActionManager;
+import com.megacrit.cardcrawl.actions.animations.VFXAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.actions.common.ReducePowerAction;
+import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
@@ -13,6 +16,7 @@ import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.powers.GainStrengthPower;
 import com.megacrit.cardcrawl.powers.LoseStrengthPower;
 import com.megacrit.cardcrawl.vfx.ThoughtBubble;
+import com.megacrit.cardcrawl.vfx.combat.FireballEffect;
 import theShadeThatFades.TheShadeMod;
 import theShadeThatFades.cards.AbstractDynamicCard;
 import theShadeThatFades.characters.TheShade;
@@ -72,24 +76,27 @@ public class ShadeBlightBolt extends AbstractDynamicCard {
         baseDamage = DAMAGE;
     }
 
-
-    // Actions the card should do.
-    @Override
-    public void use(AbstractPlayer p, AbstractMonster m) {
-        boolean enemy_debuffed = false;
+    private boolean isEnemyDebuffed(AbstractMonster m) {
         if (m != null) {
             // Find debuffs on the target, and track the lowest count one
             Iterator var1 = m.powers.iterator();
             while(var1.hasNext()) {
                 AbstractPower pw = (AbstractPower) var1.next();
                 if (pw.type == AbstractPower.PowerType.DEBUFF) {
-                    enemy_debuffed = true;
-                    break;
+                    return true;
                 }
             }
+            return false;
         }
-        if (enemy_debuffed) {
-            AbstractDungeon.actionManager.addToBottom(new DamageAction(m, new DamageInfo(p, damage, damageTypeForTurn), AbstractGameAction.AttackEffect.SLASH_HORIZONTAL));
+        return false;
+    }
+
+    // Actions the card should do.
+    @Override
+    public void use(AbstractPlayer p, AbstractMonster m) {
+        if (isEnemyDebuffed(m)) {
+            AbstractDungeon.actionManager.addToBottom(new VFXAction(new FireballEffect(p.hb.cX, p.hb.cY, m.hb.cX, m.hb.cY), 0.5F));// 173
+            AbstractDungeon.actionManager.addToBottom(new DamageAction(m, new DamageInfo(p, damage, damageTypeForTurn), AbstractGameAction.AttackEffect.FIRE));
             // Reduce their debuffs
             Iterator var2 = m.powers.iterator();
             while(var2.hasNext()) {
@@ -106,6 +113,30 @@ public class ShadeBlightBolt extends AbstractDynamicCard {
         }
     }
 
+    public void triggerOnGlowCheck() {
+        this.glowColor = AbstractCard.BLUE_BORDER_GLOW_COLOR.cpy();
+        Iterator var1 = AbstractDungeon.getMonsters().monsters.iterator();
+
+        while(var1.hasNext()) {
+            AbstractMonster m = (AbstractMonster) var1.next();
+            if (!m.isDead && !m.isDying && isEnemyDebuffed(m)) {
+                this.glowColor = AbstractCard.GOLD_BORDER_GLOW_COLOR.cpy();
+            }
+        }
+    }
+
+    @Override
+    public boolean canUse(AbstractPlayer p, AbstractMonster m) {
+        Iterator var1 = AbstractDungeon.getMonsters().monsters.iterator();
+
+        while(var1.hasNext()) {
+            m = (AbstractMonster) var1.next();
+            if (!m.isDead && !m.isDying && isEnemyDebuffed(m)) {
+                return super.canUse(p, m);
+            }
+        }
+        return false;
+    }
 
     // Upgraded stats.
     @Override

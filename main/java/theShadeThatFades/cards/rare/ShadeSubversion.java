@@ -42,7 +42,6 @@ public class ShadeSubversion extends AbstractDynamicCard {
 
     public ShadeSubversion() { // - This one and the one right under the imports are the most important ones, don't forget them
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
-        this.exhaust = true;
         baseMagicNumber = magicNumber = DURATION;
         this.tags.add(CardTags.HEALING);
     }
@@ -52,10 +51,9 @@ public class ShadeSubversion extends AbstractDynamicCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         AbstractCreature target = SelfOrEnemyTargeting.getTarget(this);
-        if (target == null)
-            target = AbstractDungeon.player;
-
-        this.addToBot(new ApplyPowerAction(target, p, new ShadeSubversionPower(target, magicNumber), magicNumber));
+        if (target != null) {
+            this.addToBot(new ApplyPowerAction(target, p, new ShadeSubversionPower(target, magicNumber), magicNumber));
+        }
     }
 
     // Upgraded stats.

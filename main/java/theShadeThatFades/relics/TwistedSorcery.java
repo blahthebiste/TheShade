@@ -23,21 +23,11 @@ public class TwistedSorcery extends CustomRelic {
         super(ID, IMG, OUTLINE, RelicTier.STARTER, LandingSound.FLAT);
     }
 
-
-    // Gain 1 Strength on on equip.
-//    @Override
-//    public void atBattleStart() {
-//        flash();
-//        AbstractDungeon.actionManager.addToTop(new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player, new StrengthPower(AbstractDungeon.player, 1), 1));
-//        AbstractDungeon.actionManager.addToTop(new RelicAboveCreatureAction(AbstractDungeon.player, this));
-//    }
-
     // Gain 1 ShadeCorruption at the start of every turn.
     @Override
     public void atTurnStart() {
         flash();
         AbstractDungeon.actionManager.addToTop(new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player, new ShadeCorruptionPower(AbstractDungeon.player, 1), 1));
-//        AbstractDungeon.actionManager.addToTop(new RelicAboveCreatureAction(AbstractDungeon.player, this));
     }
 
     // Description

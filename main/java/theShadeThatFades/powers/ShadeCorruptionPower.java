@@ -4,6 +4,7 @@ import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
+import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
@@ -11,6 +12,7 @@ import com.megacrit.cardcrawl.localization.EventStrings;
 import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.vfx.combat.PowerBuffEffect;
+import theShadeThatFades.patches.PureStrikePatch;
 import theShadeThatFades.util.TextureLoader;
 
 import static theShadeThatFades.TheShadeMod.makePowerPath;
@@ -89,6 +91,9 @@ public class ShadeCorruptionPower extends AbstractPower {
             }
 
             if (this.amount <= 0) {
+                AbstractPlayer p = AbstractDungeon.player;
+                // Track that corruption was lost this turn.
+                PureStrikePatch.addLostCorruptionField.LostCorruption.set(p, true);
                 this.addToTop(new RemoveSpecificPowerAction(this.owner, this.owner, "theShadeThatFades:Corruption"));
             }
         }

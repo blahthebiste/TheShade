@@ -52,7 +52,7 @@
     "NAME": "Abyssal Tome",
     "FLAVOR": "The fatigue is from carrying around such a heavy tome.",
     "DESCRIPTIONS": [
-      "Draw 1 additional card each turn. At the start of combat, add a #ytheshadethatfades:Fatigue to your hand."
+      "Draw 1 additional card each turn. At the start of combat, add a Fatigue to your hand."
     ]
   },
   "theShadeThatFades:TitanTome": {
@@ -62,12 +62,11 @@
       "Draw 1 additional card each turn. At the start of each of their turns after turn 7, all enemies heal for 50 HP."
     ]
   },
-  "theShadeThatFades:DefaultClickableRelic": {
-    "NAME": "Right-Clicky Relic",
-    "FLAVOR": "The more you right-click it, the more orbs you've evoked in your lifetime.",
+  "theShadeThatFades:TetheredCrystal": {
+    "NAME": "Tethered Crystal",
+    "FLAVOR": "After all, why should you be the one to suffer?",
     "DESCRIPTIONS": [
-      "[#2aecd7]Usable [#2aecd7]once [#2aecd7]per [#2aecd7]turn.[] NL #yEvoke your rightmost Orb.",
-      "YOU ARE MINE!"
+      "Stores damage you take during your turn. At the end of combat, heals you that amount."
     ]
   },
   "theShadeThatFades:BottledPlaceholderRelic": {

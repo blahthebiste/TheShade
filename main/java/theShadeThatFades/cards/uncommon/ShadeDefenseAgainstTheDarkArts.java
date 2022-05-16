@@ -8,6 +8,7 @@ import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import theShadeThatFades.TheShadeMod;
 import theShadeThatFades.cards.AbstractDynamicCard;
+import theShadeThatFades.cards.ShadeRebuff;
 import theShadeThatFades.characters.TheShade;
 import theShadeThatFades.powers.ShadeDefenseAgainstTheDarkArtsPower;
 import theShadeThatFades.powers.ShadeDefenseAgainstTheDarkArtsUpgradedPower;
@@ -63,6 +64,7 @@ public class ShadeDefenseAgainstTheDarkArts extends AbstractDynamicCard {
     public void upgrade() {
         if (!upgraded) {
             upgradeName();
+            this.cardsToPreview.upgrade();
             rawDescription = UPGRADE_DESCRIPTION;
             initializeDescription();
         }

@@ -14,12 +14,12 @@
   },
   "theShadeThatFades:ShadeShadows": {
     "NAME": "Shadows",
-    "DESCRIPTION": "Gain 1 Intangible. Shuffle a theshadethatfades:Fatigue into your draw pile. NL Exhaust.",
-    "UPGRADE_DESCRIPTION": "Gain 1 Intangible. Shuffle a theshadethatfades:Fatigue into your discard pile. NL Exhaust."
+    "DESCRIPTION": "Gain 1 Intangible. Shuffle a Fatigue into your draw pile. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "Gain 1 Intangible. Add a Fatigue into your discard pile. NL Exhaust."
   },
   "theShadeThatFades:ShadeFatigue": {
     "NAME": "Fatigue",
-    "DESCRIPTION": "Retain. NL At the start of your turn, if you have any theshadethatfades:Fatigues in hand, lose 1 energy (Doesn't stack)."
+    "DESCRIPTION": "Retain. NL -1 [E] per turn while held (Doesn't stack)."
   },
   "theShadeThatFades:ShadeSpite": {
     "NAME": "Spite",
@@ -81,16 +81,17 @@
   },
   "theShadeThatFades:ShadeExert": {
     "NAME": "Exert",
-    "DESCRIPTION": "Gain !B! Block. NL Shuffle a random Curse into your draw pile."
+    "DESCRIPTION": "Gain !B! Block. NL Shuffle an Injury into your draw pile."
   },
   "theShadeThatFades:ShadeForbiddenThoughts": {
     "NAME": "Forbidden Thoughts",
-    "DESCRIPTION": "Draw !M! cards. NL Place Shame on top of your draw pile."
+    "DESCRIPTION": "Draw !M! cards. NL Shuffle Shame into your draw pile."
   },
   "theShadeThatFades:ShadeDusk": {
     "NAME": "Dusk",
-    "DESCRIPTION": "Shuffle 3 theshadethatfades:Shadows into your draw pile. NL Exhaust.",
-    "UPGRADE_DESCRIPTION": "Shuffle 3 upgraded theshadethatfades:Shadows into your draw pile. NL Exhaust."
+    "DESCRIPTION": "For every 8 cards in your draw pile, shuffle a theshadethatfades:Shadows in. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "For every 8 cards in your draw pile, shuffle an upgraded theshadethatfades:Shadows in. NL Exhaust.",
+    "EXTENDED_DESCRIPTION": ["NL (Shuffles !M! Shadows into your draw pile.)"]
   },
   "theShadeThatFades:ShadeArcaneBarrier": {
     "NAME": "Arcane Barrier",
@@ -143,8 +144,8 @@
   },
   "theShadeThatFades:ShadeBlackLightning": {
     "NAME": "Black Lightning",
-    "DESCRIPTION": "Deal !D! Damage to a random enemy for each Curse in your draw pile.",
-    "UPGRADE_DESCRIPTION": " NL (You have !M! Curses in your draw pile.)"
+    "DESCRIPTION": "Deal !D! Damage to a random enemy for each Curse you have.",
+    "UPGRADE_DESCRIPTION": " NL (You have !M! Curses.)"
   },
   "theShadeThatFades:ShadeScourge": {
     "NAME": "Scourge",
@@ -161,8 +162,8 @@
   },
   "theShadeThatFades:ShadeWitchFire": {
     "NAME": "Witch Fire",
-    "DESCRIPTION": "Apply 3 theshadethatfades:Burning and 2 theshadethatfades:Wither to ANY target.",
-    "UPGRADE_DESCRIPTION": "Apply 3 theshadethatfades:Burning and 2 theshadethatfades:Wither to ALL enemies."
+    "DESCRIPTION": "Apply 3 theshadethatfades:Burning and 3 Poison to ANY target.",
+    "UPGRADE_DESCRIPTION": "Apply 3 theshadethatfades:Burning and 3 Poison to ALL enemies."
   },
   "theShadeThatFades:ShadeWrithingFlame": {
     "NAME": "Writhing Flame",
@@ -183,7 +184,7 @@
   },
   "theShadeThatFades:ShadeHaunt": {
     "NAME": "Haunt",
-    "DESCRIPTION": "Choose an enemy. At the start of its turns, it is theshadethatfades:Shackled for !M!. Exhaust."
+    "DESCRIPTION": "Choose an enemy. At the start of its turns, it is theshadethatfades:Shackled for !M!. NL Exhaust."
   },
   "theShadeThatFades:ShadeDeception": {
     "NAME": "Deception",
@@ -200,8 +201,8 @@
   },
   "theShadeThatFades:ShadeForbiddenKnowledge": {
     "NAME": "Forbidden Knowledge",
-    "DESCRIPTION": "Draw a card for each Curse in your draw pile.",
-    "UPGRADE_DESCRIPTION": " NL (You have !M! Curses in your draw pile.)"
+    "DESCRIPTION": "Draw a card for each Curse you have.",
+    "UPGRADE_DESCRIPTION": " NL (You have !M! Curses.)"
   },
   "theShadeThatFades:ShadeRemission": {
     "NAME": "Remission",
@@ -213,7 +214,8 @@
   },
   "theShadeThatFades:ShadeSpreadingCorruption": {
     "NAME": "Spreading Corruption",
-    "DESCRIPTION": "At the start and end of your turn, apply theshadethatfades:Deteriorate to all enemies that are not Deteriorating."
+    "DESCRIPTION": "At the start of your turn, apply theshadethatfades:Deteriorate to all enemies.",
+    "UPGRADE_DESCRIPTION": "At the start and end of your turn, apply theshadethatfades:Deteriorate to all enemies."
   },
   "theShadeThatFades:ShadeDistortion": {
     "NAME": "Distortion",
@@ -248,8 +250,8 @@
   },
   "theShadeThatFades:ShadeExecute": {
     "NAME": "Execute",
-    "DESCRIPTION": "Your next attack is played !M! additional times if that would kill the target.",
-    "UPGRADE_DESCRIPTION": "Your next attack is played !M! additional times if that would kill the target."
+    "DESCRIPTION": "Your next attack is played !M! additional times if that would kill the target. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "Your next attack is played !M! additional times if that would kill the target. NL Exhaust."
   },
   "theShadeThatFades:ShadeUltimateStrike": {
     "NAME": "Ultimate Strike",
@@ -265,7 +267,7 @@
   },
   "theShadeThatFades:ShadeMutualAnnihilation": {
     "NAME": "Mutual Annihilation",
-    "DESCRIPTION": "Retain. NL If you have taken unblocked damage 13 times this combat, deal !D! damage to ALL enemies.",
+    "DESCRIPTION": "Retain. NL If you have taken unblocked damage 7 times this combat, deal !D! damage to ALL enemies.",
     "UPGRADE_DESCRIPTION": " NL ( !M! Left!)"
   },
   "theShadeThatFades:ShadeArcaneTempest": {
@@ -275,8 +277,8 @@
   },
   "theShadeThatFades:ShadePureStrike": {
     "NAME": "Pure Strike",
-    "DESCRIPTION": "Can only be played if you have 0 theshadethatfades:Corruption. NL Deal !D! damage to ALL enemies.",
-    "UPGRADE_DESCRIPTION": "I cannot play that card while I have Corruption!"
+    "DESCRIPTION": "Can only be played if you have lost all your theshadethatfades:Corruption this turn. NL Deal !D! damage to ALL enemies.",
+    "UPGRADE_DESCRIPTION": "I cannot play that card before removing my Corruption!"
   },
   "theShadeThatFades:ShadeFexnil": {
     "NAME": "Fexnil",
@@ -292,8 +294,8 @@
   },
   "theShadeThatFades:ShadeSubversion": {
     "NAME": "Subversion",
-    "DESCRIPTION": "Choose ANY target. During your turn, all damage they take is converted into healing. During enemy turn, all healing they receive is converted into damage. Lasts for 1 round. NL Exhaust.",
-    "UPGRADE_DESCRIPTION": "Choose ANY target. During your turn, all damage they take is converted into healing. During enemy turn, all healing they receive is converted into damage. Lasts for 2 rounds. NL Exhaust."
+    "DESCRIPTION": "Choose ANY target. During your turn, all damage they take is converted into healing. During enemy turn, all healing they receive is converted into damage. Lasts for 1 round.",
+    "UPGRADE_DESCRIPTION": "Choose ANY target. During your turn, all damage they take is converted into healing. During enemy turn, all healing they receive is converted into damage. Lasts for 2 rounds."
   },
   "theShadeThatFades:ShadeEthericShift": {
     "NAME": "Etheric Shift",
@@ -406,5 +408,9 @@
   "theShadeThatFades:ShadeDestructivore": {
     "NAME": "Siphon Strength",
     "DESCRIPTION": "Steal an enemy's Strength (minimum 2) until the end of their turn."
+  },
+  "theShadeThatFades:ShadeRitualOfBinding": {
+    "NAME": "Ritual of Binding",
+    "DESCRIPTION": "Choose ANY target. ALL other creatures are theshadethatfades:Tethered to them, and they are theshadethatfades:Shackled for !M!. NL Exhaust."
   }
 }

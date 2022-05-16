@@ -52,11 +52,10 @@ public class ShadeShroud extends AbstractDynamicCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         AbstractCreature target = SelfOrEnemyTargeting.getTarget(this);
-        if (target == null)
-            target = AbstractDungeon.player;
-
-        this.addToBot(new GainBlockAction(p, p, this.block));
-        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(target, p, new ShadeWitherPower(target, magicNumber), magicNumber));
+        if (target != null) {
+            this.addToBot(new GainBlockAction(p, p, this.block));
+            AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(target, p, new ShadeWitherPower(target, magicNumber), magicNumber));
+        }
     }
 
 

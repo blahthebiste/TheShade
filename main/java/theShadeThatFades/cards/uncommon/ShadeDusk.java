@@ -1,9 +1,11 @@
 package theShadeThatFades.cards.uncommon;
 
+import com.evacipated.cardcrawl.mod.stslib.fields.cards.AbstractCard.GraveField;
 import com.megacrit.cardcrawl.actions.common.MakeTempCardInDrawPileAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
+import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import theShadeThatFades.TheShadeMod;
@@ -59,7 +61,9 @@ public class ShadeDusk extends AbstractDynamicCard {
     public ShadeDusk() { // - This one and the one right under the imports are the most important ones, don't forget them
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
         this.exhaust = true;
+        //GraveField.grave.set(this, true);
         this.cardsToPreview = new ShadeShadows();
+        magicNumber = baseMagicNumber = 0;
     }
 
 
@@ -70,15 +74,27 @@ public class ShadeDusk extends AbstractDynamicCard {
         if(upgraded) {
             c.upgrade();
         }
-        this.addToBot(new MakeTempCardInDrawPileAction(c, 3, true, true));
+        this.addToBot(new MakeTempCardInDrawPileAction(c, magicNumber, true, true));
     }
 
+    public void applyPowers() {
+        magicNumber = baseMagicNumber = AbstractDungeon.player.drawPile.size()/8;
+        super.applyPowers();
+        if (upgraded) {
+            this.rawDescription = cardStrings.UPGRADE_DESCRIPTION + cardStrings.EXTENDED_DESCRIPTION[0];
+        }
+        else {
+            this.rawDescription = cardStrings.DESCRIPTION + cardStrings.EXTENDED_DESCRIPTION[0];
+        }
+        this.initializeDescription();
+    }
 
     // Upgraded stats.
     @Override
     public void upgrade() {
         if (!upgraded) {
             upgradeName();
+            this.cardsToPreview.upgrade();
             rawDescription = UPGRADE_DESCRIPTION;
             initializeDescription();
         }

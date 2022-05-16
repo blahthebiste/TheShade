@@ -5,6 +5,7 @@ import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.badlogic.gdx.math.MathUtils;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.actions.common.HealAction;
+import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
@@ -48,6 +49,15 @@ public class ShadeHpTetherPower extends AbstractPower {
 
     public void playApplyPowerSfx() {
         CardCrawlGame.sound.play("POWER_STRENGTH", 0.05F);
+    }
+
+    @Override
+    public void update(int slot) {
+        super.update(slot);
+        // Remove this specific instance if the victim is dead
+        if (victim.isDead || victim.isDying || victim.currentHealth <= 0) {
+            this.addToBot(new RemoveSpecificPowerAction(this.owner, this.owner, this.ID));
+        }
     }
 
     @Override

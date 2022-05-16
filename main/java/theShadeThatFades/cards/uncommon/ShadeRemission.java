@@ -15,24 +15,6 @@ import static theShadeThatFades.TheShadeMod.makeCardPath;
 
 public class ShadeRemission extends AbstractDynamicCard {
 
-    /*
-     * "Hey, I wanna make a bunch of cards now." - You, probably.
-     * ok cool my dude no problem here's the most convenient way to do it:
-     *
-     * Copy all of the code here (Ctrl+A > Ctrl+C)
-     * Ctrl+Shift+A and search up "file and code template"
-     * Press the + button at the top and name your template whatever it is for - "AttackCard" or "PowerCard" or something up to you.
-     * Read up on the instructions at the bottom. Basically replace anywhere you'd put your cards name with ShadeRemission
-     * And then you can do custom ones like  and  if you want.
-     * I'll leave some comments on things you might consider replacing with what.
-     *
-     * Of course, delete all the comments and add anything you want (For example, if you're making a skill card template you'll
-     * likely want to replace that new DamageAction with a gain Block one, and add baseBlock instead, or maybe you want a
-     * universal template where you delete everything unnecessary - up to you)
-     *
-     * You can create templates for anything you ever want to. Cards, relics, powers, orbs, etc. etc. etc.
-     */
-
     // TEXT DECLARATION
 
     public static final String ID = TheShadeMod.makeID(ShadeRemission.class.getSimpleName()); // USE THIS ONE FOR THE TEMPLATE;
@@ -51,7 +33,7 @@ public class ShadeRemission extends AbstractDynamicCard {
     public static final CardColor COLOR = TheShade.Enums.COLOR_SHADE_PURPLE;
 
     private static final int COST = 1;
-    private static final int REGEN = 5;
+    private static final int REGEN = 4;
     private static final int UPGRADED_REGEN = 2;
 
     // /STAT DECLARATION/

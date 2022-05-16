@@ -67,12 +67,11 @@ public class ShadeArcaneFire extends AbstractDynamicCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         AbstractCreature target = SelfOrEnemyTargeting.getTarget(this);
-        if (target == null)
-            target = AbstractDungeon.player;
-
-        this.addToBot(new ApplyPowerAction(target, p, new ShadeBurnPower(target, p, 5), 5));
-        if(upgraded) {
-            this.addToBot(new DrawCardAction(p, 1));
+        if (target != null) {
+            this.addToBot(new ApplyPowerAction(target, p, new ShadeBurnPower(target, p, 5), 5));
+            if (upgraded) {
+                this.addToBot(new DrawCardAction(p, 1));
+            }
         }
     }
 

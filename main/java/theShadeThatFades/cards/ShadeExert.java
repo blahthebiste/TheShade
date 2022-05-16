@@ -3,6 +3,8 @@ package theShadeThatFades.cards;
 import com.megacrit.cardcrawl.actions.common.GainBlockAction;
 import com.megacrit.cardcrawl.actions.common.MakeTempCardInDrawPileAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
+import com.megacrit.cardcrawl.cards.curses.Injury;
+import com.megacrit.cardcrawl.cards.curses.Shame;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
@@ -59,6 +61,7 @@ public class ShadeExert extends AbstractDynamicCard {
     public ShadeExert() { // - This one and the one right under the imports are the most important ones, don't forget them
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
         baseBlock = BLOCK;
+        this.cardsToPreview = new Injury();
     }
 
 
@@ -66,7 +69,7 @@ public class ShadeExert extends AbstractDynamicCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         this.addToBot(new GainBlockAction(p, p, this.block));
-        AbstractCard c = AbstractDungeon.returnRandomCurse().makeCopy(); // Create random curse to shuffle into draw pile.
+        AbstractCard c = (new Injury()).makeCopy(); // Create Injury to shuffle into draw pile.
         this.addToBot(new MakeTempCardInDrawPileAction(c, 1, true, true));
     }
 

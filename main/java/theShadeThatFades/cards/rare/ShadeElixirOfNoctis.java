@@ -56,10 +56,9 @@ public class ShadeElixirOfNoctis extends AbstractDynamicCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         AbstractCreature target = SelfOrEnemyTargeting.getTarget(this);
-        if (target == null)
-            target = AbstractDungeon.player;
-
-        this.addToBot(new ApplyPowerAction(target, p, new ShadeElixirOfNoctisPower(target, magicNumber, defaultSecondMagicNumber, true, (m == target)), 5));
+        if (target != null) {
+            this.addToBot(new ApplyPowerAction(target, p, new ShadeElixirOfNoctisPower(target, magicNumber, defaultSecondMagicNumber, true, (!target.isPlayer)), 5));
+        }
     }
 
     // Upgraded stats.

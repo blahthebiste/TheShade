@@ -61,9 +61,9 @@ public class ShadeBlackLightning extends AbstractDynamicCard {
     public static final CardColor COLOR = TheShade.Enums.COLOR_SHADE_PURPLE;
 
     private static final int COST = 2;
-    private static final int UPGRADE_COST = 1;
 
     private static final int DAMAGE = 8;
+    private static final int UPGRADED_BONUS_DAMAGE = 2;
     private boolean descriptionUpdated = false;
 
     // /STAT DECLARATION/
@@ -82,8 +82,30 @@ public class ShadeBlackLightning extends AbstractDynamicCard {
     public void update() {
         if (CardCrawlGame.isInARun() && AbstractDungeon.getCurrRoom().phase == COMBAT && !AbstractDungeon.actionManager.turnHasEnded) {
             int num_curses = 0;
-            Iterator var3 = AbstractDungeon.player.drawPile.group.iterator();
-
+            Iterator var1 = AbstractDungeon.player.drawPile.group.iterator();
+            // Count curses in draw pile
+            while(var1.hasNext()) {
+                AbstractCard c = (AbstractCard) var1.next();
+                if (c.cardID == ShadeSpite.ID) {
+                    c.update();
+                }
+                if (c.type == CardType.CURSE || c.color == CardColor.CURSE) {
+                    ++num_curses;
+                }
+            }
+            Iterator var2 = AbstractDungeon.player.hand.group.iterator();
+            // Count curses in hand
+            while(var2.hasNext()) {
+                AbstractCard c = (AbstractCard) var2.next();
+                if (c.cardID == ShadeSpite.ID) {
+                    c.update();
+                }
+                if (c.type == CardType.CURSE || c.color == CardColor.CURSE) {
+                    ++num_curses;
+                }
+            }
+            Iterator var3 = AbstractDungeon.player.discardPile.group.iterator();
+            // Count curses in discard pile
             while(var3.hasNext()) {
                 AbstractCard c = (AbstractCard) var3.next();
                 if (c.cardID == ShadeSpite.ID) {
@@ -109,8 +131,30 @@ public class ShadeBlackLightning extends AbstractDynamicCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         int num_curses = 0;
-        Iterator var3 = AbstractDungeon.player.drawPile.group.iterator();
-
+        Iterator var1 = AbstractDungeon.player.drawPile.group.iterator();
+        // Count curses in draw pile
+        while(var1.hasNext()) {
+            AbstractCard c = (AbstractCard) var1.next();
+            if (c.cardID == ShadeSpite.ID) {
+                c.update();
+            }
+            if (c.type == CardType.CURSE || c.color == CardColor.CURSE) {
+                ++num_curses;
+            }
+        }
+        Iterator var2 = AbstractDungeon.player.hand.group.iterator();
+        // Count curses in hand
+        while(var2.hasNext()) {
+            AbstractCard c = (AbstractCard) var2.next();
+            if (c.cardID == ShadeSpite.ID) {
+                c.update();
+            }
+            if (c.type == CardType.CURSE || c.color == CardColor.CURSE) {
+                ++num_curses;
+            }
+        }
+        Iterator var3 = AbstractDungeon.player.discardPile.group.iterator();
+        // Count curses in discard pile
         while(var3.hasNext()) {
             AbstractCard c = (AbstractCard) var3.next();
             if (c.cardID == ShadeSpite.ID) {
@@ -120,7 +164,6 @@ public class ShadeBlackLightning extends AbstractDynamicCard {
                 ++num_curses;
             }
         }
-
         if(p.hasPower(ElectroPower.POWER_ID)) {
             target_all = true;
         }
@@ -138,7 +181,7 @@ public class ShadeBlackLightning extends AbstractDynamicCard {
     public void upgrade() {
         if (!upgraded) {
             upgradeName();
-            upgradeBaseCost(UPGRADE_COST);
+            upgradeDamage(UPGRADED_BONUS_DAMAGE);
             initializeDescription();
         }
     }

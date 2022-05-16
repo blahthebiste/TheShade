@@ -12,7 +12,7 @@ import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.powers.AbstractPower;
-import theShadeThatFades.cards.uncommon.ShadeRebuff;
+import theShadeThatFades.cards.ShadeRebuff;
 import theShadeThatFades.util.TextureLoader;
 
 import static theShadeThatFades.TheShadeMod.makePowerPath;

@@ -1,5 +1,6 @@
 package theShadeThatFades.powers;
 
+import com.evacipated.cardcrawl.mod.stslib.cards.targeting.SelfOrEnemyTargeting;
 import theShadeThatFades.actions.ShadeShadowBlendReplayCardsAction;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.Texture;
@@ -20,6 +21,7 @@ import theShadeThatFades.util.TextureLoader;
 
 import java.util.*;
 
+import static com.evacipated.cardcrawl.mod.stslib.cards.targeting.SelfOrEnemyTargeting.*;
 import static theShadeThatFades.TheShadeMod.makePowerPath;
 
 public class ShadeShadowBlendPower extends AbstractPower {
@@ -118,7 +120,6 @@ public class ShadeShadowBlendPower extends AbstractPower {
             }
 
             AbstractCard tmp = card.makeSameInstanceOf();
-//            AbstractDungeon.player.limbo.addToBottom(tmp);
             tmp.current_x = (float)Settings.WIDTH;
             tmp.current_y = (float)Settings.HEIGHT;
             tmp.target_x = (float)Settings.WIDTH / 2.0F - 300.0F * Settings.scale;
@@ -129,14 +130,13 @@ public class ShadeShadowBlendPower extends AbstractPower {
 
             tmp.purgeOnUse = true;
             dupedCards.put(tmp, m);
-//            System.out.println("Added " + tmp.cardID);
+
         }
     }
 
 
     @Override
     public void onRemove() {
-//        this.addToBot(new ApplyPowerAction(this.owner, this.owner, new IntangiblePlayerPower(this.owner, 1), 1));
         AbstractDungeon.actionManager.addToBottom(new ShadeShadowBlendReplayCardsAction(dupedCards));
         super.onRemove();
     }

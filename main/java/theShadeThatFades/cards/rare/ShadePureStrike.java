@@ -12,6 +12,7 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import theShadeThatFades.TheShadeMod;
 import theShadeThatFades.cards.AbstractDynamicCard;
 import theShadeThatFades.characters.TheShade;
+import theShadeThatFades.patches.PureStrikePatch;
 import theShadeThatFades.powers.ShadeCorruptionPower;
 
 import static theShadeThatFades.TheShadeMod.makeCardPath;
@@ -31,20 +32,20 @@ public class ShadePureStrike extends AbstractDynamicCard {
 
     // STAT DECLARATION
 
-    private static final CardRarity RARITY = CardRarity.RARE; //  Up to you, I like auto-complete on these
-    private static final CardTarget TARGET = CardTarget.ALL_ENEMY;  //   since they don't change much.
-    private static final CardType TYPE = CardType.ATTACK;       //
+    private static final CardRarity RARITY = CardRarity.RARE;
+    private static final CardTarget TARGET = CardTarget.ALL_ENEMY;
+    private static final CardType TYPE = CardType.ATTACK;
     public static final CardColor COLOR = TheShade.Enums.COLOR_SHADE_PURPLE;
 
     private static final int COST = 1;
 
-    private static final int DAMAGE = 40;
-    private static final int UPGRADE_PLUS_DMG = 10;
+    private static final int DAMAGE = 36;
+    private static final int UPGRADE_PLUS_DMG = 6;
 
     // /STAT DECLARATION/
 
 
-    public ShadePureStrike() { // - This one and the one right under the imports are the most important ones, don't forget them
+    public ShadePureStrike() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
         baseDamage = DAMAGE;
         this.tags.add(CardTags.STRIKE);
@@ -61,7 +62,8 @@ public class ShadePureStrike extends AbstractDynamicCard {
 
     @Override
     public void triggerOnGlowCheck() {
-        if (AbstractDungeon.player.hasPower(ShadeCorruptionPower.POWER_ID) && AbstractDungeon.player.getPower(ShadeCorruptionPower.POWER_ID).amount > 0) {
+        AbstractPlayer p = AbstractDungeon.player;
+        if (AbstractDungeon.player.hasPower(ShadeCorruptionPower.POWER_ID) && AbstractDungeon.player.getPower(ShadeCorruptionPower.POWER_ID).amount > 0 && PureStrikePatch.addLostCorruptionField.LostCorruption.get(p)) {
             this.glowColor = AbstractCard.BLUE_BORDER_GLOW_COLOR.cpy();
         }
         else {
@@ -75,7 +77,7 @@ public class ShadePureStrike extends AbstractDynamicCard {
         boolean canUse = super.canUse(p, m);
         if (!canUse) {
             return false;
-        } else if (p.hasPower(ShadeCorruptionPower.POWER_ID) && p.getPower(ShadeCorruptionPower.POWER_ID).amount > 0) {
+        } else if (p.hasPower(ShadeCorruptionPower.POWER_ID) && p.getPower(ShadeCorruptionPower.POWER_ID).amount > 0 && PureStrikePatch.addLostCorruptionField.LostCorruption.get(p)) {
             this.cantUseMessage = cardStrings.UPGRADE_DESCRIPTION;
             return false;
         } else {

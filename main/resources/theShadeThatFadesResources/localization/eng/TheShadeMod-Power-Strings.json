@@ -5,7 +5,7 @@
 },
 "theShadeThatFades:Deteriorate": {
         "NAME": "Deteriorate",
-        "DESCRIPTIONS": ["At the end of each of its turns, the target loses HP equal to your #yCorruption. The target's damage is no longer boosted by their own Corruption."]
+        "DESCRIPTIONS": ["At the end of each of its turns, the target loses HP equal to their total debuff stacks, and then loses 1 Strength."]
 },
         "theShadeThatFades:EncroachingShadows": {
         "NAME": "Encroaching Shadows",
@@ -55,7 +55,11 @@
         },
         "theShadeThatFades:SpreadingCorruptionPower": {
                 "NAME": "Spreading Corruption",
-                "DESCRIPTIONS": ["At the start and end of your turn, apply #yDeteriorate to all enemies that are not Deteriorating."]
+                "DESCRIPTIONS": ["At the start of your turn, apply #yDeteriorate to all enemies."]
+        },
+        "theShadeThatFades:SpreadingCorruptionUpgradedPower": {
+                "NAME": "Spreading Corruption",
+                "DESCRIPTIONS": ["At the start and end of your turn, apply #yDeteriorate to all enemies."]
         },
         "theShadeThatFades:ShadeProlongedSufferingPower": {
                 "NAME": "Prolonged Suffering",
@@ -87,7 +91,7 @@
         },
         "theShadeThatFades:MidnightHorizon": {
                 "NAME": "Midnight Horizon",
-                "DESCRIPTIONS": ["Your next attack is replayed against each enemy."]
+                "DESCRIPTIONS": ["Your next "," attack is replayed against each enemy."," attacks are replayed against each enemy."]
         },
         "theShadeThatFades:ExecutePower": {
                 "NAME": "Execute",

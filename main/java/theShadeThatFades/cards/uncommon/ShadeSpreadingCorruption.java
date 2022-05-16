@@ -10,6 +10,7 @@ import theShadeThatFades.TheShadeMod;
 import theShadeThatFades.cards.AbstractDynamicCard;
 import theShadeThatFades.characters.TheShade;
 import theShadeThatFades.powers.ShadeSpreadingCorruptionPower;
+import theShadeThatFades.powers.ShadeSpreadingCorruptionUpgradedPower;
 
 import static theShadeThatFades.TheShadeMod.makeCardPath;
 
@@ -38,8 +39,8 @@ public class ShadeSpreadingCorruption extends AbstractDynamicCard {
     private static final CardType TYPE = CardType.POWER;
     public static final CardColor COLOR = TheShade.Enums.COLOR_SHADE_PURPLE;
 
-    private static final int COST = 2;
-    private static final int UPGRADED_COST = 1;
+    private static final int COST = 1;
+//    private static final int UPGRADED_COST = 1;
     // /STAT DECLARATION/
 
     public ShadeSpreadingCorruption() {
@@ -49,7 +50,12 @@ public class ShadeSpreadingCorruption extends AbstractDynamicCard {
     // Actions the card should do.
     @Override
     public void use(final AbstractPlayer p, final AbstractMonster m) {
-        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new ShadeSpreadingCorruptionPower(p)));
+        if (upgraded) {
+            AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new ShadeSpreadingCorruptionUpgradedPower(p)));
+        }
+        else {
+            AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new ShadeSpreadingCorruptionPower(p)));
+        }
     }
 
     //Upgraded stats.
@@ -57,7 +63,8 @@ public class ShadeSpreadingCorruption extends AbstractDynamicCard {
     public void upgrade() {
         if (!upgraded) {
             upgradeName();
-            upgradeBaseCost(UPGRADED_COST);
+//            upgradeBaseCost(UPGRADED_COST);
+            rawDescription = UPGRADE_DESCRIPTION;
             initializeDescription();
         }
     }
